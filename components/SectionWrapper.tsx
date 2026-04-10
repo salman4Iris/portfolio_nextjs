@@ -4,7 +4,7 @@
  * ES6+ TypeScript React component
  */
 
-import { ReactNode } from 'react';
+import React, { ReactNode } from 'react';
 import { cn } from '@/lib/utils';
 
 interface SectionWrapperProps {
@@ -19,22 +19,10 @@ interface SectionWrapperProps {
  * @param props - Component props
  * @returns Wrapped section JSX element
  */
-export const SectionWrapper = ({
-  children,
-  className,
-  id,
-}: SectionWrapperProps): JSX.Element => {
+export const SectionWrapper = ({ children, className, id }: SectionWrapperProps): JSX.Element => {
   return (
-    <section
-      id={id}
-      className={cn(
-        'w-full px-4 py-16 sm:px-6 lg:px-8',
-        className
-      )}
-    >
-      <div className="mx-auto max-w-6xl">
-        {children}
-      </div>
+    <section id={id} className={cn('w-full px-4 py-16 sm:px-6 lg:px-8', className)}>
+      <div className="mx-auto max-w-6xl">{children}</div>
     </section>
   );
 };

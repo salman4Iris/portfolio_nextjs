@@ -55,12 +55,8 @@ export const getTestimonialById = (id: string): Testimonial | undefined => {
  * @param minRating - Minimum rating threshold (1-5)
  * @returns Array of testimonials above threshold
  */
-export const getHighRatedTestimonials = (
-  minRating: number = 4
-): readonly Testimonial[] => {
-  return TESTIMONIALS.filter(
-    (t: Testimonial): boolean => t.rating >= minRating
-  );
+export const getHighRatedTestimonials = (minRating: number = 4): readonly Testimonial[] => {
+  return TESTIMONIALS.filter((t: Testimonial): boolean => t.rating >= minRating);
 };
 
 /**
@@ -78,9 +74,7 @@ export const getAllTestimonials = (): readonly Testimonial[] => {
  * @param company - Company name to filter
  * @returns Array of testimonials from that company
  */
-export const getTestimonialsByCompany = (
-  company: string
-): readonly Testimonial[] => {
+export const getTestimonialsByCompany = (company: string): readonly Testimonial[] => {
   return TESTIMONIALS.filter((t: Testimonial): boolean =>
     t.company.toLowerCase().includes(company.toLowerCase())
   );

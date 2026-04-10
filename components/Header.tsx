@@ -54,20 +54,22 @@ export const Header = (): JSX.Element => {
 
         {/* DESKTOP NAVIGATION */}
         <div className="hidden items-center space-x-1 md:flex">
-          {NAVIGATION_ITEMS.map((item: NavigationItem): JSX.Element => (
-            <Link
-              key={item.id}
-              href={item.href}
-              className={cn(
-                'px-3 py-2 text-sm font-medium transition-colors',
-                'text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white'
-              )}
-              target={item.isExternal ? '_blank' : undefined}
-              rel={item.isExternal ? 'noopener noreferrer' : undefined}
-            >
-              {item.label}
-            </Link>
-          ))}
+          {NAVIGATION_ITEMS.map(
+            (item: NavigationItem): JSX.Element => (
+              <Link
+                key={item.id}
+                href={item.href}
+                className={cn(
+                  'px-3 py-2 text-sm font-medium transition-colors',
+                  'text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white'
+                )}
+                target={item.isExternal ? '_blank' : undefined}
+                rel={item.isExternal ? 'noopener noreferrer' : undefined}
+              >
+                {item.label}
+              </Link>
+            )
+          )}
         </div>
 
         {/* THEME TOGGLE & MOBILE MENU */}
@@ -79,19 +81,11 @@ export const Header = (): JSX.Element => {
             aria-label="Toggle theme"
           >
             {theme === 'dark' ? (
-              <svg
-                className="h-5 w-5"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
+              <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zM4.22 4.22a1 1 0 011.415 0l.707.707a1 1 0 01-1.415 1.415l-.707-.707a1 1 0 010-1.415zm11.313 1.414a1 1 0 00-1.414-1.414l-.707.707a1 1 0 001.414 1.415l.707-.707zM10 7a3 3 0 100 6 3 3 0 000-6zm-7 3a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zm16 0a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM4.22 15.78a1 1 0 001.415 0l.707-.707a1 1 0 00-1.415-1.415l-.707.707a1 1 0 000 1.415zm11.313-1.414a1 1 0 001.414 1.414l.707-.707a1 1 0 00-1.414-1.415l-.707.707zM10 18a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1z" />
               </svg>
             ) : (
-              <svg
-                className="h-5 w-5"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
+              <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
               </svg>
             )}
@@ -103,12 +97,7 @@ export const Header = (): JSX.Element => {
             className="rounded-lg bg-gray-100 p-2 text-gray-600 transition-colors hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700 md:hidden"
             aria-label="Toggle menu"
           >
-            <svg
-              className="h-5 w-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
+            <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -124,20 +113,22 @@ export const Header = (): JSX.Element => {
       {isMenuOpen && (
         <div className="border-t border-gray-200 dark:border-gray-800 md:hidden">
           <div className="space-y-1 px-4 py-2">
-            {NAVIGATION_ITEMS.map((item: NavigationItem): JSX.Element => (
-              <Link
-                key={item.id}
-                href={item.href}
-                className={cn(
-                  'block rounded-lg px-3 py-2 text-base font-medium transition-colors',
-                  'text-gray-600 hover:bg-gray-100 hover:text-gray-900',
-                  'dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-white'
-                )}
-                onClick={(): void => setIsMenuOpen(false)}
-              >
-                {item.label}
-              </Link>
-            ))}
+            {NAVIGATION_ITEMS.map(
+              (item: NavigationItem): JSX.Element => (
+                <Link
+                  key={item.id}
+                  href={item.href}
+                  className={cn(
+                    'block rounded-lg px-3 py-2 text-base font-medium transition-colors',
+                    'text-gray-600 hover:bg-gray-100 hover:text-gray-900',
+                    'dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-white'
+                  )}
+                  onClick={(): void => setIsMenuOpen(false)}
+                >
+                  {item.label}
+                </Link>
+              )
+            )}
           </div>
         </div>
       )}

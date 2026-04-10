@@ -4,6 +4,7 @@
  * ES6+ TypeScript React component
  */
 
+import React from 'react';
 import { formatDate, calculateDuration } from '@/lib/utils';
 import type { Experience } from '@/types';
 
@@ -17,24 +18,14 @@ interface ExperienceItemProps {
  * @param props - Component props containing experience data
  * @returns Experience item JSX element
  */
-export const ExperienceItem = ({
-  experience,
-}: ExperienceItemProps): JSX.Element => {
-  const duration: string = calculateDuration(
-    experience.startDate,
-    experience.endDate
-  );
+export const ExperienceItem = ({ experience }: ExperienceItemProps): JSX.Element => {
+  const duration: string = calculateDuration(experience.startDate, experience.endDate);
 
   return (
     <div className="relative pb-12">
       {/* TIMELINE DOT */}
       <div className="absolute left-0 top-0 flex h-12 w-12 items-center justify-center rounded-full border-4 border-white bg-gradient-to-br from-blue-500 to-purple-600 dark:border-gray-900">
-        <svg
-          className="h-6 w-6 text-white"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
+        <svg className="h-6 w-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -68,26 +59,21 @@ export const ExperienceItem = ({
         </div>
 
         {/* DESCRIPTION */}
-        <p className="text-gray-600 dark:text-gray-400">
-          {experience.description}
-        </p>
+        <p className="text-gray-600 dark:text-gray-400">{experience.description}</p>
 
         {/* KEY RESULTS */}
         {experience.keyResults.length > 0 && (
           <div>
-            <h4 className="mb-2 font-semibold text-gray-900 dark:text-white">
-              Key Results
-            </h4>
+            <h4 className="mb-2 font-semibold text-gray-900 dark:text-white">Key Results</h4>
             <ul className="space-y-1">
-              {experience.keyResults.map((result: string, index: number): JSX.Element => (
-                <li
-                  key={index}
-                  className="flex gap-2 text-sm text-gray-600 dark:text-gray-400"
-                >
-                  <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-blue-500 flex-shrink-0" />
-                  {result}
-                </li>
-              ))}
+              {experience.keyResults.map(
+                (result: string, index: number): JSX.Element => (
+                  <li key={index} className="flex gap-2 text-sm text-gray-600 dark:text-gray-400">
+                    <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-blue-500 flex-shrink-0" />
+                    {result}
+                  </li>
+                )
+              )}
             </ul>
           </div>
         )}
@@ -95,9 +81,7 @@ export const ExperienceItem = ({
         {/* TECHNOLOGIES */}
         {experience.technologies.length > 0 && (
           <div>
-            <h4 className="mb-2 font-semibold text-gray-900 dark:text-white">
-              Technologies
-            </h4>
+            <h4 className="mb-2 font-semibold text-gray-900 dark:text-white">Technologies</h4>
             <div className="flex flex-wrap gap-2">
               {experience.technologies.map(
                 (tech: string): JSX.Element => (
@@ -116,21 +100,16 @@ export const ExperienceItem = ({
         {/* ACHIEVEMENTS */}
         {experience.achievements.length > 0 && (
           <div>
-            <h4 className="mb-2 font-semibold text-gray-900 dark:text-white">
-              Achievements
-            </h4>
+            <h4 className="mb-2 font-semibold text-gray-900 dark:text-white">Achievements</h4>
             <ul className="space-y-1">
-              {experience.achievements
-                .slice(0, 3)
-                .map((achievement: string, index: number): JSX.Element => (
-                  <li
-                    key={index}
-                    className="flex gap-2 text-sm text-gray-600 dark:text-gray-400"
-                  >
+              {experience.achievements.slice(0, 3).map(
+                (achievement: string, index: number): JSX.Element => (
+                  <li key={index} className="flex gap-2 text-sm text-gray-600 dark:text-gray-400">
                     <span className="mt-1 inline-block h-1.5 w-1.5 rounded-full bg-green-500 flex-shrink-0" />
                     {achievement}
                   </li>
-                ))}
+                )
+              )}
               {experience.achievements.length > 3 && (
                 <li className="text-sm font-medium text-blue-600 dark:text-blue-400">
                   +{experience.achievements.length - 3} more achievements

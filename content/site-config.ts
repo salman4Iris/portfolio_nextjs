@@ -105,6 +105,5 @@ export const FOOTER_TEXT: Readonly<{
   madeWith: string;
 }> = {
   copyright: `© ${new Date().getFullYear()} Salman Khan. All rights reserved.`,
-  madeWith:
-    'Crafted with Next.js, React, TypeScript, and Tailwind CSS',
+  madeWith: 'Crafted with Next.js, React, TypeScript, and Tailwind CSS',
 };

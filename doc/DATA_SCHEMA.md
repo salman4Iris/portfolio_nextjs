@@ -10,26 +10,27 @@ All data in the portfolio follows strict TypeScript interfaces defined in `types
 
 ```typescript
 export interface Project {
-  readonly id: string;                    // UNIQUE identifier (use slug format)
-  readonly title: string;                 // Project title
-  readonly description: string;           // Detailed description (multiple sentences)
-  readonly shortDescription: string;      // One-line summary for cards
+  readonly id: string; // UNIQUE identifier (use slug format)
+  readonly title: string; // Project title
+  readonly description: string; // Detailed description (multiple sentences)
+  readonly shortDescription: string; // One-line summary for cards
   readonly technologies: readonly string[]; // Tech stack array
-  readonly duration: string;              // "Month Year - Month Year"
-  readonly role: string;                  // Your role in project
+  readonly duration: string; // "Month Year - Month Year"
+  readonly role: string; // Your role in project
   readonly highlights: readonly string[]; // 3-5 key points
-  readonly company: string;               // Company name
-  readonly image?: string;                // Optional image URL
+  readonly company: string; // Company name
+  readonly image?: string; // Optional image URL
   readonly links: {
     readonly github?: string;
     readonly live?: string;
     readonly documentation?: string;
   };
-  readonly featured: boolean;             // Show on home page
+  readonly featured: boolean; // Show on home page
 }
 ```
 
 ### EXAMPLE PROJECT
+
 ```typescript
 {
   id: 'rems',
@@ -52,21 +53,22 @@ export interface Project {
 
 ```typescript
 export interface Experience {
-  readonly id: string;                          // UNIQUE identifier
-  readonly company: string;                     // Company name
-  readonly position: string;                    // Job title
-  readonly duration: string;                    // Display string "Month Year - Month Year"
-  readonly startDate: string;                   // ISO date "YYYY-MM-DD"
-  readonly endDate: string;                     // ISO date "YYYY-MM-DD"
-  readonly description: string;                 // Role summary
-  readonly keyResults: readonly string[];       // Top achievements
-  readonly technologies: readonly string[];     // Tech stack used
-  readonly achievements: readonly string[];     // Detailed achievements (3+ items)
-  readonly isCurrent: boolean;                  // Currently employed here
+  readonly id: string; // UNIQUE identifier
+  readonly company: string; // Company name
+  readonly position: string; // Job title
+  readonly duration: string; // Display string "Month Year - Month Year"
+  readonly startDate: string; // ISO date "YYYY-MM-DD"
+  readonly endDate: string; // ISO date "YYYY-MM-DD"
+  readonly description: string; // Role summary
+  readonly keyResults: readonly string[]; // Top achievements
+  readonly technologies: readonly string[]; // Tech stack used
+  readonly achievements: readonly string[]; // Detailed achievements (3+ items)
+  readonly isCurrent: boolean; // Currently employed here
 }
 ```
 
 ### EXAMPLE EXPERIENCE
+
 ```typescript
 {
   id: 'iris-current',
@@ -89,38 +91,41 @@ export interface Experience {
 
 ```typescript
 export interface Skill {
-  readonly id: string;                    // UNIQUE identifier
-  readonly name: string;                  // Skill name
-  readonly category: SkillCategory;       // FRONTEND, BACKEND, DATABASES, DEVOPS, TOOLS, SOFT_SKILLS
+  readonly id: string; // UNIQUE identifier
+  readonly name: string; // Skill name
+  readonly category: SkillCategory; // FRONTEND, BACKEND, DATABASES, DEVOPS, TOOLS, SOFT_SKILLS
   readonly proficiency: ProficiencyLevel; // BEGINNER, INTERMEDIATE, ADVANCED, EXPERT
-  readonly yearsOfExperience: number;     // Number of years
+  readonly yearsOfExperience: number; // Number of years
   readonly relatedProjects?: readonly string[]; // Project IDs using this skill
 }
 ```
 
 ### SKILL CATEGORIES
+
 ```typescript
 enum SkillCategory {
-  FRONTEND = 'FRONTEND',           // React, Angular, TypeScript, CSS, etc.
-  BACKEND = 'BACKEND',             // Node.js, Java, Express, APIs
-  DEVOPS = 'DEVOPS',               // Docker, CI/CD, Git, AWS
-  SOFT_SKILLS = 'SOFT_SKILLS',     // Leadership, Communication, etc.
-  TOOLS = 'TOOLS',                 // Jest, GitHub Copilot, etc.
-  DATABASES = 'DATABASES',         // MongoDB, SQL, Oracle
+  FRONTEND = 'FRONTEND', // React, Angular, TypeScript, CSS, etc.
+  BACKEND = 'BACKEND', // Node.js, Java, Express, APIs
+  DEVOPS = 'DEVOPS', // Docker, CI/CD, Git, AWS
+  SOFT_SKILLS = 'SOFT_SKILLS', // Leadership, Communication, etc.
+  TOOLS = 'TOOLS', // Jest, GitHub Copilot, etc.
+  DATABASES = 'DATABASES', // MongoDB, SQL, Oracle
 }
 ```
 
 ### PROFICIENCY LEVELS
+
 ```typescript
 enum ProficiencyLevel {
-  BEGINNER = 'BEGINNER',           // 1-2 years
-  INTERMEDIATE = 'INTERMEDIATE',   // 2-4 years
-  ADVANCED = 'ADVANCED',           // 4-7 years
-  EXPERT = 'EXPERT',               // 7+ years
+  BEGINNER = 'BEGINNER', // 1-2 years
+  INTERMEDIATE = 'INTERMEDIATE', // 2-4 years
+  ADVANCED = 'ADVANCED', // 4-7 years
+  EXPERT = 'EXPERT', // 7+ years
 }
 ```
 
 ### EXAMPLE SKILL
+
 ```typescript
 {
   id: 'react',
@@ -138,18 +143,19 @@ enum ProficiencyLevel {
 
 ```typescript
 export interface Certification {
-  readonly id: string;              // UNIQUE identifier
-  readonly title: string;           // Course/degree title
-  readonly issuer: string;          // Issuing organization
-  readonly issueDate: string;       // ISO date "YYYY-MM-DD"
-  readonly expiryDate?: string;     // ISO date (optional)
-  readonly credentialId?: string;   // Credential or certificate number
-  readonly credentialUrl?: string;  // Link to verify credential
-  readonly image?: string;          // Logo/certificate image
+  readonly id: string; // UNIQUE identifier
+  readonly title: string; // Course/degree title
+  readonly issuer: string; // Issuing organization
+  readonly issueDate: string; // ISO date "YYYY-MM-DD"
+  readonly expiryDate?: string; // ISO date (optional)
+  readonly credentialId?: string; // Credential or certificate number
+  readonly credentialUrl?: string; // Link to verify credential
+  readonly image?: string; // Logo/certificate image
 }
 ```
 
 ### EXAMPLE CERTIFICATION
+
 ```typescript
 {
   id: 'udemy-react',
@@ -167,17 +173,18 @@ export interface Certification {
 
 ```typescript
 export interface Testimonial {
-  readonly id: string;      // UNIQUE identifier
-  readonly author: string;  // Person's name
+  readonly id: string; // UNIQUE identifier
+  readonly author: string; // Person's name
   readonly position: string; // Job title
   readonly company: string; // Company name
   readonly content: string; // Testimonial text (2-3 sentences)
-  readonly image?: string;  // Profile image URL
-  readonly rating: number;  // 1-5 stars
+  readonly image?: string; // Profile image URL
+  readonly rating: number; // 1-5 stars
 }
 ```
 
 ### EXAMPLE TESTIMONIAL
+
 ```typescript
 {
   id: 'testimonial-1',
@@ -195,22 +202,23 @@ export interface Testimonial {
 
 ```typescript
 export interface BlogPost {
-  readonly id: string;              // UNIQUE identifier
-  readonly title: string;           // Post title
-  readonly slug: string;            // URL-friendly slug
-  readonly excerpt: string;         // Short preview (1-2 sentences)
-  readonly content: string;         // Full markdown content
-  readonly coverImage?: string;     // Featured image URL
-  readonly publishedDate: string;   // ISO date "YYYY-MM-DD"
-  readonly updatedDate?: string;    // ISO date (optional)
+  readonly id: string; // UNIQUE identifier
+  readonly title: string; // Post title
+  readonly slug: string; // URL-friendly slug
+  readonly excerpt: string; // Short preview (1-2 sentences)
+  readonly content: string; // Full markdown content
+  readonly coverImage?: string; // Featured image URL
+  readonly publishedDate: string; // ISO date "YYYY-MM-DD"
+  readonly updatedDate?: string; // ISO date (optional)
   readonly tags: readonly string[]; // Category tags
-  readonly author: string;          // Author name
-  readonly readingTime: number;     // Estimated minutes to read
-  readonly featured: boolean;       // Show on blog homepage
+  readonly author: string; // Author name
+  readonly readingTime: number; // Estimated minutes to read
+  readonly featured: boolean; // Show on blog homepage
 }
 ```
 
 ### EXAMPLE BLOG POST
+
 ```typescript
 {
   id: 'blog-react-perf',
@@ -232,14 +240,15 @@ export interface BlogPost {
 
 ```typescript
 export interface NavigationItem {
-  readonly id: string;           // UNIQUE identifier
-  readonly label: string;        // Display text
-  readonly href: string;         // URL path
+  readonly id: string; // UNIQUE identifier
+  readonly label: string; // Display text
+  readonly href: string; // URL path
   readonly isExternal?: boolean; // Open in new tab
 }
 ```
 
 ### EXAMPLE NAVIGATION
+
 ```typescript
 {
   id: 'home',
@@ -261,13 +270,13 @@ export interface NavigationItem {
 
 ```typescript
 export interface SiteMetadata {
-  readonly title: string;           // Site title
-  readonly description: string;     // Meta description
-  readonly author: string;          // Your name
-  readonly email: string;          // Contact email
-  readonly phone: string;          // Contact phone
-  readonly location: string;       // City, State
-  readonly timezone: string;       // Timezone identifier
+  readonly title: string; // Site title
+  readonly description: string; // Meta description
+  readonly author: string; // Your name
+  readonly email: string; // Contact email
+  readonly phone: string; // Contact phone
+  readonly location: string; // City, State
+  readonly timezone: string; // Timezone identifier
   readonly socialLinks: {
     readonly linkedin?: string;
     readonly github?: string;
@@ -278,6 +287,7 @@ export interface SiteMetadata {
 ```
 
 ### EXAMPLE METADATA
+
 ```typescript
 {
   title: 'Salman Khan - Senior Software Engineer',
@@ -300,11 +310,11 @@ export interface SiteMetadata {
 
 ```typescript
 export interface ContactFormData {
-  readonly name: string;     // Full name
-  readonly email: string;    // Email address
-  readonly subject: string;  // Message subject
-  readonly message: string;  // Message body
-  readonly phone?: string;   // Optional phone number
+  readonly name: string; // Full name
+  readonly email: string; // Email address
+  readonly subject: string; // Message subject
+  readonly message: string; // Message body
+  readonly phone?: string; // Optional phone number
 }
 ```
 
@@ -313,6 +323,7 @@ export interface ContactFormData {
 ## USING INTERFACES IN CODE
 
 ### CORRECT USAGE
+
 ```typescript
 import type { Project, Skill } from '@/types';
 
@@ -324,10 +335,9 @@ const skills: readonly Skill[] = SKILLS;
 ```
 
 ### TYPE-SAFE ITERATION
+
 ```typescript
-const myProject: Project = PROJECTS.find(
-  (p: Project): boolean => p.id === 'rems'
-)!;
+const myProject: Project = PROJECTS.find((p: Project): boolean => p.id === 'rems')!;
 
 SKILLS.forEach((skill: Skill): void => {
   console.log(skill.name);
@@ -335,15 +345,14 @@ SKILLS.forEach((skill: Skill): void => {
 ```
 
 ### FILTERING WITH TYPES
+
 ```typescript
 const expertSkills: readonly Skill[] = SKILLS.filter(
-  (skill: Skill): boolean => 
-    skill.proficiency === ProficiencyLevel.EXPERT
+  (skill: Skill): boolean => skill.proficiency === ProficiencyLevel.EXPERT
 );
 
-const frontendProjects: readonly Project[] = PROJECTS.filter(
-  (project: Project): boolean =>
-    project.technologies.includes('React')
+const frontendProjects: readonly Project[] = PROJECTS.filter((project: Project): boolean =>
+  project.technologies.includes('React')
 );
 ```
 

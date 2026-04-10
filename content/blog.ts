@@ -98,8 +98,7 @@ export const getBlogPostBySlug = (slug: string): BlogPost | undefined => {
 export const getFeaturedBlogPosts = (): readonly BlogPost[] => {
   return BLOG_POSTS.filter((post: BlogPost): boolean => post.featured).sort(
     (a: BlogPost, b: BlogPost): number =>
-      new Date(b.publishedDate).getTime() -
-      new Date(a.publishedDate).getTime()
+      new Date(b.publishedDate).getTime() - new Date(a.publishedDate).getTime()
   );
 };
 
@@ -112,8 +111,7 @@ export const getAllBlogPostsSorted = (): readonly BlogPost[] => {
   const sorted: BlogPost[] = [...BLOG_POSTS];
   return sorted.sort(
     (a: BlogPost, b: BlogPost): number =>
-      new Date(b.publishedDate).getTime() -
-      new Date(a.publishedDate).getTime()
+      new Date(b.publishedDate).getTime() - new Date(a.publishedDate).getTime()
   );
 };
 
@@ -125,9 +123,7 @@ export const getAllBlogPostsSorted = (): readonly BlogPost[] => {
  */
 export const getBlogPostsByTag = (tag: string): readonly BlogPost[] => {
   return BLOG_POSTS.filter((post: BlogPost): boolean =>
-    post.tags.some((t: string): boolean =>
-      t.toLowerCase().includes(tag.toLowerCase())
-    )
+    post.tags.some((t: string): boolean => t.toLowerCase().includes(tag.toLowerCase()))
   );
 };
 

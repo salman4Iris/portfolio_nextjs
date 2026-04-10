@@ -6,7 +6,7 @@
 
 'use client';
 
-import { useState, useMemo } from 'react';
+import React, { useState, useMemo } from 'react';
 import SectionWrapper from '@/components/SectionWrapper';
 import ProjectCard from '@/components/ProjectCard';
 import { PROJECTS } from '@/content/projects';
@@ -43,16 +43,14 @@ export default function ProjectsPage(): JSX.Element {
             Projects
           </h1>
           <p className="max-w-2xl text-lg text-gray-600 dark:text-gray-400">
-            A comprehensive collection of projects I&apos;ve led and contributed to,
-            showcasing expertise across different domains and technologies.
+            A comprehensive collection of projects I&apos;ve led and contributed to, showcasing
+            expertise across different domains and technologies.
           </p>
         </div>
 
         {/* FILTER BUTTONS */}
         <div>
-          <h3 className="mb-4 font-semibold text-gray-900 dark:text-white">
-            Filter by Technology
-          </h3>
+          <h3 className="mb-4 font-semibold text-gray-900 dark:text-white">Filter by Technology</h3>
           <div className="flex flex-wrap gap-2">
             <button
               onClick={() => setSelectedTech(null)}
@@ -64,19 +62,21 @@ export default function ProjectsPage(): JSX.Element {
             >
               All Projects
             </button>
-            {allTechnologies.map((tech: string): JSX.Element => (
-              <button
-                key={tech}
-                onClick={() => setSelectedTech(tech)}
-                className={`rounded-full px-4 py-2 font-medium transition-all ${
-                  selectedTech === tech
-                    ? 'bg-blue-600 text-white'
-                    : 'border border-gray-300 text-gray-700 hover:border-gray-400 dark:border-gray-600 dark:text-gray-300'
-                }`}
-              >
-                {tech}
-              </button>
-            ))}
+            {allTechnologies.map(
+              (tech: string): JSX.Element => (
+                <button
+                  key={tech}
+                  onClick={() => setSelectedTech(tech)}
+                  className={`rounded-full px-4 py-2 font-medium transition-all ${
+                    selectedTech === tech
+                      ? 'bg-blue-600 text-white'
+                      : 'border border-gray-300 text-gray-700 hover:border-gray-400 dark:border-gray-600 dark:text-gray-300'
+                  }`}
+                >
+                  {tech}
+                </button>
+              )
+            )}
           </div>
         </div>
       </SectionWrapper>
@@ -92,9 +92,11 @@ export default function ProjectsPage(): JSX.Element {
 
         {filteredProjects.length > 0 ? (
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {filteredProjects.map((project: Project): JSX.Element => (
-              <ProjectCard key={project.id} project={project} />
-            ))}
+            {filteredProjects.map(
+              (project: Project): JSX.Element => (
+                <ProjectCard key={project.id} project={project} />
+              )
+            )}
           </div>
         ) : (
           <div className="rounded-lg border-2 border-dashed border-gray-300 bg-white p-12 text-center dark:border-gray-700 dark:bg-gray-900">

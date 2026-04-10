@@ -262,9 +262,7 @@ export const SKILLS: readonly Skill[] = [
  * @param category - Skill category to filter
  * @returns Array of skills in that category
  */
-export const getSkillsByCategory = (
-  category: SkillCategory
-): readonly Skill[] => {
+export const getSkillsByCategory = (category: SkillCategory): readonly Skill[] => {
   return SKILLS.filter((skill: Skill): boolean => skill.category === category);
 };
 
@@ -274,9 +272,7 @@ export const getSkillsByCategory = (
  * @returns Array of expert skills
  */
 export const getExpertSkills = (): readonly Skill[] => {
-  return SKILLS.filter(
-    (skill: Skill): boolean => skill.proficiency === ProficiencyLevel.EXPERT
-  );
+  return SKILLS.filter((skill: Skill): boolean => skill.proficiency === ProficiencyLevel.EXPERT);
 };
 
 /**
@@ -285,12 +281,8 @@ export const getExpertSkills = (): readonly Skill[] => {
  * @param proficiency - Proficiency level to filter
  * @returns Array of skills at that proficiency level
  */
-export const getSkillsByProficiency = (
-  proficiency: ProficiencyLevel
-): readonly Skill[] => {
-  return SKILLS.filter(
-    (skill: Skill): boolean => skill.proficiency === proficiency
-  );
+export const getSkillsByProficiency = (proficiency: ProficiencyLevel): readonly Skill[] => {
+  return SKILLS.filter((skill: Skill): boolean => skill.proficiency === proficiency);
 };
 
 /**

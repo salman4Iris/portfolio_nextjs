@@ -4,6 +4,7 @@
  * ES6+ TypeScript
  */
 
+import React from 'react';
 import type { Metadata, Viewport } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import { ThemeProvider } from 'next-themes';
@@ -27,13 +28,7 @@ export const metadata: Metadata = {
   description: SITE_METADATA.description,
   authors: [{ name: SITE_METADATA.author }],
   creator: SITE_METADATA.author,
-  keywords: [
-    'React',
-    'Next.js',
-    'TypeScript',
-    'Full-Stack Developer',
-    'Software Engineer',
-  ],
+  keywords: ['React', 'Next.js', 'TypeScript', 'Full-Stack Developer', 'Software Engineer'],
   openGraph: {
     type: 'website',
     locale: 'en_US',
@@ -59,9 +54,7 @@ interface RootLayoutProps {
   readonly children: React.ReactNode;
 }
 
-export default function RootLayout({
-  children,
-}: RootLayoutProps): JSX.Element {
+export default function RootLayout({ children }: RootLayoutProps): JSX.Element {
   return (
     <html
       lang="en"
@@ -73,12 +66,7 @@ export default function RootLayout({
         <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)" />
       </head>
       <body className="flex min-h-screen flex-col bg-white dark:bg-black">
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          enableColorScheme
-        >
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem enableColorScheme>
           <Header />
           <main className="flex-grow">{children}</main>
           <Footer />

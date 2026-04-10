@@ -45,19 +45,19 @@ Step-by-step instructions for adding and modifying portfolio content without tou
 
 ### FIELDS EXPLAINED:
 
-| Field | Type | Notes |
-|-------|------|-------|
-| `id` | string | UNIQUE, kebab-case, used for filtering |
-| `title` | string | Full project name (can include special chars) |
-| `description` | string | Detailed explanation (2-3+ sentences) |
-| `shortDescription` | string | One line, used in cards |
-| `technologies` | string[] | Tech stack (must be readable names) |
-| `duration` | string | Format: "Jan 2024 - Dec 2024" |
-| `role` | string | Your position: "Senior Developer", "Lead" |
-| `company` | string | Organization name |
-| `highlights` | string[] | 3-5 accomplishments |
-| `featured` | boolean | Show on homepage |
-| `links` | object | URLs to GitHub, live site, docs |
+| Field              | Type     | Notes                                         |
+| ------------------ | -------- | --------------------------------------------- |
+| `id`               | string   | UNIQUE, kebab-case, used for filtering        |
+| `title`            | string   | Full project name (can include special chars) |
+| `description`      | string   | Detailed explanation (2-3+ sentences)         |
+| `shortDescription` | string   | One line, used in cards                       |
+| `technologies`     | string[] | Tech stack (must be readable names)           |
+| `duration`         | string   | Format: "Jan 2024 - Dec 2024"                 |
+| `role`             | string   | Your position: "Senior Developer", "Lead"     |
+| `company`          | string   | Organization name                             |
+| `highlights`       | string[] | 3-5 accomplishments                           |
+| `featured`         | boolean  | Show on homepage                              |
+| `links`            | object   | URLs to GitHub, live site, docs               |
 
 ### EXAMPLE:
 
@@ -145,30 +145,30 @@ See `content/skills.ts` for reference.
 
 ### FIELDS EXPLAINED:
 
-| Field | Type | Notes |
-|-------|------|-------|
-| `id` | string | UNIQUE, kebab-case |
-| `title` | string | Full post title |
-| `slug` | string | URL slug (used for routing) |
-| `excerpt` | string | 1-2 line preview |
-| `content` | string | Full markdown content |
-| `publishedDate` | string | ISO: "2024-01-15" |
-| `updatedDate` | string | ISO (optional) |
-| `tags` | string[] | Search/filter tags |
-| `author` | string | "Salman Khan" |
-| `readingTime` | number | Minutes (text length ÷ 200) |
-| `featured` | boolean | Show on blog home |
+| Field           | Type     | Notes                       |
+| --------------- | -------- | --------------------------- |
+| `id`            | string   | UNIQUE, kebab-case          |
+| `title`         | string   | Full post title             |
+| `slug`          | string   | URL slug (used for routing) |
+| `excerpt`       | string   | 1-2 line preview            |
+| `content`       | string   | Full markdown content       |
+| `publishedDate` | string   | ISO: "2024-01-15"           |
+| `updatedDate`   | string   | ISO (optional)              |
+| `tags`          | string[] | Search/filter tags          |
+| `author`        | string   | "Salman Khan"               |
+| `readingTime`   | number   | Minutes (text length ÷ 200) |
+| `featured`      | boolean  | Show on blog home           |
 
 ### SLUG FORMAT:
 
 ```typescript
 // CORRECT
-slug: 'react-performance-optimization'
-slug: 'building-scalable-apps'
+slug: 'react-performance-optimization';
+slug: 'building-scalable-apps';
 
 // INCORRECT
-slug: 'React Performance Optimization'  // Spaces not allowed
-slug: 'ReactPerformance'                // Needs hyphens
+slug: 'React Performance Optimization'; // Spaces not allowed
+slug: 'ReactPerformance'; // Needs hyphens
 ```
 
 ### EXISTING BLOG POSTS:
@@ -204,15 +204,15 @@ slug: 'ReactPerformance'                // Needs hyphens
 
 ### FIELDS EXPLAINED:
 
-| Field | Type | Notes |
-|-------|------|-------|
-| `id` | string | UNIQUE, kebab-case |
-| `author` | string | Person's full name |
-| `position` | string | Job title at time |
-| `company` | string | Company/organization |
-| `content` | string | 2-3 sentences max |
-| `rating` | number | 1-5 stars |
-| `image` | string | Optional profile pic URL |
+| Field      | Type   | Notes                    |
+| ---------- | ------ | ------------------------ |
+| `id`       | string | UNIQUE, kebab-case       |
+| `author`   | string | Person's full name       |
+| `position` | string | Job title at time        |
+| `company`  | string | Company/organization     |
+| `content`  | string | 2-3 sentences max        |
+| `rating`   | number | 1-5 stars                |
+| `image`    | string | Optional profile pic URL |
 
 ### EXAMPLE:
 
@@ -326,13 +326,13 @@ export const SITE_METADATA: SiteMetadata = {
   title: 'Salman Khan - Senior Software Engineer',
   description: 'Portfolio description...',
   author: 'Salman Khan',
-  email: 'khansalman752@gmail.com',  // UPDATE EMAIL
-  phone: '+91-9029051642',            // UPDATE PHONE
+  email: 'khansalman752@gmail.com', // UPDATE EMAIL
+  phone: '+91-9029051642', // UPDATE PHONE
   location: 'Mumbai-400043, Maharashtra',
   timezone: 'IST (UTC+5:30)',
   socialLinks: {
     linkedin: 'https://linkedin.com/in/khansalman752',
-    github: 'https://github.com/salmankhan',  // ADD/UPDATE
+    github: 'https://github.com/salmankhan', // ADD/UPDATE
   },
 };
 ```
@@ -358,10 +358,7 @@ export const ABOUT_CONTENT = {
   title: 'Senior Software Engineer',
   subtitle: 'Subtitle here',
   bio: 'Multi-paragraph bio text...',
-  highlights: [
-    'Highlight 1',
-    'Highlight 2',
-  ],
+  highlights: ['Highlight 1', 'Highlight 2'],
 };
 ```
 
@@ -383,20 +380,20 @@ export const ABOUT_CONTENT = {
 
 ```typescript
 // From
-technologies: ['React', 'TypeScript']
+technologies: ['React', 'TypeScript'];
 
 // To
-technologies: ['React', 'TypeScript', 'GraphQL', 'Docker']
+technologies: ['React', 'TypeScript', 'GraphQL', 'Docker'];
 ```
 
 ### UPDATE PROJECT DURATION:
 
 ```typescript
 // If project is ongoing
-duration: 'April 2024 - Present'
+duration: 'April 2024 - Present';
 
 // If completed
-duration: 'April 2024 - December 2024'
+duration: 'April 2024 - December 2024';
 ```
 
 ### REORDER SKILLS:
@@ -409,12 +406,14 @@ Edit order by moving objects in array.
 ## WHAT NOT TO DO
 
 ❌ **Don't modify:**
+
 - `types/index.ts` (TypeScript interfaces)
 - `components/*.tsx` (React components)
 - `lib/utils.ts` (Utility functions)
 - `app/layout.tsx` (Root layout)
 
 ✅ **Only modify:**
+
 - `content/*.ts` (Data files)
 - `content/site-config.ts` (Site configuration)
 
@@ -457,7 +456,7 @@ All content is automatically typed and validated by TypeScript.
 ## WHERE TO GET HELP
 
 - **AGENTS.md** - Copilot prompts and instructions
-- **DATA_SCHEMA.md** - Interface and field definitions  
+- **DATA_SCHEMA.md** - Interface and field definitions
 - **COMPONENT_GUIDE.md** - Component API reference
 - **types/index.ts** - TypeScript interface definitions
 - **content/\*.ts** - Real examples to reference

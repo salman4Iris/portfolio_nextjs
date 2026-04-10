@@ -4,6 +4,7 @@
  * ES6+ TypeScript
  */
 
+import React from 'react';
 import { Hero } from '@/components/Hero';
 import SectionWrapper from '@/components/SectionWrapper';
 import ProjectCard from '@/components/ProjectCard';
@@ -25,15 +26,17 @@ export default function Home(): JSX.Element {
             Featured Projects
           </h2>
           <p className="max-w-2xl text-lg text-gray-600 dark:text-gray-400">
-            A selection of my recent work showcasing expertise in modern web
-            development, system design, and leadership.
+            A selection of my recent work showcasing expertise in modern web development, system
+            design, and leadership.
           </p>
         </div>
 
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {featuredProjects.slice(0, 3).map((project: Project): JSX.Element => (
-            <ProjectCard key={project.id} project={project} />
-          ))}
+          {featuredProjects.slice(0, 3).map(
+            (project: Project): JSX.Element => (
+              <ProjectCard key={project.id} project={project} />
+            )
+          )}
         </div>
 
         <div className="mt-8 text-center">
@@ -57,11 +60,10 @@ export default function Home(): JSX.Element {
       {/* CTA SECTION */}
       <SectionWrapper className="bg-gradient-to-r from-blue-600 to-purple-600 py-20">
         <div className="text-center">
-          <h2 className="mb-4 text-4xl font-bold text-white">
-            Let&apos;s Work Together
-          </h2>
+          <h2 className="mb-4 text-4xl font-bold text-white">Let&apos;s Work Together</h2>
           <p className="mb-8 max-w-2xl mx-auto text-lg text-blue-100">
-            Have a project in mind? I&apos;d love to discuss how I can help bring your ideas to life.
+            Have a project in mind? I&apos;d love to discuss how I can help bring your ideas to
+            life.
           </p>
           <a
             href="/contact"

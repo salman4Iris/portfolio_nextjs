@@ -6,7 +6,7 @@
 
 'use client';
 
-import { FormEvent, ChangeEvent, useState } from 'react';
+import React, { FormEvent, ChangeEvent, useState } from 'react';
 import SectionWrapper from '@/components/SectionWrapper';
 import { SITE_METADATA } from '@/content/site-config';
 import type { ContactFormData } from '@/types';
@@ -23,14 +23,14 @@ export default function ContactPage(): JSX.Element {
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
-  const handleChange = (
-    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ): void => {
+  const handleChange = (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
     const { name, value } = event.target;
-    setFormData((prev: ContactFormData): ContactFormData => ({
-      ...prev,
-      [name]: value,
-    }));
+    setFormData(
+      (prev: ContactFormData): ContactFormData => ({
+        ...prev,
+        [name]: value,
+      })
+    );
   };
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>): Promise<void> => {
@@ -71,9 +71,8 @@ export default function ContactPage(): JSX.Element {
             Get In Touch
           </h1>
           <p className="max-w-2xl text-lg text-gray-600 dark:text-gray-400">
-            Have a project in mind or want to discuss opportunities? I&apos;d love to hear
-            from you. Feel free to reach out via the form or through the contact
-            details below.
+            Have a project in mind or want to discuss opportunities? I&apos;d love to hear from you.
+            Feel free to reach out via the form or through the contact details below.
           </p>
         </div>
       </SectionWrapper>
@@ -88,16 +87,14 @@ export default function ContactPage(): JSX.Element {
                 Contact Information
               </h2>
               <p className="mb-8 text-gray-600 dark:text-gray-400">
-                Reach out through any of these channels, and I&apos;ll get back to you as
-                soon as possible.
+                Reach out through any of these channels, and I&apos;ll get back to you as soon as
+                possible.
               </p>
             </div>
 
             {/* EMAIL */}
             <div className="rounded-lg border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-gray-900">
-              <h3 className="mb-2 font-semibold text-gray-900 dark:text-white">
-                Email
-              </h3>
+              <h3 className="mb-2 font-semibold text-gray-900 dark:text-white">Email</h3>
               <a
                 href={`mailto:${SITE_METADATA.email}`}
                 className="text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
@@ -111,9 +108,7 @@ export default function ContactPage(): JSX.Element {
 
             {/* PHONE */}
             <div className="rounded-lg border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-gray-900">
-              <h3 className="mb-2 font-semibold text-gray-900 dark:text-white">
-                Phone
-              </h3>
+              <h3 className="mb-2 font-semibold text-gray-900 dark:text-white">Phone</h3>
               <a
                 href={`tel:${SITE_METADATA.phone}`}
                 className="text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
@@ -127,12 +122,8 @@ export default function ContactPage(): JSX.Element {
 
             {/* LOCATION */}
             <div className="rounded-lg border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-gray-900">
-              <h3 className="mb-2 font-semibold text-gray-900 dark:text-white">
-                Location
-              </h3>
-              <p className="text-gray-600 dark:text-gray-400">
-                {SITE_METADATA.location}
-              </p>
+              <h3 className="mb-2 font-semibold text-gray-900 dark:text-white">Location</h3>
+              <p className="text-gray-600 dark:text-gray-400">{SITE_METADATA.location}</p>
               <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
                 Timezone: {SITE_METADATA.timezone}
               </p>
@@ -140,9 +131,7 @@ export default function ContactPage(): JSX.Element {
 
             {/* SOCIAL LINKS */}
             <div className="rounded-lg border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-gray-900">
-              <h3 className="mb-4 font-semibold text-gray-900 dark:text-white">
-                Connect
-              </h3>
+              <h3 className="mb-4 font-semibold text-gray-900 dark:text-white">Connect</h3>
               <div className="flex gap-4">
                 {SITE_METADATA.socialLinks.linkedin && (
                   <a

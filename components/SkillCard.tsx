@@ -4,6 +4,7 @@
  * ES6+ TypeScript React component
  */
 
+import React from 'react';
 import { cn } from '@/lib/utils';
 import type { Skill, ProficiencyLevel } from '@/types';
 
@@ -48,9 +49,7 @@ export const SkillCard = ({ skill }: SkillCardProps): JSX.Element => {
       {/* HEADER */}
       <div className="mb-3 flex items-start justify-between">
         <div>
-          <h4 className="font-semibold text-gray-900 dark:text-white">
-            {skill.name}
-          </h4>
+          <h4 className="font-semibold text-gray-900 dark:text-white">{skill.name}</h4>
           <p className="text-xs text-gray-500 dark:text-gray-500">
             {skill.yearsOfExperience} year{skill.yearsOfExperience > 1 ? 's' : ''} experience
           </p>

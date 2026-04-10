@@ -15,7 +15,7 @@ export const EXPERIENCES: readonly Experience[] = [
     startDate: '2021-09-01',
     endDate: '2026-04-10',
     description:
-      'Providing overall leadership to the entire project team, including managing deliverables of other functional team leaders. Managing large and complex projects or multiple components of a large project involving more than one company\'s product.',
+      "Providing overall leadership to the entire project team, including managing deliverables of other functional team leaders. Managing large and complex projects or multiple components of a large project involving more than one company's product.",
     isCurrent: true,
     technologies: [
       'ReactJS',
@@ -98,14 +98,7 @@ export const EXPERIENCES: readonly Experience[] = [
     description:
       'Trained in full-stack web development with focus on modern frameworks and best practices. Contributed to product development with mentorship from experienced engineers.',
     isCurrent: false,
-    technologies: [
-      'JavaScript',
-      'HTML5',
-      'CSS3',
-      'Angular',
-      'MongoDB',
-      'Node.js',
-    ],
+    technologies: ['JavaScript', 'HTML5', 'CSS3', 'Angular', 'MongoDB', 'Node.js'],
     keyResults: [],
     achievements: [
       'Completed intensive training in full-stack development',
@@ -141,13 +134,11 @@ export const getCurrentExperience = (): Experience | undefined => {
  */
 export const getSortedExperiences = (): readonly Experience[] => {
   const sorted: Experience[] = [...EXPERIENCES];
-  return sorted.sort(
-    (a: Experience, b: Experience): number => {
-      const dateA: number = new Date(b.startDate).getTime();
-      const dateB: number = new Date(a.startDate).getTime();
-      return dateA - dateB;
-    }
-  );
+  return sorted.sort((a: Experience, b: Experience): number => {
+    const dateA: number = new Date(b.startDate).getTime();
+    const dateB: number = new Date(a.startDate).getTime();
+    return dateA - dateB;
+  });
 };
 
 /**
@@ -156,8 +147,8 @@ export const getSortedExperiences = (): readonly Experience[] => {
  * @returns Total years as number
  */
 export const calculateTotalExperienceYears = (): number => {
-  const startDates: number[] = EXPERIENCES.map(
-    (exp: Experience): number => new Date(exp.startDate).getTime()
+  const startDates: number[] = EXPERIENCES.map((exp: Experience): number =>
+    new Date(exp.startDate).getTime()
   );
   const earliestDate: number = Math.min(...startDates);
   const yearsInMillis: number = Date.now() - earliestDate;

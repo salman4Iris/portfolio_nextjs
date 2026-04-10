@@ -4,6 +4,7 @@
  * ES6+ TypeScript
  */
 
+import React from 'react';
 import SectionWrapper from '@/components/SectionWrapper';
 import { ABOUT_CONTENT } from '@/content/site-config';
 import { calculateTotalExperienceYears } from '@/content/experience';
@@ -16,9 +17,7 @@ export default function AboutPage(): JSX.Element {
       {/* HERO */}
       <SectionWrapper className="py-20">
         <div className="mb-12 space-y-4">
-          <h1 className="text-5xl font-bold text-gray-900 dark:text-white md:text-6xl">
-            About Me
-          </h1>
+          <h1 className="text-5xl font-bold text-gray-900 dark:text-white md:text-6xl">About Me</h1>
           <p className="max-w-2xl text-xl text-gray-600 dark:text-gray-400">
             {ABOUT_CONTENT.subtitle}
           </p>
@@ -32,16 +31,11 @@ export default function AboutPage(): JSX.Element {
             </p>
 
             <div className="space-y-3">
-              <h3 className="font-semibold text-gray-900 dark:text-white">
-                Key Highlights
-              </h3>
+              <h3 className="font-semibold text-gray-900 dark:text-white">Key Highlights</h3>
               <ul className="space-y-2">
                 {ABOUT_CONTENT.highlights.map(
                   (highlight: string, index: number): JSX.Element => (
-                    <li
-                      key={index}
-                      className="flex gap-3 text-gray-600 dark:text-gray-400"
-                    >
+                    <li key={index} className="flex gap-3 text-gray-600 dark:text-gray-400">
                       <span className="mt-1 inline-block h-2 w-2 rounded-full bg-blue-600 dark:bg-blue-400 flex-shrink-0" />
                       {highlight}
                     </li>
@@ -73,21 +67,15 @@ export default function AboutPage(): JSX.Element {
                     <div className="text-4xl font-bold text-purple-600 dark:text-purple-400">
                       8+
                     </div>
-                    <p className="mt-2 text-gray-600 dark:text-gray-400">
-                      Major Projects Lead
-                    </p>
+                    <p className="mt-2 text-gray-600 dark:text-gray-400">Major Projects Lead</p>
                   </div>
                 </div>
 
                 {/* TEAM */}
                 <div>
                   <div className="rounded-lg bg-white/50 p-6 dark:bg-gray-800/50">
-                    <div className="text-4xl font-bold text-green-600 dark:text-green-400">
-                      10+
-                    </div>
-                    <p className="mt-2 text-gray-600 dark:text-gray-400">
-                      Developers Mentored
-                    </p>
+                    <div className="text-4xl font-bold text-green-600 dark:text-green-400">10+</div>
+                    <p className="mt-2 text-gray-600 dark:text-gray-400">Developers Mentored</p>
                   </div>
                 </div>
               </div>
@@ -103,8 +91,8 @@ export default function AboutPage(): JSX.Element {
             Areas of Expertise
           </h2>
           <p className="max-w-2xl text-gray-600 dark:text-gray-400">
-            Specializing in full-stack web development with deep expertise across
-            multiple technologies and domains.
+            Specializing in full-stack web development with deep expertise across multiple
+            technologies and domains.
           </p>
         </div>
 
@@ -112,38 +100,32 @@ export default function AboutPage(): JSX.Element {
           {[
             {
               title: 'Frontend Development',
-              description:
-                'React, Next.js, TypeScript, Tailwind CSS, and modern UI frameworks',
+              description: 'React, Next.js, TypeScript, Tailwind CSS, and modern UI frameworks',
               icon: '🎨',
             },
             {
               title: 'Backend Development',
-              description:
-                'Node.js, Express, Java, REST APIs, and database design',
+              description: 'Node.js, Express, Java, REST APIs, and database design',
               icon: '⚙️',
             },
             {
               title: 'System Architecture',
-              description:
-                'Scalable application design, performance optimization, CI/CD',
+              description: 'Scalable application design, performance optimization, CI/CD',
               icon: '🏗️',
             },
             {
               title: 'Team Leadership',
-              description:
-                'Technical mentoring, agile methodologies, project management',
+              description: 'Technical mentoring, agile methodologies, project management',
               icon: '👥',
             },
             {
               title: 'Trading Systems',
-              description:
-                'Financial platforms, regulatory compliance, real-time data processing',
+              description: 'Financial platforms, regulatory compliance, real-time data processing',
               icon: '📈',
             },
             {
               title: 'E-Commerce',
-              description:
-                'Payment integration, checkout optimization, analytics integration',
+              description: 'Payment integration, checkout optimization, analytics integration',
               icon: '🛒',
             },
           ].map((item, index) => (
@@ -152,12 +134,8 @@ export default function AboutPage(): JSX.Element {
               className="rounded-lg border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-gray-900"
             >
               <div className="mb-4 text-4xl">{item.icon}</div>
-              <h3 className="mb-2 font-semibold text-gray-900 dark:text-white">
-                {item.title}
-              </h3>
-              <p className="text-sm text-gray-600 dark:text-gray-400">
-                {item.description}
-              </p>
+              <h3 className="mb-2 font-semibold text-gray-900 dark:text-white">{item.title}</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-400">{item.description}</p>
             </div>
           ))}
         </div>

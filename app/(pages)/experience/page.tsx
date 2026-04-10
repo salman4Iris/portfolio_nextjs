@@ -4,6 +4,7 @@
  * ES6+ TypeScript
  */
 
+import React from 'react';
 import SectionWrapper from '@/components/SectionWrapper';
 import ExperienceItem from '@/components/ExperienceItem';
 import { getSortedExperiences, calculateTotalExperienceYears } from '@/content/experience';
@@ -22,8 +23,8 @@ export default function ExperiencePage(): JSX.Element {
             Experience
           </h1>
           <p className="max-w-2xl text-lg text-gray-600 dark:text-gray-400">
-            {totalYears}+ years of professional experience in full-stack web development,
-            leading projects, and mentoring engineering teams.
+            {totalYears}+ years of professional experience in full-stack web development, leading
+            projects, and mentoring engineering teams.
           </p>
         </div>
       </SectionWrapper>
@@ -36,9 +37,11 @@ export default function ExperiencePage(): JSX.Element {
 
           {/* EXPERIENCES */}
           <div className="space-y-12">
-            {experiences.map((experience: Experience): JSX.Element => (
-              <ExperienceItem key={experience.id} experience={experience} />
-            ))}
+            {experiences.map(
+              (experience: Experience): JSX.Element => (
+                <ExperienceItem key={experience.id} experience={experience} />
+              )
+            )}
           </div>
 
           {/* BOTTOM MARKER */}

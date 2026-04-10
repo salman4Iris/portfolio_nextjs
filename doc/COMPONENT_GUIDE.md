@@ -12,9 +12,11 @@ All components follow strict ES6+ and TypeScript conventions with readonly props
 **Type:** Client component
 
 ### PROPS
+
 None - Uses `SITE_METADATA` and `NAVIGATION_ITEMS` from site-config
 
 ### FEATURES
+
 - Sticky navigation with theme toggle
 - Mobile hamburger menu
 - Responsive design
@@ -22,6 +24,7 @@ None - Uses `SITE_METADATA` and `NAVIGATION_ITEMS` from site-config
 - Smooth transitions
 
 ### USAGE
+
 ```typescript
 import { Header } from '@/components/Header';
 
@@ -43,9 +46,11 @@ export default function Layout(): JSX.Element {
 **Type:** Client component
 
 ### PROPS
+
 None - Uses `SITE_METADATA` and `FOOTER_TEXT` from site-config
 
 ### FEATURES
+
 - Social links integration
 - Contact information display
 - Copyright notice
@@ -53,6 +58,7 @@ None - Uses `SITE_METADATA` and `FOOTER_TEXT` from site-config
 - Dark mode support
 
 ### USAGE
+
 ```typescript
 import { Footer } from '@/components/Footer';
 
@@ -74,9 +80,11 @@ export default function Layout(): JSX.Element {
 **Type:** Client component
 
 ### PROPS
+
 None - Displays hardcoded hero content
 
 ### FEATURES
+
 - Animated gradient background
 - CTA buttons (Projects, Contact)
 - Stats display
@@ -84,6 +92,7 @@ None - Displays hardcoded hero content
 - Fully responsive
 
 ### USAGE
+
 ```typescript
 import { Hero } from '@/components/Hero';
 
@@ -105,6 +114,7 @@ export default function Home(): JSX.Element {
 **Type:** Server component
 
 ### PROPS
+
 ```typescript
 interface SectionWrapperProps {
   readonly children: ReactNode;
@@ -114,12 +124,14 @@ interface SectionWrapperProps {
 ```
 
 ### FEATURES
+
 - Consistent max-width container
 - Responsive padding
 - Customizable classes
 - Optional section ID
 
 ### USAGE
+
 ```typescript
 import SectionWrapper from '@/components/SectionWrapper';
 
@@ -137,6 +149,7 @@ import SectionWrapper from '@/components/SectionWrapper';
 **Type:** Server component
 
 ### PROPS
+
 ```typescript
 interface ProjectCardProps {
   readonly project: Project;
@@ -144,6 +157,7 @@ interface ProjectCardProps {
 ```
 
 ### FEATURES
+
 - Technology tags display
 - Featured flag indicator
 - Hover animations
@@ -151,6 +165,7 @@ interface ProjectCardProps {
 - Links to project details
 
 ### USAGE
+
 ```typescript
 import ProjectCard from '@/components/ProjectCard';
 import { PROJECTS } from '@/content/projects';
@@ -168,6 +183,7 @@ import { PROJECTS } from '@/content/projects';
 **Type:** Server component
 
 ### PROPS
+
 ```typescript
 interface SkillCardProps {
   readonly skill: Skill;
@@ -175,6 +191,7 @@ interface SkillCardProps {
 ```
 
 ### FEATURES
+
 - Proficiency level badge
 - Progress bar visualization
 - Years of experience display
@@ -182,6 +199,7 @@ interface SkillCardProps {
 - Compact design
 
 ### USAGE
+
 ```typescript
 import SkillCard from '@/components/SkillCard';
 import { SKILLS } from '@/content/skills';
@@ -199,6 +217,7 @@ import { SKILLS } from '@/content/skills';
 **Type:** Server component
 
 ### PROPS
+
 ```typescript
 interface ExperienceItemProps {
   readonly experience: Experience;
@@ -206,6 +225,7 @@ interface ExperienceItemProps {
 ```
 
 ### FEATURES
+
 - Timeline dot with icon
 - Experience duration badge
 - Key results display
@@ -213,6 +233,7 @@ interface ExperienceItemProps {
 - Achievements list (truncated to 3)
 
 ### USAGE
+
 ```typescript
 import ExperienceItem from '@/components/ExperienceItem';
 import { EXPERIENCES } from '@/content/experience';
@@ -227,28 +248,33 @@ import { EXPERIENCES } from '@/content/experience';
 ## STYLING PATTERNS
 
 ### RESPONSIVE GRID
+
 ```typescript
-className="grid gap-6 md:grid-cols-2 lg:grid-cols-3"
+className = 'grid gap-6 md:grid-cols-2 lg:grid-cols-3';
 ```
 
 ### GRADIENT TEXT
+
 ```typescript
-className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
+className = 'bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent';
 ```
 
 ### DARK MODE
+
 ```typescript
-className="bg-white dark:bg-black text-gray-900 dark:text-white"
+className = 'bg-white dark:bg-black text-gray-900 dark:text-white';
 ```
 
 ### INTERACTIVE HOVER
+
 ```typescript
-className="transition-all duration-300 hover:shadow-lg dark:hover:border-blue-600"
+className = 'transition-all duration-300 hover:shadow-lg dark:hover:border-blue-600';
 ```
 
 ### ROUNDED CONTAINERS
+
 ```typescript
-className="rounded-lg border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-6"
+className = 'rounded-lg border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 p-6';
 ```
 
 ---

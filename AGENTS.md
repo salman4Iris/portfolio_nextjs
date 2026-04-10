@@ -2,552 +2,592 @@
 
 ## GITHUB COPILOT PORTFOLIO FRAMEWORK
 
-This document provides comprehensive instructions for GitHub Copilot to assist with content updates, feature additions, and maintenance of the portfolio website using the established architecture and conventions.
+This document coordinates all coding standards and instructions for GitHub Copilot to assist with content updates, feature additions, and code contributions to this Next.js portfolio website.
+
+**All code must follow the standards defined in the separate documentation files listed below.**
 
 ---
 
-## ARCHITECTURE OVERVIEW
+## QUICK REFERENCE
 
-### TECH STACK
-- **Frontend Framework:** Next.js 16+ with React 19+
-- **Language:** TypeScript (ES2017, strict mode)
-- **Styling:** Tailwind CSS v4 + shadcn/ui
-- **Theme Management:** next-themes (dark/light mode)
-- **Code Quality:** ESLint + Prettier enforcing ES6+ conventions
+### 📋 Core Standards Documents
 
-### FOLDER STRUCTURE
+Located in `/doc/` directory:
+
+1. **[TYPESCRIPT_STANDARDS.md](doc/TYPESCRIPT_STANDARDS.md)** ⭐
+   - Type definitions, interfaces, enums
+   - Readonly properties, strict mode
+   - Generic functions, utility types
+   - Never types, validation patterns
+
+2. **[REACT_STANDARDS.md](doc/REACT_STANDARDS.md)** ⭐
+   - Functional components, hooks patterns
+   - Props typing, event handlers
+   - State management, custom hooks
+   - Error boundaries, memo optimization
+
+3. **[ARCHITECTURE.md](doc/ARCHITECTURE.md)** ⭐
+   - Folder structure and organization
+   - File naming conventions
+   - Data flow patterns
+   - Import path organization
+   - Circular dependency prevention
+
+4. **[NAMING_CONVENTIONS.md](doc/NAMING_CONVENTIONS.md)** ⭐
+   - File and folder naming rules
+   - Variable, function, type naming
+   - Component props naming
+   - Absolute rules (no single letters, no Hungarian notation)
+
+5. **[STYLING_GUIDELINES.md](doc/STYLING_GUIDELINES.md)** ⭐
+   - Tailwind CSS utility classes
+   - Responsive design (mobile-first)
+   - Dark mode support (mandatory)
+   - Component styling patterns
+   - Animations and transitions
+
+6. **[TESTING_VALIDATION.md](doc/TESTING_VALIDATION.md)** ✅
+   - Validation commands: `npm run type-check`, `npm run lint`
+   - Pre-commit checklist
+   - TypeScript error resolution
+   - ESLint and Prettier configuration
+   - Deployment validation
+
+7. **[GIT_CONVENTIONS.md](doc/GIT_CONVENTIONS.md)** 🔄
+   - Branch naming (feature/, fix/, refactor/)
+   - Commit message format (conventional commits)
+   - Pull request templates
+   - Merge strategy and versioning
+
+---
+
+## TECH STACK
+
+- **Framework:** Next.js 16.2.3 (app router)
+- **Runtime:** React 19.2.4 (functional components only)
+- **Language:** TypeScript 5 (ES2017 target, strict mode)
+- **Styling:** Tailwind CSS v4 (utility classes only)
+- **UI Components:** shadcn/ui (installed as needed)
+- **Theme:** next-themes (dark/light mode built-in)
+- **Linting:** ESLint (ES6+ enforcement)
+- **Formatting:** Prettier (100 char width, 2-space tabs)
+
+---
+
+## PROJECT STRUCTURE
 
 ```
 portfolio_nextjs/
 ├── app/
-│   ├── (pages)/           # Route groups for organized pages
-│   ├── page.tsx           # HOME PAGE
-│   ├── layout.tsx         # ROOT LAYOUT with ThemeProvider
-│   └── globals.css        # Global Tailwind config
-├── components/            # Reusable React components
-│   ├── Header.tsx         # Navigation header with theme toggle
-│   ├── Footer.tsx         # Footer with social links
-│   ├── Hero.tsx           # Landing hero section
-│   ├── SectionWrapper.tsx # Section container wrapper
-│   ├── ProjectCard.tsx    # Individual project showcase
-│   ├── SkillCard.tsx      # Skill display card
-│   ├── ExperienceItem.tsx # Timeline experience entry
-│   └── ui/                # shadcn/ui components (generated)
-├── types/                 # TypeScript interfaces
-│   └── index.ts           # All type definitions
-├── content/               # Data files (readonly, strongly typed)
-│   ├── projects.ts        # PROJECTS array + helper functions
-│   ├── experience.ts      # EXPERIENCES array + helpers
-│   ├── skills.ts          # SKILLS array + categorization
-│   ├── certifications.ts  # CERTIFICATIONS array
-│   ├── testimonials.ts    # TESTIMONIALS array
-│   ├── blog.ts            # BLOG_POSTS array
-│   └── site-config.ts     # SITE_METADATA, NAVIGATION_ITEMS
+│   ├── (pages)/              # Route groups
+│   │   ├── about/page.tsx
+│   │   ├── projects/page.tsx
+│   │   ├── experience/page.tsx
+│   │   ├── skills/page.tsx
+│   │   └── contact/page.tsx
+│   ├── page.tsx              # HOME PAGE
+│   ├── layout.tsx            # Root layout + ThemeProvider
+│   └── globals.css           # Tailwind config
+├── components/               # Reusable components
+│   ├── Header.tsx
+│   ├── Footer.tsx
+│   ├── Hero.tsx
+│   ├── SectionWrapper.tsx
+│   ├── ProjectCard.tsx
+│   ├── SkillCard.tsx
+│   ├── ExperienceItem.tsx
+│   └── ui/                   # shadcn/ui (generated)
+├── types/
+│   └── index.ts              # All interfaces & enums
+├── content/                  # Data (readonly, strongly typed)
+│   ├── projects.ts
+│   ├── experience.ts
+│   ├── skills.ts
+│   ├── certifications.ts
+│   ├── testimonials.ts
+│   ├── blog.ts
+│   └── site-config.ts
 ├── lib/
-│   └── utils.ts           # Utility functions (formatDate, slugify, etc.)
-├── doc/                   # Documentation guides
-│   ├── COMPONENT_GUIDE.md # Component APIs and examples
-│   ├── CONTENT_GUIDE.md   # How to add/update content
-│   └── DATA_SCHEMA.md     # TypeScript interface reference
-├── AGENTS.md              # THIS FILE - Copilot instructions
-├── tsconfig.json          # TypeScript strict mode config
-├── .eslintrc.mjs          # ESLint configuration
-├── .prettierrc.json       # Prettier formatting rules
-└── package.json           # Dependencies and scripts
+│   └── utils.ts              # 10 utility functions
+├── doc/                      # Standards & guides
+│   ├── TYPESCRIPT_STANDARDS.md
+│   ├── REACT_STANDARDS.md
+│   ├── ARCHITECTURE.md
+│   ├── NAMING_CONVENTIONS.md
+│   ├── STYLING_GUIDELINES.md
+│   ├── TESTING_VALIDATION.md
+│   ├── GIT_CONVENTIONS.md
+│   ├── COMPONENT_GUIDE.md
+│   ├── DATA_SCHEMA.md
+│   └── CONTENT_GUIDE.md
+├── AGENTS.md                 # THIS FILE
+├── IMPLEMENTATION_SUMMARY.md # Project overview
+├── tsconfig.json             # TypeScript config
+├── .eslintrc.mjs             # ESLint rules
+├── .prettierrc.json          # Prettier rules
+└── package.json
 ```
 
 ---
 
-## CODE CONVENTIONS
+## ESSENTIAL RULES (MUST FOLLOW)
 
-### ES6+ REQUIREMENTS
-- **CONST/LET ONLY** - Never use `var` keyword
-- **ARROW FUNCTIONS** - Use `() => {}` instead of `function` keyword
-- **TEMPLATE LITERALS** - Use backticks for string interpolation
-- **DESTRUCTURING** - Always destructure objects and arrays
-- **SPREAD OPERATOR** - Use `...` for object/array operations
-- **ASYNC/AWAIT** - Never use `.then()` chaining
+### 1. TypeScript (Read: TYPESCRIPT_STANDARDS.md)
 
-### TYPESCRIPT REQUIREMENTS
-- **NO IMPLIED ANY** - Every variable/parameter must have explicit type
-- **READONLY PROPERTIES** - Use `readonly` for immutable data structures
-- **INTERFACES** - Prefer interfaces over types for object shapes
-- **GENERICS** - Use TypeScript generics for reusable functions
-- **STRICT MODE** - Enable all strict compiler options
+✅ **DO:**
 
-### REACT COMPONENTS
-- **FUNCTIONAL ONLY** - No class components
-- **TYPED PROPS** - Always define props interface with `readonly` properties
-- **EXPLICIT RETURNS** - Always declare return type (`JSX.Element`)
-- **USE CLIENT** - Add `'use client'` directive for interactive components
-- **DEPENDENCY ARRAYS** - Always include exhaustive dependencies in hooks
+- Explicit types on ALL variables/parameters
+- `readonly` on all properties and arrays
+- Use `interface` for data shapes
+- Function return types always specified
+- No implicit `any` type
 
-### EXAMPLE COMPONENT
+❌ **DON'T:**
 
 ```typescript
-'use client';
-
-import { useState, useEffect } from 'react';
-import type { Project } from '@/types';
-
-interface MyComponentProps {
-  readonly projects: readonly Project[];
-  readonly onSelect?: (project: Project) => void;
-}
-
-export const MyComponent = ({
-  projects,
-  onSelect,
-}: MyComponentProps): JSX.Element => {
-  const [selected, setSelected] = useState<Project | null>(null);
-
-  useEffect((): void => {
-    // Effect logic
-  }, [projects, selected]);
-
-  const handleSelect = (project: Project): void => {
-    setSelected(project);
-    onSelect?.(project);
-  };
-
-  return (
-    <div>
-      {projects.map((project: Project): JSX.Element => (
-        <button
-          key={project.id}
-          onClick={() => handleSelect(project)}
-        >
-          {project.title}
-        </button>
-      ))}
-    </div>
-  );
-};
-```
-
----
-
-## HOW TO: ADD A NEW PROJECT
-
-### STEP 1: UPDATE PROJECTS DATA
-
-**FILE:** `content/projects.ts`
-
-**ADD** a new object to the `PROJECTS` array:
-
-```typescript
-{
-  id: 'project-slug',
-  title: 'Project Title',
-  description: 'Detailed description...',
-  shortDescription: 'One-line summary',
-  technologies: ['React', 'TypeScript', 'Node.js'],
-  duration: 'Month Year - Month Year',
-  role: 'Senior Developer',
-  company: 'Company Name',
-  highlights: [
-    'Highlight 1',
-    'Highlight 2',
-  ],
-  featured: true,  // Set to true to show on home page
-  links: {
-    github: 'https://github.com/...',
-    live: 'https://project.com',
-    documentation: 'https://docs.project.com',
-  },
+const projects = getProjects(); // Missing type!
+let items = []; // Missing type!
+function getData() {} // Missing return type!
+interface Project {
+  id: string; // Missing readonly!
+  name: string; // Missing readonly!
 }
 ```
 
-**INSTRUCTIONS FOR COPILOT:**
+### 2. React Components (Read: REACT_STANDARDS.md)
 
-Prompt: "ADD A NEW PROJECT TO THE PORTFOLIO. Title: 'My Project', company: 'Company', role: 'Developer', duration: '2024-2025', technologies: [React, TypeScript], and mark as featured."
+✅ **DO:**
 
-Copilot will:
-1. Open `content/projects.ts`
-2. Generate a new project object with the provided details
-3. Add it to the `PROJECTS` array with correct TypeScript types
-4. Ensure all required fields are present
+- Functional components only
+- Props interface with `readonly`
+- Add `'use client'` for interactive components
+- JSX.Element return type
+- Exhaustive dependency arrays
 
----
-
-## HOW TO: ADD A NEW SKILL
-
-### STEP 1: UPDATE SKILLS DATA
-
-**FILE:** `content/skills.ts`
-
-**ADD** a new object to the `SKILLS` array:
+❌ **DON'T:**
 
 ```typescript
-{
-  id: 'unique-skill-id',
-  name: 'Skill Name',
-  category: SkillCategory.FRONTEND,  // or BACKEND, DATABASES, DEVOPS, TOOLS, SOFT_SKILLS
-  proficiency: ProficiencyLevel.EXPERT,  // BEGINNER, INTERMEDIATE, ADVANCED, EXPERT
-  yearsOfExperience: 5,
-  relatedProjects: ['project-id-1', 'project-id-2'],
+class MyComponent extends React.Component { }        // Use functional
+interface Props {
+  onClick: () => void;                               // Add readonly
 }
+export default MyComponent = () => <div/>;           // Named export!
+useEffect(() => doSomething(), []);                 // Missing deps
 ```
 
-**INSTRUCTIONS FOR COPILOT:**
+### 3. File Names (Read: NAMING_CONVENTIONS.md)
 
-Prompt: "ADD A NEW SKILL: 'Vue.js', category: FRONTEND, proficiency: ADVANCED, years: 3, related projects: ['myglamm-mobile', 'popxo']."
+✅ **DO:**
 
----
+- Components: `ProjectCard.tsx` (PascalCase)
+- Pages: `page.tsx` (always)
+- Utilities: `utils.ts` (camelCase)
+- Content: `projects.ts` (camelCase)
+- Docs: `README.md` (UPPERCASE)
 
-## HOW TO: ADD A BLOG POST
+❌ **DON'T:**
 
-### STEP 1: UPDATE BLOG DATA
+```
+components/projectCard.tsx              (should be PascalCase)
+pages/about.tsx                         (should be page.tsx)
+utils/Utilities.ts                      (should be camelCase)
+doc/typescript-standards.md             (should be UPPERCASE)
+```
 
-**FILE:** `content/blog.ts`
+### 4. Variable Naming (Read: NAMING_CONVENTIONS.md)
 
-**ADD** a new object to the `BLOG_POSTS` array:
+✅ **DO:**
+
+- Constants: `UPPER_SNAKE_CASE`
+- Variables: `camelCase`
+- Booleans: `isActive`, `hasError`, `canEdit`
+- Arrays: `projects`, `skills`, `items`
+- Functions: `getProjectById`, `handleClick`
+
+❌ **DON'T:**
 
 ```typescript
-{
-  id: 'unique-blog-id',
-  title: 'Post Title',
-  slug: 'post-url-slug',
-  excerpt: 'Short summary for preview',
-  content: 'Full markdown content here...',
-  publishedDate: '2024-12-15',
-  tags: ['React', 'Performance', 'JavaScript'],
-  author: 'Salman Khan',
-  readingTime: 8,
-  featured: true,
-}
+const projects = 50; // Should be MAX_PROJECTS
+let selected_project; // Should be selectedProject
+const x = getValue(); // Too short
+const active = true; // Should be isActive
 ```
 
-**INSTRUCTIONS FOR COPILOT:**
+### 5. Styling (Read: STYLING_GUIDELINES.md)
 
-Prompt: "ADD A BLOG POST: Title 'React Performance Tips', slug 'react-performance-tips', excerpt 'Learn optimization techniques', tags: [React, Performance], reading time: 10 minutes, mark as featured."
+✅ **DO:**
 
----
+- Tailwind utility classes only
+- Dark mode: `dark:` variants everywhere
+- Responsive: mobile-first `md:`, `lg:`
+- Organize classes: layout → spacing → colors → effects
 
-## HOW TO: ADD A NEW TESTIMONIAL
-
-### STEP 1: UPDATE TESTIMONIALS DATA
-
-**FILE:** `content/testimonials.ts`
-
-**ADD** a new object to the `TESTIMONIALS` array:
+❌ **DON'T:**
 
 ```typescript
-{
-  id: 'testimonial-id',
-  author: 'Person Name',
-  position: 'Job Title',
-  company: 'Company Name',
-  content: 'Testimonial text...',
-  rating: 5,
-}
+<div style={{ display: 'flex' }}>           // Use Tailwind
+<div className="bg-white">                 // Missing dark:
+<div className="lg:px-4 px-4 md:px-6">     // Wrong order
 ```
 
-**INSTRUCTIONS FOR COPILOT:**
-
-Prompt: "ADD A TESTIMONIAL: author 'John Smith', position 'CTO', company 'TechCorp', content 'Salman is an excellent developer...', rating: 5."
-
----
-
-## HOW TO: ADD UDEMY CERTIFICATES
-
-### STEP 1: UPDATE CERTIFICATIONS DATA
-
-**FILE:** `content/certifications.ts`
-
-**ADD** to the `UDEMY_COURSES` array:
-
-```typescript
-{
-  id: 'udemy-course-id',
-  title: 'Course Title',
-  issuer: 'Udemy',
-  issueDate: '2024-06-15',
-  credentialId: 'UC-XXXXX',
-  credentialUrl: 'https://udemy.com/certificate/...',
-}
-```
-
-**INSTRUCTIONS FOR COPILOT:**
-
-Prompt: "ADD AN UDEMY CERTIFICATE: 'Advanced React Patterns', issue date: 2024-06-15, credential ID: UC-12345, credential URL: https://udemy.com/..."
-
----
-
-## HOW TO: UPDATE SITE METADATA
-
-### FILE: `content/site-config.ts`
-
-**UPDATE** the following readonly objects:
-
-```typescript
-export const SITE_METADATA: SiteMetadata = {
-  title: 'Portfolio Title',
-  description: 'Portfolio description',
-  email: 'email@example.com',
-  phone: '+91-XXXXXXXXXX',
-  location: 'City-PIN, State',
-  socialLinks: {
-    linkedin: 'https://linkedin.com/in/username',
-    github: 'https://github.com/username',
-  },
-};
-
-export const NAVIGATION_ITEMS: readonly NavigationItem[] = [
-  { id: 'home', label: 'Home', href: '/' },
-  // Add/remove navigation items
-];
-```
-
-**INSTRUCTIONS FOR COPILOT:**
-
-Prompt: "UPDATE THE PORTFOLIO EMAIL TO 'newemail@example.com' and add GitHub link 'https://github.com/salmankhan'."
-
----
-
-## HOW TO: CREATE A NEW PAGE
-
-### STEP 1: CREATE PAGE COMPONENT
-
-**FILES:**
-- `app/(pages)/page-name/page.tsx` - Page component
-- `app/(pages)/page-name/layout.tsx` (if needed) - Page-specific layout
-
-### STEP 2: USE SECTION WRAPPER
-
-```typescript
-import SectionWrapper from '@/components/SectionWrapper';
-
-export default function PageName(): JSX.Element {
-  return (
-    <div className="w-full">
-      <SectionWrapper className="py-12">
-        <h1>Page Title</h1>
-        {/* Content */}
-      </SectionWrapper>
-    </div>
-  );
-}
-```
-
-### STEP 3: UPDATE NAVIGATION
-
-**FILE:** `content/site-config.ts`
-
-**ADD** new item to `NAVIGATION_ITEMS` array.
-
----
-
-## HOW TO: USE UTILITY FUNCTIONS
-
-### AVAILABLE UTILITIES
-
-**FORMAT DATE:**
-```typescript
-formatDate('2024-01-15', 'medium')  // "Jan 15, 2024"
-```
-
-**CALCULATE DURATION:**
-```typescript
-calculateDuration('2021-09-01', '2024-09-01')  // "3 years"
-```
-
-**SLUGIFY STRING:**
-```typescript
-slugify('My Project Title')  // "my-project-title"
-```
-
-**COMBINE CLASSNAMES:**
-```typescript
-cn('px-4 py-2', isActive && 'bg-blue-600')
-```
-
-**EXTRACT READING TIME:**
-```typescript
-extractReadingTime(content)  // Returns minutes
-```
-
----
-
-## COMPONENT APIS
-
-### HEADER COMPONENT
-```typescript
-<Header />  // No props, uses site config
-```
-
-### FOOTER COMPONENT
-```typescript
-<Footer />  // No props, uses site config
-```
-
-### HERO COMPONENT
-```typescript
-<Hero />  // No props, displays landing hero
-```
-
-### SECTION WRAPPER
-```typescript
-<SectionWrapper
-  id="about-section"
-  className="bg-gray-50 dark:bg-gray-900"
->
-  {children}
-</SectionWrapper>
-```
-
-### PROJECT CARD
-```typescript
-<ProjectCard project={projectObject} />
-```
-
-### SKILL CARD
-```typescript
-<SkillCard skill={skillObject} />
-```
-
-### EXPERIENCE ITEM
-```typescript
-<ExperienceItem experience={experienceObject} />
-```
-
----
-
-## STYLING GUIDELINES
-
-### TAILWIND CLASSES
-- **Container:** `mx-auto max-w-6xl`
-- **Spacing:** `px-4 sm:px-6 lg:px-8` + `py-12 sm:py-16`
-- **Typography:** Use semantic HTML with Tailwind scale
-- **Colors:** Blue-600/Purple-600 for gradients
-- **Dark Mode:** Always include `dark:` variants
-
-### GRADIENT EXAMPLE
-```typescript
-className="bg-gradient-to-r from-blue-600 to-purple-600"
-```
-
-### RESPONSIVE EXAMPLE
-```typescript
-className="grid gap-6 md:grid-cols-2 lg:grid-cols-3"
-```
-
----
-
-## DATA FLOW DIAGRAM
-
-```
-content/*.ts (Readonly Data)
-    ↓
-types/index.ts (TypeScript Interfaces)
-    ↓
-components/* (Presentational Components)
-    ↓
-app/(pages)/* (Pages using components)
-    ↓
-lib/utils.ts (Helper functions for data transformation)
-```
-
----
-
-## TESTING YOUR CHANGES
-
-### COMMANDS
+### 6. Validation Before Any Commit
 
 ```bash
-# Development server
-npm run dev
+npm run type-check    # TypeScript strict mode
+npm run lint          # ESLint rules
+npm run format:check  # Prettier formatting
+npm run build         # Production build
 
-# Type checking
-npm run type-check
-
-# Linting
-npm run lint
-
-# Format code
-npm run format
-
-# Build for production
-npm run build
+# All must PASS before committing!
 ```
 
-### VERIFICATION CHECKLIST
+---
 
-- [ ] No TypeScript errors: `npm run type-check`
-- [ ] ESLint passes: `npm run lint`
-- [ ] Formatting correct: `npm run format`
-- [ ] Responsive on mobile (375px), tablet (768px), desktop (1920px)
-- [ ] Dark mode toggle works
-- [ ] All links functional
-- [ ] No console errors
+## COMMON PATTERNS
+
+### Adding New Content
+
+See [CONTENT_GUIDE.md](doc/CONTENT_GUIDE.md) for step-by-step instructions.
+
+**Quick pattern:**
+
+1. Add data to `content/[type].ts`
+2. Data must match interface in `types/index.ts`
+3. Never modify components or types unless needed
+4. Run validation: `npm run validate`
+
+### Creating New Page
+
+1. Create file: `app/(pages)/page-name/page.tsx`
+2. Import data and components
+3. Use `SectionWrapper` for consistent spacing
+4. Add dark mode to all elements
+5. Add responsive classes
+6. Update NAVIGATION_ITEMS in `site-config.ts`
+7. Validate and commit
+
+### Creating New Component
+
+1. Create file: `components/ComponentName.tsx`
+2. Add `'use client'` if interactive
+3. Define props interface with `readonly`
+4. Use TypeScript types everywhere
+5. Include dark mode support
+6. Export as named export
+7. Document in COMPONENT_GUIDE.md
 
 ---
 
-## COMMON COPILOT PROMPTS
+## BEFORE & AFTER PROMPTS FOR COPILOT
 
-### ADD CONTENT
-"Add a new project called '{NAME}' with technologies {TECH} and company {COMPANY}."
+### "ADD CONTENT"
 
-"Add a skill '{SKILL_NAME}' with proficiency {LEVEL} and {YEARS} years experience."
+```
+"I want to add a new project to my portfolio:
+- Title: 'Project Name'
+- Company: 'Company Name'
+- Role: 'Your Role'
+- Technologies: [Tech1, Tech2, Tech3]
+- Duration: 'Start Month/Year - End Month/Year'
+- Featured: true/false
+- Links: GitHub, Live demo
 
-"Add a blog post '{TITLE}' with tags {TAGS} and reading time {MINUTES} minutes."
+Follow CONTENT_GUIDE.md. Add only to content/projects.ts.
+Keep types and components unchanged. Run validation after."
+```
 
-### UPDATE CONTENT
-"Update the portfolio email to '{EMAIL}' in site-config.ts."
+**Copilot will:**
 
-"Change project '{PROJECT_NAME}' to featured: false."
+- Add project object to `PROJECTS` array
+- Match TypeScript interface exactly
+- Keep readonly properties
+- Add to appropriate position
+- Suggest updating helper functions if needed
 
-### CREATE FEATURES
-"Create a new page called '/testimonials' that displays all testimonials."
+### "CREATE NEW PAGE"
 
-"Add a theme toggle button to the Header component."
+```
+"Create a new page at /testimonials:
+- Display all testimonials in a grid
+- Show author name, position, company, rating
+- Use TestimonialCard component
+- Include dark mode support
+- Make responsive: 1 col mobile, 2 cols tablet, 3 cols desktop
+- Update navigation items
 
-### FIX ISSUES
-"Fix TypeScript errors in the Skills page."
+Follow ARCHITECTURE.md and STYLING_GUIDELINES.md."
+```
 
-"Update all components to use readonly properties."
+**Copilot will:**
+
+- Create `app/(pages)/testimonials/page.tsx`
+- Import testimonials data
+- Create responsive grid
+- Use Tailwind classes with dark: variants
+- Update site-config.ts navigation
+
+### "FIX CODE ISSUE"
+
+```
+"I'm getting TypeScript error: 'projects' has implicit any type.
+
+File: content/projects.ts
+Error occurs at export const PROJECTS = [...]
+
+Follow TYPESCRIPT_STANDARDS.md to fix.
+Make sure the type is explicit and readonly."
+```
+
+**Copilot will:**
+
+- Add explicit type: `readonly Project[]`
+- Ensure all properties are readonly
+- Validate against type interface
+- Suggest solution if validation fails
 
 ---
 
-## TROUBLESHOOTING
+## VALIDATION WORKFLOW
 
-### TYPESCRIPT ERRORS
-- Ensure all props have explicit types
-- Add `: JSX.Element` return type to components
-- Use `readonly` for immutable arrays/objects
+### Before Every Commit
 
-### STYLING ISSUES
-- Check Tailwind config in `globals.css`
-- Verify dark mode classes: `dark:bg-gray-900`
-- Use responsive prefixes: `md:`, `lg:`, `sm:`
+```bash
+# Step 1: Type check
+npm run type-check
+# ✅ Must pass - no errors allowed
 
-### IMPORT ERRORS
-- Use path aliases: `@/components`, `@/types`, `@/content`, `@/lib`
-- Keep relative imports minimal
+# Step 2: Lint
+npm run lint
+# ✅ Must pass - enforces ES6+ patterns
 
-### RUNTIME ERRORS
-- Check console for errors
-- Verify data structure matches TypeScript interface
-- Ensure page/component export default
+# Step 3: Format check
+npm run format:check
+# ✅ Must pass - code must be formatted
+
+# Step 4: Build
+npm run build
+# ✅ Must pass - production build successful
+
+# ONLY if all pass:
+git add .
+git commit -m "feat: description"
+git push origin feature-branch
+```
+
+**Shortcut:**
+
+```bash
+npm run validate  # Runs all checks in sequence
+```
 
 ---
 
-## VERSION CONTROL
+## GIT WORKFLOW
 
-- Keep data files (`content/*.ts`) separate from components
-- Never modify types without updating all consumers
-- Test before committing changes
-- Use descriptive commit messages
+See [GIT_CONVENTIONS.md](doc/GIT_CONVENTIONS.md) for complete details.
+
+### Branch Names
+
+```bash
+git checkout -b feature/add-testimonials-page      # New feature
+git checkout -b fix/dark-mode-toggle-bug           # Bug fix
+git checkout -b refactor/component-architecture    # Refactoring
+git checkout -b docs/update-standards              # Documentation
+git checkout -b chore/update-dependencies          # Maintenance
+```
+
+### Commit Messages
+
+```bash
+git commit -m "feat(testimonials): add testimonials page
+
+- Create new page component
+- Display testimonials in grid
+- Add dark mode support
+- Update navigation menu
+
+Closes #42"
+```
+
+### PR Template
+
+```markdown
+## Description
+
+Brief summary of changes
+
+## Type
+
+- [ ] Feature
+- [ ] Bug fix
+- [ ] Refactoring
+
+## Validation
+
+- [ ] npm run type-check passes
+- [ ] npm run lint passes
+- [ ] npm run format:check passes
+- [ ] npm run build succeeds
+
+Closes #XXX
+```
 
 ---
 
-## NEXT STEPS
+## DOCUMENTATION HIERARCHY
 
-1. **Install shadcn/ui components** as needed: `npx shadcn-ui@latest add [component]`
-2. **Set up email service** (Resend, EmailJS) for contact form
-3. **Configure analytics** (Vercel Analytics or Google Analytics)
-4. **Deploy to Vercel** with GitHub integration
-5. **Set up custom domain** via Vercel dashboard
+**For LLM assistance, reference in this order:**
+
+1. **This file (AGENTS.md)** - Overview & quick reference
+2. **Standards files (in `/doc/`)** - Deep dive on specific topic
+3. **CONTENT_GUIDE.md** - How to modify content
+4. **COMPONENT_GUIDE.md** - Component APIs
+5. **DATA_SCHEMA.md** - Type reference
+
+---
+
+## EXAMPLE: ADD A NEW SKILL
+
+### Step 1: Review Standard
+
+Read [NAMING_CONVENTIONS.md](doc/NAMING_CONVENTIONS.md) for naming rules.
+Read [TYPESCRIPT_STANDARDS.md](doc/TYPESCRIPT_STANDARDS.md) for type requirements.
+
+### Step 2: Implement
+
+```typescript
+// File: content/skills.ts
+
+// Add to SKILLS array
+{
+  id: 'skill-graphql',              // camelCase with hyphens
+  name: 'GraphQL',                  // Exact tool/tech name
+  category: SkillCategory.BACKEND,  // Use enum value
+  proficiency: ProficiencyLevel.ADVANCED,  // Use enum value
+  yearsOfExperience: 3,
+  relatedProjects: ['project-id-1', 'project-id-2'],  // readonly array
+}
+```
+
+### Step 3: Validate
+
+```bash
+npm run type-check    # TypeScript check
+npm run lint          # ESLint check
+npm run format:check  # Code formatting
+npm run build         # Build test
+```
+
+### Step 4: Commit
+
+```bash
+git add content/skills.ts
+git commit -m "feat(skills): add GraphQL backend skill
+
+- Added GraphQL with advanced proficiency
+- 3 years of experience
+- Related to existing projects
+- Follows TYPESCRIPT_STANDARDS.md patterns"
+```
+
+---
+
+## RESOURCES
+
+### Internal Documentation
+
+- [IMPLEMENTATION_SUMMARY.md](IMPLEMENTATION_SUMMARY.md) - Project overview
+- [COMPONENT_GUIDE.md](doc/COMPONENT_GUIDE.md) - 7 core components
+- [DATA_SCHEMA.md](doc/DATA_SCHEMA.md) - Type definitions
+- [CONTENT_GUIDE.md](doc/CONTENT_GUIDE.md) - Content modification
+
+### External References
+
+- [TypeScript Handbook](https://www.typescriptlang.org/docs/)
+- [React Documentation](https://react.dev)
+- [Next.js Documentation](https://nextjs.org/docs)
+- [Tailwind CSS Documentation](https://tailwindcss.com/docs)
+- [Conventional Commits](https://www.conventionalcommits.org/)
+
+---
+
+## HOW TO USE THIS FRAMEWORK
+
+### For Content Updates (No Code Changes)
+
+See [CONTENT_GUIDE.md](doc/CONTENT_GUIDE.md):
+
+1. Add project, skill, blog post, testimonial, or certification
+2. Data goes ONLY to `content/[type].ts`
+3. Never modify components or types
+4. Run: `npm run type-check` after changes
+5. Commit with message: `feat(content): add new [type]`
+
+### For Component/Code Changes
+
+1. Review the relevant standard file:
+   - TypeScript issues → [TYPESCRIPT_STANDARDS.md](doc/TYPESCRIPT_STANDARDS.md)
+   - React issues → [REACT_STANDARDS.md](doc/REACT_STANDARDS.md)
+   - Naming issues → [NAMING_CONVENTIONS.md](doc/NAMING_CONVENTIONS.md)
+   - Styling issues → [STYLING_GUIDELINES.md](doc/STYLING_GUIDELINES.md)
+
+2. Implement changes following ALL rules
+
+3. Validate:
+
+   ```bash
+   npm run validate  # Runs all checks
+   ```
+
+4. Commit following [GIT_CONVENTIONS.md](doc/GIT_CONVENTIONS.md)
+
+### For Architecture/Structure Questions
+
+See [ARCHITECTURE.md](doc/ARCHITECTURE.md):
+
+- File organization and naming
+- Data flow patterns
+- Import paths and aliases
+- Circular dependency prevention
+
+---
+
+## COMPONENTS & APIs
+
+See [COMPONENT_GUIDE.md](doc/COMPONENT_GUIDE.md) for complete API reference of:
+
+- Header, Footer, Hero components
+- ProjectCard, SkillCard, ExperienceItem
+- SectionWrapper container
+- All component props and usage
+
+---
+
+## DEPLOYING TO PRODUCTION
+
+```bash
+# Full validation (MUST ALL PASS)
+npm run validate
+
+# Build test
+npm run build
+
+# Preview locally
+npm run dev
+
+# Deploy
+npm run deploy
+# OR: git push to production branch
+```
+
+Before deploying:
+
+- ✅ All validations pass
+- ✅ Dark mode tested
+- ✅ Responsive design verified (mobile, tablet, desktop)
+- ✅ All links working
+- ✅ Contact form ready (email service configured)
+- ✅ No console errors
 
 ---
 

@@ -6,6 +6,7 @@
 
 'use client';
 
+import React from 'react';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
 
@@ -37,37 +38,24 @@ export const Hero = (): JSX.Element => {
         </h1>
 
         <p className="mb-8 max-w-2xl text-lg leading-relaxed text-gray-600 dark:text-gray-400 sm:text-xl">
-          With 9+ years of professional experience, I build scalable web
-          applications using React, Next.js, TypeScript, and modern web
-          technologies. Currently leading engineering teams at Iris Software
-          Pvt. Ltd.
+          With 9+ years of professional experience, I build scalable web applications using React,
+          Next.js, TypeScript, and modern web technologies. Currently leading engineering teams at
+          Iris Software Pvt. Ltd.
         </p>
 
         {/* HIGHLIGHTS */}
         <div className="mb-10 grid grid-cols-1 gap-4 sm:grid-cols-3">
           <div className="rounded-lg border border-gray-200 bg-white/50 p-4 backdrop-blur-sm dark:border-gray-800 dark:bg-gray-900/50">
-            <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">
-              9+
-            </div>
-            <p className="text-sm text-gray-600 dark:text-gray-400">
-              Years Experience
-            </p>
+            <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">9+</div>
+            <p className="text-sm text-gray-600 dark:text-gray-400">Years Experience</p>
           </div>
           <div className="rounded-lg border border-gray-200 bg-white/50 p-4 backdrop-blur-sm dark:border-gray-800 dark:bg-gray-900/50">
-            <div className="text-2xl font-bold text-purple-600 dark:text-purple-400">
-              50+
-            </div>
-            <p className="text-sm text-gray-600 dark:text-gray-400">
-              Projects Completed
-            </p>
+            <div className="text-2xl font-bold text-purple-600 dark:text-purple-400">50+</div>
+            <p className="text-sm text-gray-600 dark:text-gray-400">Projects Completed</p>
           </div>
           <div className="rounded-lg border border-gray-200 bg-white/50 p-4 backdrop-blur-sm dark:border-gray-800 dark:bg-gray-900/50">
-            <div className="text-2xl font-bold text-green-600 dark:text-green-400">
-              Expert
-            </div>
-            <p className="text-sm text-gray-600 dark:text-gray-400">
-              Full-Stack Dev
-            </p>
+            <div className="text-2xl font-bold text-green-600 dark:text-green-400">Expert</div>
+            <p className="text-sm text-gray-600 dark:text-gray-400">Full-Stack Dev</p>
           </div>
         </div>
 
@@ -82,12 +70,7 @@ export const Hero = (): JSX.Element => {
             )}
           >
             View My Projects
-            <svg
-              className="ml-2 h-5 w-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
+            <svg className="ml-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -105,12 +88,7 @@ export const Hero = (): JSX.Element => {
             )}
           >
             Get In Touch
-            <svg
-              className="ml-2 h-5 w-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
+            <svg className="ml-2 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -123,9 +101,7 @@ export const Hero = (): JSX.Element => {
 
         {/* SOCIAL PROOF */}
         <div className="mt-16 border-t border-gray-200 pt-8 dark:border-gray-800">
-          <p className="mb-4 text-sm font-medium text-gray-600 dark:text-gray-400">
-            TRUSTED BY
-          </p>
+          <p className="mb-4 text-sm font-medium text-gray-600 dark:text-gray-400">TRUSTED BY</p>
           <div className="flex flex-wrap items-center gap-8 text-sm text-gray-600 dark:text-gray-400">
             <span>Iris Software</span>
             <span>MyGlamm</span>

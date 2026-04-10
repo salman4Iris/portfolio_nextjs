@@ -53,13 +53,8 @@ export const UDEMY_COURSES: readonly Certification[] = [
  * @returns Certification or undefined if not found
  */
 export const getCertificationById = (id: string): Certification | undefined => {
-  const allCertifications: readonly Certification[] = [
-    ...CERTIFICATIONS,
-    ...UDEMY_COURSES,
-  ];
-  return allCertifications.find(
-    (cert: Certification): boolean => cert.id === id
-  );
+  const allCertifications: readonly Certification[] = [...CERTIFICATIONS, ...UDEMY_COURSES];
+  return allCertifications.find((cert: Certification): boolean => cert.id === id);
 };
 
 /**
@@ -77,9 +72,7 @@ export const getAllCertifications = (): readonly Certification[] => {
  * @param issuer - Issuer name to search for
  * @returns Array of certifications from that issuer
  */
-export const getCertificationsByIssuer = (
-  issuer: string
-): readonly Certification[] => {
+export const getCertificationsByIssuer = (issuer: string): readonly Certification[] => {
   return getAllCertifications().filter((cert: Certification): boolean =>
     cert.issuer.toLowerCase().includes(issuer.toLowerCase())
   );
