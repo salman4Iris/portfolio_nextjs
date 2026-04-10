@@ -165,6 +165,8 @@ export interface SiteMetadata {
   readonly phone: string;
   readonly location: string;
   readonly timezone: string;
+  readonly profileImage?: string;
+  readonly resumeLink?: string;
   readonly socialLinks: {
     readonly linkedin?: string;
     readonly github?: string;

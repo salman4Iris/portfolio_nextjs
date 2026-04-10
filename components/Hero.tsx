@@ -7,8 +7,10 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
+import { SITE_METADATA } from '@/content/site-config';
 
 /**
  * HERO COMPONENT
@@ -24,24 +26,50 @@ export const Hero = (): JSX.Element => {
       <div className="absolute -bottom-40 left-0 -z-10 h-80 w-80 rounded-full bg-gradient-to-tr from-purple-400 to-blue-600 opacity-10 blur-3xl dark:opacity-5" />
 
       {/* CONTENT */}
-      <div className="mx-auto max-w-4xl">
-        <div className="mb-6 inline-flex items-center rounded-full border border-blue-200 bg-blue-50 px-4 py-2 text-sm font-medium text-blue-600 dark:border-blue-900 dark:bg-blue-950 dark:text-blue-400">
-          👋 Welcome to my portfolio
+      <div className="mx-auto max-w-6xl">
+        <div className="grid items-center gap-12 md:grid-cols-2">
+          {/* TEXT CONTENT */}
+          <div>
+            <div className="mb-6 inline-flex items-center rounded-full border border-blue-200 bg-blue-50 px-4 py-2 text-sm font-medium text-blue-600 dark:border-blue-900 dark:bg-blue-950 dark:text-blue-400">
+              👋 Welcome to my portfolio
+            </div>
+
+            <h1 className="mb-6 text-5xl font-bold leading-tight tracking-tight text-gray-900 dark:text-white sm:text-6xl md:text-5xl">
+              Senior Software
+              <br />
+              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                Engineer
+              </span>
+            </h1>
+          </div>
+
+          {/* PROFILE IMAGE */}
+          {SITE_METADATA.profileImage && (
+            <div className="relative mx-auto w-full max-w-xs md:max-w-none">
+              <div className="relative aspect-square overflow-hidden rounded-2xl bg-gradient-to-br from-blue-400 to-purple-600 p-1 shadow-2xl">
+                <Image
+                  src={SITE_METADATA.profileImage}
+                  alt={SITE_METADATA.author}
+                  fill
+                  className="rounded-xl object-cover"
+                  priority
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </div>
+              <div className="absolute -bottom-4 -right-4 h-24 w-24 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 opacity-20 blur-2xl" />
+            </div>
+          )}
         </div>
 
-        <h1 className="mb-6 text-5xl font-bold leading-tight tracking-tight text-gray-900 dark:text-white sm:text-6xl md:text-7xl">
-          Senior Software
-          <br />
-          <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-            Engineer
-          </span>
-        </h1>
+        {/* DESCRIPTION AND HIGHLIGHTS */}
+        <div className="mt-12">
 
-        <p className="mb-8 max-w-2xl text-lg leading-relaxed text-gray-600 dark:text-gray-400 sm:text-xl">
-          With 9+ years of professional experience, I build scalable web applications using React,
-          Next.js, TypeScript, and modern web technologies. Currently leading engineering teams at
-          Iris Software Pvt. Ltd.
-        </p>
+          <p className="mb-8 max-w-2xl text-lg leading-relaxed text-gray-600 dark:text-gray-400 sm:text-xl">
+            With 9+ years of professional experience, I build scalable web applications using React,
+            Next.js, TypeScript, and modern web technologies. Currently leading engineering teams at
+            Iris Software Pvt. Ltd.
+          </p>
+        </div>
 
         {/* HIGHLIGHTS */}
         <div className="mb-10 grid grid-cols-1 gap-4 sm:grid-cols-3">

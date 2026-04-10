@@ -15,9 +15,11 @@ export const SITE_METADATA: SiteMetadata = {
   phone: '+91-9029051642',
   location: 'Mumbai-400043, Maharashtra, India',
   timezone: 'IST (UTC+5:30)',
+  profileImage: '/salman.jpeg',
+  resumeLink: '/SalmanCVFull_9yrs.pdf',
   socialLinks: {
-    linkedin: 'https://linkedin.com/in/khansalman752',
-    github: 'https://github.com',
+    linkedin: 'https://www.linkedin.com/in/salman-khan-a62ab2a2/',
+    github: 'https://github.com/salman4code',
     twitter: undefined,
     email: 'khansalman752@gmail.com',
   },
