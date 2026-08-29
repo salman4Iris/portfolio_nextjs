@@ -16,7 +16,7 @@ import { SITE_METADATA, FOOTER_TEXT } from '@/content/site-config';
  * @returns Footer JSX element
  */
 export const Footer = (): JSX.Element => {
-  const currentYear: number = new Date().getFullYear();
+  // const currentYear: number = new Date().getFullYear();
 
   return (
     <footer className="border-t border-gray-200 bg-gray-50 dark:border-gray-800 dark:bg-gray-950">
