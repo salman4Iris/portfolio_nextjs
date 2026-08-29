@@ -8,6 +8,26 @@ import type { Project } from '@/types';
 
 export const PROJECTS: readonly Project[] = [
   {
+    id: 'hiset-chatbot',
+    title: 'HiSet Chatbot Web Application',
+    description:
+      'Developed a Next.js-based AI chatbot that transforms natural language questions into database queries and delivers relevant results in a conversational format. The solution helps users retrieve information faster without requiring technical query knowledge, while keeping the experience responsive and user-friendly.',
+    shortDescription:
+      'AI-powered chatbot for natural-language database interaction',
+    technologies: ['Next.js', 'ReactJS', 'JavaScript', 'AI Chatbot'],
+    duration: 'Apr 2026 - Present',
+    role: 'Senior Frontend Engineer',
+    company: 'Iris Software Pvt. Ltd.',
+    highlights: [
+      'Natural-language querying for database information',
+      'Conversational UI built with Next.js and React',
+      'Improved accessibility of data retrieval for non-technical users',
+      'Productized AI-driven user experience',
+    ],
+    featured: true,
+    links: {},
+  },
+  {
     id: 'rems',
     title: 'Regulatory Execution Management System (REMS)',
     description:
@@ -15,7 +35,7 @@ export const PROJECTS: readonly Project[] = [
     shortDescription:
       'Web-based trading system with real-time compliance monitoring and regulatory reporting',
     technologies: ['ReactJS', 'Redux', 'TypeScript', 'Node.js', 'Java', 'Oracle SQL'],
-    duration: 'April 2024 - Present',
+    duration: 'Apr 2024 - Jan 2026',
     role: 'Senior React Developer',
     company: 'Iris Software Pvt. Ltd.',
     highlights: [
@@ -36,7 +56,7 @@ export const PROJECTS: readonly Project[] = [
       'A comprehensive Dealer Admin portal enabling clients to manage product approvals, regional deactivations, and sales coverage assignments. The portal provides intuitive workflows for product governance and relationship management with real-time updates and collaborative features.',
     shortDescription: 'Dealer Admin portal for product management and sales coverage',
     technologies: ['React', 'Redux', 'TypeScript', 'Material Design', 'HTML5', 'CSS3'],
-    duration: 'Sep 2021 - Present',
+    duration: 'Sep 2021 - Jan 2026',
     role: 'React Developer',
     company: 'Iris Software Pvt. Ltd.',
     highlights: [
@@ -102,7 +122,7 @@ export const PROJECTS: readonly Project[] = [
       'Full-stack development of a comprehensive portal managing country details, client information, dealers, and products with complex relationship mappings. Maintained features and implemented client-requested updates with a focus on data integrity and accurate reporting.',
     shortDescription: 'Portal for managing clients, dealers, and counterparty relationships',
     technologies: ['Angular', 'TypeScript', 'JavaScript', 'HTML5', 'CSS3', 'Java', 'Oracle SQL'],
-    duration: 'Jan 2021 - Present',
+    duration: 'Jan 2021 - Jan 2026',
     role: 'Full Stack Developer',
     company: 'Iris Software Pvt. Ltd.',
     highlights: [
@@ -122,7 +142,7 @@ export const PROJECTS: readonly Project[] = [
       'Developed and maintained a trading platform enabling users to trade instruments including loans, cash, and bonds. Provided comprehensive instrument management, real-time trading capabilities, and detailed transaction tracking with role-based access control.',
     shortDescription: 'Trading platform for managing financial instruments',
     technologies: ['Angular', 'TypeScript', 'JavaScript', 'HTML5', 'CSS3', 'Java', 'Oracle SQL'],
-    duration: 'Dec 2021 - Present',
+    duration: 'Dec 2021 - Jan 2026',
     role: 'Full Stack Developer',
     company: 'Iris Software Pvt. Ltd.',
     highlights: [

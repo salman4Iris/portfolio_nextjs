@@ -7,15 +7,15 @@
 import type { SiteMetadata, NavigationItem } from '@/types';
 
 export const SITE_METADATA: SiteMetadata = {
-  title: 'Salman Khan - Senior Software Engineer',
+  title: 'Salman Khan | Senior Software Engineer',
   description:
-    'Senior Software Engineer with 9+ years of experience in React, Next.js, Node.js, and full-stack development. Specialized in building scalable web applications and leading engineering teams.',
+    'Senior Software Engineer with 9+ years of experience building scalable web applications, AI-powered products, and enterprise platforms using React, Next.js, Node.js, TypeScript, and Java.',
   author: 'Salman Khan',
   email: 'khansalman752@gmail.com',
   phone: '+91-9029051642',
   location: 'Mumbai-400043, Maharashtra, India',
   timezone: 'IST (UTC+5:30)',
-  profileImage: '/salman.jpeg',
+  profileImage: '/SalmanPhotoPassportSize.jpeg',
   resumeLink: '/SalmanCVFull_9yrs.pdf',
   socialLinks: {
     linkedin: 'https://www.linkedin.com/in/salman-khan-a62ab2a2/',
@@ -85,16 +85,16 @@ export const ABOUT_CONTENT: Readonly<{
   highlights: readonly string[];
 }> = {
   title: 'Senior Software Engineer',
-  subtitle: 'Building scalable web applications with modern technologies',
-  bio: 'With 9+ years of professional experience, I am a Senior Software Engineer specializing in full-stack web development. I have led teams through complex projects, optimized performance for high-traffic applications, and mentored junior developers. My expertise spans React, Next.js, TypeScript, Node.js, and various backend technologies. Currently, I work at Iris Software Pvt. Ltd., where I architect and lead the development of intricate web applications including regulatory trading platforms.',
+  subtitle: 'Building scalable web applications, AI experiences, and enterprise platforms',
+  bio: 'I am a Senior Software Engineer with 9+ years of experience delivering web applications that improve business operations, user experience, and system scalability. My work spans React, Next.js, Angular, TypeScript, Java, Node.js, and full-stack product development. At Iris Software Pvt. Ltd., I lead solution delivery for complex enterprise platforms including REMS, OneView, Dealer Admin, and AI-powered chatbot experiences that transform natural language questions into database-driven insight.',
   highlights: [
-    'Senior Software Engineer with 9+ years experience',
-    'Expert in React, Next.js, TypeScript, and full-stack development',
-    'Led development of regulatory trading systems (REMS) for financial markets',
-    'Successfully migrated large-scale e-commerce platform from Angular to React',
-    'Proven track record of performance optimization and user experience improvement',
-    'Strong leadership and mentoring capabilities',
-    'Proficient with CI/CD, Docker, and modern DevOps practices',
+    '9+ years of experience in full-stack web development and architecture',
+    'Built AI-powered chatbot interfaces with Next.js to convert user questions into database queries',
+    'Led delivery of regulatory trading systems and enterprise portals for financial markets',
+    'Successfully migrated large-scale e-commerce products from Angular to React/Next.js',
+    'Strong experience in performance optimization, API integrations, and analytics',
+    'Mentored team members and managed project delivery across cross-functional teams',
+    'Proficient in CI/CD, Docker, testing, and modern engineering best practices',
   ],
 };
 

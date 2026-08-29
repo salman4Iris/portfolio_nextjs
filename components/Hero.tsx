@@ -45,13 +45,13 @@ export const Hero = (): JSX.Element => {
 
           {/* PROFILE IMAGE */}
           {SITE_METADATA.profileImage && (
-            <div className="relative mx-auto w-full max-w-xs md:max-w-none">
-              <div className="relative aspect-square overflow-hidden rounded-2xl bg-gradient-to-br from-blue-400 to-purple-600 p-1 shadow-2xl">
+            <div className="relative mx-auto w-full max-w-xs md:max-w-none flex justify-center">
+              <div className="relative h-96 w-96 overflow-hidden rounded-full bg-gradient-to-br from-blue-400 to-purple-600 p-1 shadow-2xl">
                 <Image
                   src={SITE_METADATA.profileImage}
                   alt={SITE_METADATA.author}
                   fill
-                  className="rounded-xl object-cover"
+                  className="rounded-full object-cover object-center"
                   priority
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
@@ -65,9 +65,9 @@ export const Hero = (): JSX.Element => {
         <div className="mt-12">
 
           <p className="mb-8 max-w-2xl text-lg leading-relaxed text-gray-600 dark:text-gray-400 sm:text-xl">
-            With 9+ years of professional experience, I build scalable web applications using React,
-            Next.js, TypeScript, and modern web technologies. Currently leading engineering teams at
-            Iris Software Pvt. Ltd.
+            With 9+ years of professional experience, I design and build scalable web applications,
+            AI-powered experiences, and enterprise platforms using React, Next.js, TypeScript,
+            Java, and modern full-stack engineering practices.
           </p>
         </div>
 
@@ -82,8 +82,8 @@ export const Hero = (): JSX.Element => {
             <p className="text-sm text-gray-600 dark:text-gray-400">Projects Completed</p>
           </div>
           <div className="rounded-lg border border-gray-200 bg-white/50 p-4 backdrop-blur-sm dark:border-gray-800 dark:bg-gray-900/50">
-            <div className="text-2xl font-bold text-green-600 dark:text-green-400">Expert</div>
-            <p className="text-sm text-gray-600 dark:text-gray-400">Full-Stack Dev</p>
+            <div className="text-2xl font-bold text-green-600 dark:text-green-400">AI +</div>
+            <p className="text-sm text-gray-600 dark:text-gray-400">Full-Stack Delivery</p>
           </div>
         </div>
 

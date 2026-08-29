@@ -15,7 +15,7 @@ export const EXPERIENCES: readonly Experience[] = [
     startDate: '2021-09-01',
     endDate: '2026-04-10',
     description:
-      "Providing overall leadership to the entire project team, including managing deliverables of other functional team leaders. Managing large and complex projects or multiple components of a large project involving more than one company's product.",
+      'Leading the delivery of complex web applications and enterprise platforms while managing cross-functional stakeholders, client expectations, and project execution across multiple product streams.',
     isCurrent: true,
     technologies: [
       'ReactJS',
@@ -34,11 +34,13 @@ export const EXPERIENCES: readonly Experience[] = [
       'Successfully launched the REMS application in production in 2024',
       'Received two accolades in 2024 for outstanding client feedback',
       'Honored as the Best Employee of the Month in Nov 2021',
+      'Developed an AI-powered chatbot using Next.js to convert natural-language questions into database queries',
     ],
     achievements: [
       'Developed REMS Web Application from ground up utilizing ReactJS with Material Design and AG Grid libraries',
-      'Providing mentorship to team members promoting best practices for code maintainability',
-      'Leading implementation of OneView web application to enhance dealer-client relationships',
+      'Built the HiSet chatbot experience using Next.js to help users retrieve database information via natural-language interaction',
+      'Provided mentorship to team members, promoting best practices for code maintainability and project execution',
+      'Led implementation of OneView web application to enhance dealer-client relationships',
       'Designed and implemented front-end architecture and established common code libraries',
       'Implemented continuous integration pipeline using Docker to streamline deployment',
       'Utilized AG Grid to create dashboards and tabular structures for trade listings',
