@@ -31,9 +31,9 @@ export default function ExperiencePage(): JSX.Element {
 
       {/* TIMELINE */}
       <SectionWrapper className="bg-gray-50 dark:bg-gray-900">
-        <div className="max-w-4xl">
+        <div className="relative max-w-4xl">
           {/* TIMELINE LINE */}
-          <div className="absolute left-6 top-0 h-full w-0.5 bg-gradient-to-b from-blue-500 to-purple-600 md:left-auto md:right-auto md:w-0.5" />
+          <div className="absolute left-6 top-0 h-full w-0.5 -translate-x-1/2 bg-gradient-to-b from-blue-500 to-purple-600" />
 
           {/* EXPERIENCES */}
           <div className="space-y-12">
@@ -45,8 +45,8 @@ export default function ExperiencePage(): JSX.Element {
           </div>
 
           {/* BOTTOM MARKER */}
-          <div className="relative flex items-center justify-center pt-12">
-            <div className="h-4 w-4 rounded-full border-4 border-white bg-gradient-to-br from-green-400 to-green-600 dark:border-gray-900" />
+          <div className="relative flex items-center justify-start pt-12">
+            <div className="ml-4 h-4 w-4 rounded-full border-4 border-white bg-gradient-to-br from-green-400 to-green-600 dark:border-gray-900" />
           </div>
         </div>
       </SectionWrapper>

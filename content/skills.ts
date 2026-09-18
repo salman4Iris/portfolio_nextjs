@@ -22,7 +22,7 @@ export const SKILLS: readonly Skill[] = [
     name: 'Next.js',
     category: SkillCategory.FRONTEND,
     proficiency: ProficiencyLevel.ADVANCED,
-    yearsOfExperience: 5,
+    yearsOfExperience: 7,
     relatedProjects: ['iris-agent-studio', 'hiset-chatbot', 'myglamm-mobile', 'popxo'],
   },
   {
@@ -38,7 +38,7 @@ export const SKILLS: readonly Skill[] = [
     name: 'TypeScript',
     category: SkillCategory.FRONTEND,
     proficiency: ProficiencyLevel.EXPERT,
-    yearsOfExperience: 6,
+    yearsOfExperience: 8,
   },
   {
     id: 'javascript',
@@ -60,7 +60,7 @@ export const SKILLS: readonly Skill[] = [
     name: 'Redux',
     category: SkillCategory.FRONTEND,
     proficiency: ProficiencyLevel.EXPERT,
-    yearsOfExperience: 6,
+    yearsOfExperience: 7,
     relatedProjects: ['rems', 'myglamm-mobile', 'popxo'],
   },
   {
@@ -75,7 +75,7 @@ export const SKILLS: readonly Skill[] = [
     name: 'Tailwind CSS',
     category: SkillCategory.FRONTEND,
     proficiency: ProficiencyLevel.ADVANCED,
-    yearsOfExperience: 3,
+    yearsOfExperience: 7,
   },
   {
     id: 'html5',
@@ -110,7 +110,7 @@ export const SKILLS: readonly Skill[] = [
     name: 'AG Grid',
     category: SkillCategory.FRONTEND,
     proficiency: ProficiencyLevel.ADVANCED,
-    yearsOfExperience: 4,
+    yearsOfExperience: 5,
   },
 
   // BACKEND SKILLS
@@ -170,7 +170,7 @@ export const SKILLS: readonly Skill[] = [
     name: 'SQL',
     category: SkillCategory.DATABASES,
     proficiency: ProficiencyLevel.EXPERT,
-    yearsOfExperience: 8,
+    yearsOfExperience: 5,
   },
   {
     id: 'oracle',
@@ -305,7 +305,7 @@ export const SKILLS: readonly Skill[] = [
     name: 'Team Leadership',
     category: SkillCategory.SOFT_SKILLS,
     proficiency: ProficiencyLevel.ADVANCED,
-    yearsOfExperience: 4,
+    yearsOfExperience: 2,
   },
   {
     id: 'mentoring',
