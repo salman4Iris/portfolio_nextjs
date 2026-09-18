@@ -21,7 +21,30 @@ import { PROJECTS } from '@/content/projects';
  */
 export const Hero = (): JSX.Element => {
   const totalYears: number = calculateTotalExperienceYears();
-  const skillPills: readonly string[] = ['React', 'Next.js','Angular','TypeScript','Node.js','Tailwind CSS','Github Copilot','AI/ML','Generative AI','Figma','Micro-frontends','System Design'];
+  const skillPills: readonly string[] = [
+    'React',
+    'Next.js',
+    'Angular',
+    'TypeScript',
+    'Node.js',
+    'Micro-frontends',
+    'AI/ML',
+    'Generative AI',
+    'React Flow',
+    'AG Grid',
+    'Tailwind CSS',
+    'System Design',
+  ];
+  const heroBio: JSX.Element = (
+    <>
+      Senior Software Engineer with a strong track record of designing robust frontend architectures
+      and agentic AI interfaces. Over 9+ years, I&apos;ve architected enterprise-grade applications
+      for global leaders (including ETS and MarketAxess) leveraging{' '}
+      <strong>React, Next.js, Angular, TypeScript, React Flow, and AG Grid</strong>. Experienced in
+      delivering micro-frontend systems, node-based LLM orchestrations, and scalable UI platforms
+      that bridge complex backends with intuitive user experiences.
+    </>
+  );
 
   return (
     <section className="relative isolate min-h-[calc(100vh-5rem)] w-full overflow-hidden bg-[var(--home-background)] px-4 py-16 text-slate-900 sm:px-6 sm:py-20 dark:text-white lg:px-8 lg:py-24">
@@ -34,18 +57,14 @@ export const Hero = (): JSX.Element => {
             Hey there! I&apos;m
           </p>
           <h1 className="max-w-xl text-4xl font-black leading-[1.08] tracking-tight sm:text-7xl lg:text-8xl">
-            Salman
-            <br />
+            Salman{' '}
             <span className="bg-gradient-to-r from-slate-950 via-slate-700 to-blue-600 bg-clip-text text-transparent dark:from-white dark:via-slate-100 dark:to-cyan-300">
               Khan.
             </span>
           </h1>
 
-          <p className="mt-6 text-xl font-bold text-slate-900 sm:mt-8 sm:text-3xl dark:text-slate-100">
-            <span className="text-cyan-400">Senior Software Engineer</span>
-          </p>
           <p className="mt-6 max-w-xl text-base leading-7 text-slate-600 sm:text-lg dark:text-slate-400">
-            {ABOUT_CONTENT.bio}
+            {heroBio}
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
