@@ -9,14 +9,14 @@ import type { SiteMetadata, NavigationItem } from '@/types';
 export const SITE_METADATA: SiteMetadata = {
   title: 'Salman Khan | Senior Software Engineer',
   description:
-    'Senior Software Engineer with 9+ years of experience building scalable web applications, AI-powered products, and enterprise platforms using React, Next.js, Node.js, TypeScript, and Java.',
+    'Senior Software Engineer with 9+ years of experience in frontend architecture, modern web applications, micro-frontends, and AI UI integrations across EdTech, FinTech, and E-commerce.',
   author: 'Salman Khan',
   email: 'khansalman752@gmail.com',
   phone: '+91-9029051642',
-  location: 'Mumbai-400043, Maharashtra, India',
+  location: 'Mumbai, Maharashtra, India',
   timezone: 'IST (UTC+5:30)',
   profileImage: '/SalmanPhotoPassportSize.jpeg',
-  resumeLink: '/SalmanCVFull_9yrs.pdf',
+  resumeLink: '/SalmanWithProjects.pdf',
   socialLinks: {
     linkedin: 'https://www.linkedin.com/in/salman-khan-a62ab2a2/',
     github: 'https://github.com/salman4code',
@@ -85,16 +85,16 @@ export const ABOUT_CONTENT: Readonly<{
   highlights: readonly string[];
 }> = {
   title: 'Senior Software Engineer',
-  subtitle: 'Building scalable web applications, AI experiences, and enterprise platforms',
-  bio: 'I am a Senior Software Engineer with 9+ years of experience delivering web applications that improve business operations, user experience, and system scalability. My work spans React, Next.js, Angular, TypeScript, Java, Node.js, and full-stack product development. At Iris Software Pvt. Ltd., I lead solution delivery for complex enterprise platforms including REMS, OneView, Dealer Admin, and AI-powered chatbot experiences that transform natural language questions into database-driven insight.',
+  subtitle: 'Frontend architecture, AI interfaces, and enterprise web applications',
+  bio: 'I am a Senior Software Engineer with 9+ years of experience specializing in frontend architecture, modern web applications, micro-frontends, and AI UI integrations across EdTech, FinTech, and E-commerce. At Iris Software, I contribute to AgentStudio, HiSet, REMS, OneView, and enterprise platforms for global clients including ETS and MarketAxess, combining React, Next.js, TypeScript, React Flow, AG Grid, and agentic UI engineering.',
   highlights: [
-    '9+ years of experience in full-stack web development and architecture',
-    'Built AI-powered chatbot interfaces with Next.js to convert user questions into database queries',
-    'Led delivery of regulatory trading systems and enterprise portals for financial markets',
-    'Successfully migrated large-scale e-commerce products from Angular to React/Next.js',
-    'Strong experience in performance optimization, API integrations, and analytics',
-    'Mentored team members and managed project delivery across cross-functional teams',
-    'Proficient in CI/CD, Docker, testing, and modern engineering best practices',
+    'Frontend architecture with React.js, Next.js, Angular, Redux, TypeScript, and React Flow',
+    'Agentic UI engineering for AgentStudio, MCP workflows, and conversational AI experiences',
+    'Enterprise financial platforms for regulatory execution, trade dashboards, and compliance',
+    'Modernization of large-scale e-commerce products from Angular Universal to React and Next.js',
+    'Performance engineering across SSR, AMP, Web Vitals, analytics, and high-density dashboards',
+    'Mentoring developers through component architecture, code reviews, Jest, and TDD',
+    'Backend collaboration with Node.js, Express.js, Python tooling, Java, and SQL/NoSQL databases',
   ],
 };
 

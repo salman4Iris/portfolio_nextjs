@@ -9,8 +9,8 @@ import type { Certification } from '@/types';
 export const CERTIFICATIONS: readonly Certification[] = [
   {
     id: 'btech-cse',
-    title: 'B.E/B.Tech. (Computer Science)',
-    issuer: "Pillai's HOC College of Engineering and Technology, Mumbai University",
+    title: 'B.E. / B.Tech. in Computer Engineering',
+    issuer: "Pillai's HOC College of Engineering, Mumbai University, Mumbai",
     issueDate: '2016-06-15',
     credentialId: 'CSE-2016',
     image: undefined,
@@ -31,19 +31,27 @@ export const CERTIFICATIONS: readonly Certification[] = [
  * Expandable structure for future certificate additions
  */
 export const UDEMY_COURSES: readonly Certification[] = [
-  // Stub for future Udemy certificates
-  // Format example below - uncomment and fill when certificates are obtained
-  /*
   {
-    id: 'udemy-course-1',
-    title: 'Course Title',
+    id: 'github-copilot-beginner-to-pro',
+    title: 'GitHub Copilot: Beginner to Pro - AI for Coding & Development',
     issuer: 'Udemy',
-    issueDate: '2024-01-15',
-    credentialId: 'UC-XXXXXX',
-    credentialUrl: 'https://udemy.com/certificate/...',
+    issueDate: '2026',
     image: undefined,
   },
-  */
+  {
+    id: 'artificial-intelligence-chatgpt',
+    title: 'The Complete Artificial Intelligence and ChatGPT Course',
+    issuer: 'Udemy',
+    issueDate: '2026',
+    image: undefined,
+  },
+  {
+    id: 'generative-ai-for-beginners',
+    title: 'Generative AI for Beginners',
+    issuer: 'Udemy',
+    issueDate: '2026',
+    image: undefined,
+  },
 ];
 
 /**

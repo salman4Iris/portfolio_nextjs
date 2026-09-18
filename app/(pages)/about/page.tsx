@@ -8,6 +8,7 @@ import React from 'react';
 import SectionWrapper from '@/components/SectionWrapper';
 import { ABOUT_CONTENT } from '@/content/site-config';
 import { calculateTotalExperienceYears } from '@/content/experience';
+import { PROJECTS } from '@/content/projects';
 
 export default function AboutPage(): JSX.Element {
   const totalYears: number = calculateTotalExperienceYears();
@@ -65,17 +66,17 @@ export default function AboutPage(): JSX.Element {
                 <div>
                   <div className="rounded-lg bg-white/50 p-6 dark:bg-gray-800/50">
                     <div className="text-4xl font-bold text-purple-600 dark:text-purple-400">
-                      8+
+                      {PROJECTS.length}
                     </div>
-                    <p className="mt-2 text-gray-600 dark:text-gray-400">Major Projects Lead</p>
+                    <p className="mt-2 text-gray-600 dark:text-gray-400">Resume Projects</p>
                   </div>
                 </div>
 
                 {/* TEAM */}
                 <div>
                   <div className="rounded-lg bg-white/50 p-6 dark:bg-gray-800/50">
-                    <div className="text-4xl font-bold text-green-600 dark:text-green-400">10+</div>
-                    <p className="mt-2 text-gray-600 dark:text-gray-400">Developers Mentored</p>
+                    <div className="text-4xl font-bold text-green-600 dark:text-green-400">Yes</div>
+                    <p className="mt-2 text-gray-600 dark:text-gray-400">Developer mentoring</p>
                   </div>
                 </div>
               </div>
@@ -91,8 +92,8 @@ export default function AboutPage(): JSX.Element {
             Areas of Expertise
           </h2>
           <p className="max-w-2xl text-gray-600 dark:text-gray-400">
-            Specializing in full-stack web development with deep expertise across multiple
-            technologies and domains.
+            Specializing in frontend architecture, agentic AI interfaces, enterprise platforms, and
+            full-stack web development across multiple domains.
           </p>
         </div>
 
@@ -100,23 +101,30 @@ export default function AboutPage(): JSX.Element {
           {[
             {
               title: 'Frontend Development',
-              description: 'React, Next.js, TypeScript, Tailwind CSS, and modern UI frameworks',
+              description:
+                'React, Next.js, TypeScript, React Flow, Angular, and modern UI frameworks',
               icon: '🎨',
             },
             {
               title: 'Backend Development',
-              description: 'Node.js, Express, Java, REST APIs, and database design',
+              description: 'Node.js, Express, Python tooling, Java, REST APIs, and databases',
               icon: '⚙️',
             },
             {
               title: 'System Architecture',
-              description: 'Scalable application design, performance optimization, CI/CD',
+              description: 'Micro-frontends, SSR, Web Vitals, performance optimization, and CI/CD',
               icon: '🏗️',
             },
             {
               title: 'Team Leadership',
               description: 'Technical mentoring, agile methodologies, project management',
               icon: '👥',
+            },
+            {
+              title: 'Agentic AI Interfaces',
+              description:
+                'AgentStudio, MCP workflows, conversational UI, and AI response rendering',
+              icon: '🤖',
             },
             {
               title: 'Trading Systems',

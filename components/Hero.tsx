@@ -10,7 +10,9 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
-import { SITE_METADATA } from '@/content/site-config';
+import { SITE_METADATA, ABOUT_CONTENT } from '@/content/site-config';
+import { calculateTotalExperienceYears } from '@/content/experience';
+import { PROJECTS } from '@/content/projects';
 
 /**
  * HERO COMPONENT
@@ -18,6 +20,8 @@ import { SITE_METADATA } from '@/content/site-config';
  * @returns Hero section JSX element
  */
 export const Hero = (): JSX.Element => {
+  const totalYears: number = calculateTotalExperienceYears();
+
   return (
     <section className="relative w-full overflow-hidden bg-white px-4 py-20 dark:bg-black sm:px-6 lg:px-8">
       {/* BACKGROUND GRADIENT */}
@@ -63,23 +67,22 @@ export const Hero = (): JSX.Element => {
 
         {/* DESCRIPTION AND HIGHLIGHTS */}
         <div className="mt-12">
-
           <p className="mb-8 max-w-2xl text-lg leading-relaxed text-gray-600 dark:text-gray-400 sm:text-xl">
-            With 9+ years of professional experience, I design and build scalable web applications,
-            AI-powered experiences, and enterprise platforms using React, Next.js, TypeScript,
-            Java, and modern full-stack engineering practices.
+            {ABOUT_CONTENT.bio}
           </p>
         </div>
 
         {/* HIGHLIGHTS */}
         <div className="mb-10 grid grid-cols-1 gap-4 sm:grid-cols-3">
           <div className="rounded-lg border border-gray-200 bg-white/50 p-4 backdrop-blur-sm dark:border-gray-800 dark:bg-gray-900/50">
-            <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">9+</div>
+            <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">{totalYears}+</div>
             <p className="text-sm text-gray-600 dark:text-gray-400">Years Experience</p>
           </div>
           <div className="rounded-lg border border-gray-200 bg-white/50 p-4 backdrop-blur-sm dark:border-gray-800 dark:bg-gray-900/50">
-            <div className="text-2xl font-bold text-purple-600 dark:text-purple-400">50+</div>
-            <p className="text-sm text-gray-600 dark:text-gray-400">Projects Completed</p>
+            <div className="text-2xl font-bold text-purple-600 dark:text-purple-400">
+              {PROJECTS.length}
+            </div>
+            <p className="text-sm text-gray-600 dark:text-gray-400">Resume Projects</p>
           </div>
           <div className="rounded-lg border border-gray-200 bg-white/50 p-4 backdrop-blur-sm dark:border-gray-800 dark:bg-gray-900/50">
             <div className="text-2xl font-bold text-green-600 dark:text-green-400">AI +</div>
@@ -132,9 +135,9 @@ export const Hero = (): JSX.Element => {
           <p className="mb-4 text-sm font-medium text-gray-600 dark:text-gray-400">TRUSTED BY</p>
           <div className="flex flex-wrap items-center gap-8 text-sm text-gray-600 dark:text-gray-400">
             <span>Iris Software</span>
-            <span>MyGlamm</span>
-            <span>Marketaxess</span>
-            <span>L&apos;OCCITANE</span>
+            <span>ETS</span>
+            <span>MarketAxess</span>
+            <span>Good Glamm Group</span>
           </div>
         </div>
       </div>

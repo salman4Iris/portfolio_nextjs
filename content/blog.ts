@@ -8,6 +8,67 @@ import type { BlogPost } from '@/types';
 
 export const BLOG_POSTS: readonly BlogPost[] = [
   {
+    id: 'blog-agentic-ui-orchestration',
+    title: 'Designing Agentic UIs for Observable AI Workflows',
+    slug: 'designing-agentic-ui-observable-ai-workflows',
+    excerpt:
+      'A practical look at building visual interfaces for configuring, orchestrating, and monitoring autonomous AI agents.',
+    content:
+      'Agentic applications need interfaces that make complex execution understandable. A node-based canvas can expose agent inputs, tool calls, dependencies, execution state, and outputs without forcing users to inspect backend logs. This article explores the frontend concerns behind an AgentStudio-style experience: modeling workflow state, rendering graph relationships, handling asynchronous execution, and keeping the UI observable as Python and LLM services evolve. The goal is not to hide complexity, but to give users a clear control surface for designing and monitoring autonomous workflows.',
+    publishedDate: '2026-09-10',
+    coverImage: undefined,
+    tags: ['AI', 'Agentic UI', 'React', 'React Flow', 'Frontend Architecture'],
+    author: 'Salman Khan',
+    readingTime: 8,
+    featured: true,
+  },
+  {
+    id: 'blog-streaming-conversational-ui',
+    title: 'Building Streaming Conversational Interfaces with Next.js',
+    slug: 'building-streaming-conversational-interfaces-nextjs',
+    excerpt:
+      'Patterns for managing streamed responses, UI state, and data-rich answers in AI-powered chat applications.',
+    content:
+      'A conversational UI is more than a message list. When a backend streams partial responses, the frontend must manage incremental updates, loading states, errors, structured data, and the user’s sense of progress. This guide covers a practical approach with Next.js and React: isolate conversation state, render partial payloads safely, preserve useful context, and make database-driven answers understandable to non-technical users. These patterns are useful for chatbot products such as HiSet, where natural-language questions become query-backed results.',
+    publishedDate: '2026-08-30',
+    coverImage: undefined,
+    tags: ['Next.js', 'React', 'AI', 'Chatbots', 'Streaming UI'],
+    author: 'Salman Khan',
+    readingTime: 9,
+    featured: true,
+  },
+  {
+    id: 'blog-high-density-financial-dashboards',
+    title: 'Rendering High-Density Financial Dashboards with AG Grid',
+    slug: 'rendering-high-density-financial-dashboards-ag-grid',
+    excerpt:
+      'Engineering considerations for responsive trade tables, compliance workflows, and high-frequency financial data.',
+    content:
+      'Financial applications often combine large datasets with workflows that demand accuracy, speed, and traceability. High-density dashboards need careful column design, predictable state transitions, efficient rendering, and clear feedback for validation and exceptions. This case study discusses frontend techniques used for regulatory execution workflows, including AG Grid configuration, rendering performance, role-aware actions, audit-friendly interactions, and the relationship between real-time updates and user confidence.',
+    publishedDate: '2026-07-15',
+    coverImage: undefined,
+    tags: ['React', 'AG Grid', 'FinTech', 'Performance', 'Enterprise UI'],
+    author: 'Salman Khan',
+    readingTime: 10,
+    featured: true,
+  },
+  {
+    id: 'blog-frontend-modernization-playbook',
+    title: 'A Frontend Modernization Playbook: Angular to React and Next.js',
+    slug: 'frontend-modernization-angular-react-nextjs',
+    excerpt:
+      'A migration strategy for moving a production e-commerce platform toward React, Next.js, SSR, and better performance.',
+    content:
+      'Successful frontend modernization is a product and delivery problem as much as a code migration. Teams need a staged plan for component boundaries, routing, server-side rendering, analytics, testing, checkout stability, and developer onboarding. Drawing on an Angular Universal to React and Next.js migration, this playbook covers how to preserve business continuity while improving SEO, caching, mobile performance, and long-term maintainability.',
+    publishedDate: '2026-06-20',
+    updatedDate: '2026-07-01',
+    coverImage: undefined,
+    tags: ['Angular', 'React', 'Next.js', 'Migration', 'E-commerce'],
+    author: 'Salman Khan',
+    readingTime: 12,
+    featured: true,
+  },
+  {
     id: 'blog-1',
     title: 'Building Scalable React Applications with Redux',
     slug: 'building-scalable-react-redux',

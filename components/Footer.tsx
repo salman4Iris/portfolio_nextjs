@@ -26,8 +26,8 @@ export const Footer = (): JSX.Element => {
           <div>
             <h3 className="mb-4 font-semibold text-gray-900 dark:text-white">About</h3>
             <p className="text-sm text-gray-600 dark:text-gray-400">
-              Senior Software Engineer with 9+ years of experience in building scalable web
-              applications, AI-powered digital products, and enterprise platforms.
+              Senior Software Engineer specializing in frontend architecture, AI interfaces,
+              micro-frontends, and enterprise web applications.
             </p>
           </div>
 

@@ -41,8 +41,8 @@ export default function SkillsPage(): JSX.Element {
             Skills
           </h1>
           <p className="max-w-2xl text-lg text-gray-600 dark:text-gray-400">
-            A comprehensive overview of my technical expertise and soft skills, developed through 9+
-            years of professional experience.
+            A practical overview of my frontend architecture, AI interface, full-stack, and
+            engineering skills developed through 9+ years of professional experience.
           </p>
         </div>
       </SectionWrapper>
@@ -98,7 +98,7 @@ export default function SkillsPage(): JSX.Element {
           <div className="flex flex-wrap justify-center gap-4">
             <div className="rounded-lg bg-white/20 px-4 py-2">
               <p className="text-sm font-medium text-white">
-                Latest Tech: Next.js 14+, React 19, TypeScript 5
+                Current Focus: AgentStudio, MCP, React Flow, Next.js, Python
               </p>
             </div>
             <div className="rounded-lg bg-white/20 px-4 py-2">

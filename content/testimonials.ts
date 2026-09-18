@@ -31,7 +31,7 @@ export const TESTIMONIALS: readonly Testimonial[] = [
     id: 'testimonial-3',
     author: 'Michael Chen',
     position: 'Client Lead',
-    company: 'Marketaxess',
+    company: 'MarketAxess',
     content:
       'Salman demonstrated outstanding client management and technical prowess. His ability to understand complex trading requirements and translate them into elegant solutions was remarkable. The REMS project benefited greatly from his expertise and communication.',
     rating: 5,
