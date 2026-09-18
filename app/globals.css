@@ -51,6 +51,7 @@
 :root {
   --font-sans: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
   --font-mono: 'SFMono-Regular', 'SF Mono', Consolas, 'Liberation Mono', Menlo, monospace;
+  --home-background: #edf3fa;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
@@ -86,6 +87,7 @@
 }
 
 .dark {
+  --home-background: #0b1424;
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.205 0 0);

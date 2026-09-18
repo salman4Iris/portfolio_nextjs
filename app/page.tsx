@@ -15,12 +15,12 @@ export default function Home(): JSX.Element {
   const featuredProjects: readonly Project[] = getFeaturedProjects();
 
   return (
-    <div className="w-full">
+    <div className="w-full bg-[var(--home-background)]">
       {/* HERO SECTION */}
       <Hero />
 
       {/* FEATURED PROJECTS SECTION */}
-      <SectionWrapper className="bg-gray-50 dark:bg-gray-900">
+      <SectionWrapper className="bg-[var(--home-background)]">
         <div className="mb-12">
           <h2 className="mb-4 text-4xl font-bold text-gray-900 dark:text-white">
             Featured Projects
