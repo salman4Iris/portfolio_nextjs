@@ -105,10 +105,10 @@ export interface Testimonial {
   readonly id: string;
   readonly author: string;
   readonly position: string;
-  readonly company: string;
+  readonly company?: string;
   readonly content: string;
   readonly image?: string;
-  readonly rating: number;
+  readonly rating?: number;
 }
 
 /**

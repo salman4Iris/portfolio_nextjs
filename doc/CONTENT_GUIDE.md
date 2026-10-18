@@ -306,10 +306,28 @@ Add to `UDEMY_COURSES` array:
 }
 ```
 
+### PROFESSIONAL CERTIFICATIONS:
+
+Add vendor certifications to `CERTIFICATIONS`. Include a public `credentialUrl` when one is
+available so visitors can verify the certificate.
+
+```typescript
+{
+  id: 'react-basic-hackerrank',
+  title: 'React (Basic) Certificate',
+  issuer: 'HackerRank',
+  issueDate: '2026-03',
+  credentialUrl: 'https://www.hackerrank.com/certificates/...',
+}
+```
+
+The certifications in both arrays appear in the Certifications section on the Skills page.
+
 ### EXISTING CERTIFICATIONS:
 
 - B.E (Computer Science) - 2016
 - Diploma in Computer Engineering - 2013
+- React (Basic) Certificate - HackerRank, March 2026
 
 See `content/certifications.ts`.
 

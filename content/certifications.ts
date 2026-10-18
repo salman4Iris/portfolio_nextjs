@@ -23,6 +23,14 @@ export const CERTIFICATIONS: readonly Certification[] = [
     credentialId: 'DCE-2013',
     image: undefined,
   },
+  {
+    id: 'react-basic-hackerrank',
+    title: 'React (Basic) Certificate',
+    issuer: 'HackerRank',
+    issueDate: '2026-03',
+    credentialUrl: 'https://www.hackerrank.com/certificates/iframe/86532969f0ca',
+    image: undefined,
+  },
 ];
 
 /**
@@ -33,23 +41,29 @@ export const CERTIFICATIONS: readonly Certification[] = [
 export const UDEMY_COURSES: readonly Certification[] = [
   {
     id: 'github-copilot-beginner-to-pro',
-    title: 'GitHub Copilot: Beginner to Pro - AI for Coding & Development',
+    title: 'GitHub Copilot Beginner to Pro - AI for Coding & Development',
     issuer: 'Udemy',
-    issueDate: '2026',
+    issueDate: '2026-03',
+    credentialId: 'UC-e0fd2da7-c74a-443a-bf7b-4464513d57ee',
+    credentialUrl: 'https://www.udemy.com/certificate/UC-e0fd2da7-c74a-443a-bf7b-4464513d57ee/',
     image: undefined,
   },
   {
     id: 'artificial-intelligence-chatgpt',
     title: 'The Complete Artificial Intelligence and ChatGPT Course',
     issuer: 'Udemy',
-    issueDate: '2026',
+    issueDate: '2026-03',
+    credentialId: 'UC-6dfecb38-f0c7-4dd1-a17a-0a4a546f7275',
+    credentialUrl: 'https://www.udemy.com/certificate/UC-6dfecb38-f0c7-4dd1-a17a-0a4a546f7275/',
     image: undefined,
   },
   {
     id: 'generative-ai-for-beginners',
     title: 'Generative AI for Beginners',
     issuer: 'Udemy',
-    issueDate: '2026',
+    issueDate: '2026-03',
+    credentialId: 'UC-5c130f66-471c-4097-aaeb-00530ca9031b',
+    credentialUrl: 'https://www.udemy.com/certificate/UC-5c130f66-471c-4097-aaeb-00530ca9031b/',
     image: undefined,
   },
 ];

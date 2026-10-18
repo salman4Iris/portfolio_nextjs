@@ -6,9 +6,11 @@
 
 import React from 'react';
 import type { Metadata, Viewport } from 'next';
+import Script from 'next/script';
 import { ThemeProvider } from 'next-themes';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
+import { CursorEffect } from '@/components/CursorEffect';
 import { SITE_METADATA } from '@/content/site-config';
 import './globals.css';
 
@@ -51,10 +53,20 @@ export default function RootLayout({ children }: RootLayoutProps): JSX.Element {
         <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)" />
       </head>
       <body className="flex min-h-screen flex-col">
+        <Script id="reset-scroll-on-refresh" strategy="beforeInteractive">
+          {`
+            const navigationEntry = performance.getEntriesByType('navigation')[0];
+            if (navigationEntry?.type === 'reload') {
+              history.scrollRestoration = 'manual';
+              window.addEventListener('pageshow', () => window.scrollTo(0, 0), { once: true });
+            }
+          `}
+        </Script>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem enableColorScheme>
           <Header />
           <main className="flex-grow">{children}</main>
           <Footer />
+          <CursorEffect />
         </ThemeProvider>
       </body>
     </html>

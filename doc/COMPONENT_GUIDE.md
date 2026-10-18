@@ -6,6 +6,24 @@ All components follow strict ES6+ and TypeScript conventions with readonly props
 
 ---
 
+## CURSOR EFFECT COMPONENT
+
+**Location:** `components/CursorEffect.tsx`
+
+**Type:** Client component
+
+### PROPS
+
+None - Mounted globally by the root layout.
+
+### FEATURES
+
+- Animated cyan ring and gradient dot follow mouse and pen pointers
+- Ring expands over interactive elements and contracts on click
+- Disabled for touch pointers and users who prefer reduced motion
+
+---
+
 ## HEADER COMPONENT
 
 **Location:** `components/Header.tsx`  

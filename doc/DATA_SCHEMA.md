@@ -176,10 +176,10 @@ export interface Testimonial {
   readonly id: string; // UNIQUE identifier
   readonly author: string; // Person's name
   readonly position: string; // Job title
-  readonly company: string; // Company name
-  readonly content: string; // Testimonial text (2-3 sentences)
+  readonly company?: string; // Company name, when provided
+  readonly content: string; // Testimonial or recommendation text
   readonly image?: string; // Profile image URL
-  readonly rating: number; // 1-5 stars
+  readonly rating?: number; // 1-5 stars, when provided
 }
 ```
 
@@ -188,11 +188,9 @@ export interface Testimonial {
 ```typescript
 {
   id: 'testimonial-1',
-  author: 'John Smith',
-  position: 'Product Manager',
-  company: 'Iris Software',
-  content: 'Salman is an exceptional developer...',
-  rating: 5,
+  author: 'Hinal Shah',
+  position: 'Lead Experience Engineer',
+  content: 'I worked with Salman on e-commerce and CMS platforms...',
 }
 ```
 

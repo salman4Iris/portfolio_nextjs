@@ -9,6 +9,7 @@
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { Code2, Layers, Palette, Sparkles } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { SITE_METADATA } from '@/content/site-config';
 import { calculateTotalExperienceYears } from '@/content/experience';
@@ -88,7 +89,7 @@ export const Hero = (): JSX.Element => {
       <div className="absolute inset-0 -z-10 opacity-35 [background-image:radial-gradient(rgba(118,137,198,0.55)_1px,transparent_1px)] [background-size:88px_88px]" />
 
       <div className="mx-auto grid max-w-7xl items-center gap-10 sm:gap-14 lg:grid-cols-2 lg:gap-12">
-        <div className="relative z-10 order-2 lg:order-1">
+        <div className="hero-enter relative z-10 order-1 lg:order-1">
           <p className="mb-3 text-lg font-medium text-slate-600 sm:text-2xl dark:text-slate-400">
             Hey there! I&apos;m
           </p>
@@ -103,7 +104,7 @@ export const Hero = (): JSX.Element => {
             <span className="sr-only">I am a Web Developer</span>
             <span aria-hidden="true">
               <span className="whitespace-nowrap">I am a </span>
-              <span className="inline-block min-w-[16ch] bg-gradient-to-r from-cyan-600 to-violet-600 bg-clip-text text-transparent dark:from-cyan-300 dark:to-fuchsia-300">
+              <span className="bg-gradient-to-r from-cyan-600 to-violet-600 bg-clip-text text-transparent dark:from-cyan-300 dark:to-fuchsia-300">
                 {HERO_ROLES[roleIndex].slice(0, visibleRoleLength)}
               </span>
               <span className="ml-0.5 inline-block animate-pulse text-cyan-600 dark:text-cyan-300 motion-reduce:animate-none">
@@ -179,31 +180,58 @@ export const Hero = (): JSX.Element => {
           </div>
         </div>
 
-        <div className="relative order-1 flex min-h-[13rem] flex-col items-center justify-center sm:min-h-[18rem] lg:order-2 lg:min-h-[38rem]">
-          {SITE_METADATA.profileImage && (
-            <div className="relative h-32 w-32 sm:h-56 sm:w-56 lg:h-[23rem] lg:w-[23rem] xl:h-[27rem] xl:w-[27rem]">
-              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-cyan-400 via-blue-500 to-pink-500 p-1 shadow-[0_0_80px_rgba(26,184,235,0.22)]">
-                <div className="relative h-full w-full overflow-hidden rounded-full bg-slate-100">
-                  <Image
-                    src={SITE_METADATA.profileImage}
-                    alt={SITE_METADATA.author}
-                    fill
-                    className="object-cover object-center"
-                    priority
-                    sizes="(max-width: 768px) 18rem, (max-width: 1024px) 24rem, 27rem"
-                  />
+        <div className="hero-enter-delayed relative order-2 flex flex-col items-center lg:order-2">
+          <div className="relative flex h-[13rem] w-full justify-center pt-0 sm:h-[18rem] sm:pt-5 lg:h-[38rem] lg:pt-[7.25rem] xl:pt-[8.25rem]">
+            {SITE_METADATA.profileImage && (
+              <div className="relative h-32 w-32 sm:h-56 sm:w-56 lg:h-[23rem] lg:w-[23rem] xl:h-[27rem] xl:w-[27rem]">
+                <div className="profile-photo-ring absolute inset-0 rounded-full p-[5px] shadow-[0_0_80px_rgba(26,184,235,0.22)] ring-2 ring-white/70 dark:ring-slate-950/40">
+                  <div className="absolute inset-[5px] z-10 overflow-hidden rounded-full bg-slate-100">
+                    <Image
+                      src={SITE_METADATA.profileImage}
+                      alt={SITE_METADATA.author}
+                      fill
+                      className="object-cover object-center"
+                      priority
+                      sizes="(max-width: 768px) 18rem, (max-width: 1024px) 24rem, 27rem"
+                    />
+                  </div>
+                </div>
+                <div
+                  aria-hidden="true"
+                  className="profile-icon-orbit pointer-events-none absolute inset-0"
+                >
+                  <span className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2">
+                    <span className="profile-icon-badge flex h-8 w-8 items-center justify-center rounded-2xl bg-gradient-to-br from-pink-500 to-rose-600 text-white shadow-lg shadow-pink-500/25 sm:h-10 sm:w-10 lg:h-12 lg:w-12">
+                      <Sparkles className="h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6" />
+                    </span>
+                  </span>
+                  <span className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2">
+                    <span className="profile-icon-badge flex h-8 w-8 items-center justify-center rounded-2xl bg-gradient-to-br from-violet-500 to-indigo-600 text-white shadow-lg shadow-violet-500/25 sm:h-10 sm:w-10 lg:h-12 lg:w-12">
+                      <Palette className="h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6" />
+                    </span>
+                  </span>
+                  <span className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2">
+                    <span className="profile-icon-badge flex h-8 w-8 items-center justify-center rounded-2xl bg-gradient-to-br from-emerald-500 to-green-600 text-white shadow-lg shadow-emerald-500/25 sm:h-10 sm:w-10 lg:h-12 lg:w-12">
+                      <Code2 className="h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6" />
+                    </span>
+                  </span>
+                  <span className="absolute left-0 top-1/2 -translate-x-1/2 -translate-y-1/2">
+                    <span className="profile-icon-badge flex h-8 w-8 items-center justify-center rounded-2xl bg-gradient-to-br from-sky-500 to-blue-600 text-white shadow-lg shadow-sky-500/25 sm:h-10 sm:w-10 lg:h-12 lg:w-12">
+                      <Layers className="h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6" />
+                    </span>
+                  </span>
                 </div>
               </div>
-            </div>
-          )}
+            )}
+          </div>
 
-          <div className="mt-5 hidden w-fit rounded-2xl border border-[var(--home-border)] bg-white/80 p-5 shadow-xl shadow-indigo-950/10 backdrop-blur dark:bg-[#151b30]/85 sm:block">
+          <div className="editor-float relative z-20 mt-5 w-[min(20rem,calc(100vw-2rem))] rounded-2xl border border-[var(--home-border)] bg-white/80 p-3 shadow-2xl shadow-indigo-950/10 backdrop-blur dark:bg-[#151b30]/85 sm:p-4 md:p-6 lg:absolute lg:right-0 lg:-top-[4.5rem] lg:mt-0 lg:w-80">
             <div className="mb-3 flex gap-2">
               <span className="h-3 w-3 rounded-full bg-red-500" />
               <span className="h-3 w-3 rounded-full bg-amber-400" />
               <span className="h-3 w-3 rounded-full bg-green-500" />
             </div>
-            <code className="block text-xs leading-6 text-cyan-300">
+            <code className="block font-mono text-sm leading-6 text-cyan-300">
               <span className="text-pink-400">const</span> developer = {'{'}
               <br />
               &nbsp;&nbsp;name: <span className="text-amber-300">&apos;Salman&apos;</span>,
