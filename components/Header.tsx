@@ -37,16 +37,16 @@ export const Header = (): JSX.Element => {
 
   if (!isMounted) {
     return (
-      <header className="h-16 border-b border-slate-200 bg-[var(--home-background)] dark:border-slate-800" />
+      <header className="h-[4.75rem] border-b border-[var(--home-border)] bg-[var(--home-header)] backdrop-blur-xl" />
     );
   }
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-slate-200 bg-[var(--home-background)] text-slate-900 dark:border-white/5 dark:text-white">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
+    <header className="sticky top-0 z-50 w-full border-b border-[var(--home-border)] bg-[var(--home-header)] text-slate-900 shadow-sm shadow-indigo-950/[0.03] backdrop-blur-xl dark:text-white">
+      <nav className="mx-auto flex min-h-[4.75rem] max-w-7xl items-center justify-between gap-3 px-4 py-3 sm:px-6 lg:px-8">
         {/* LOGO */}
-        <Link href="/" className="flex items-center gap-3">
-          <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-400 via-blue-500 to-pink-500 shadow-lg shadow-blue-500/20">
+        <Link href="/" className="flex shrink-0 items-center gap-3">
+          <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-cyan-400 via-blue-500 to-pink-500 shadow-lg shadow-purple-500/20">
             <span className="text-lg font-black text-white">SK</span>
           </div>
           <div className="hidden sm:block">
@@ -60,15 +60,15 @@ export const Header = (): JSX.Element => {
         </Link>
 
         {/* DESKTOP NAVIGATION */}
-        <div className="hidden items-center space-x-1 md:flex">
+        <div className="hidden items-center gap-1 lg:flex">
           {NAVIGATION_ITEMS.map(
             (item: NavigationItem): JSX.Element => (
               <Link
                 key={item.id}
                 href={item.href}
                 className={cn(
-                  'px-3 py-2 text-sm font-medium transition-colors',
-                  'text-slate-700 hover:text-cyan-600 dark:text-slate-300 dark:hover:text-cyan-400'
+                  'rounded-full px-3 py-2 text-sm font-medium transition-colors',
+                  'text-slate-700 hover:bg-white/70 hover:text-cyan-700 dark:text-slate-300 dark:hover:bg-white/5 dark:hover:text-cyan-300'
                 )}
                 target={item.isExternal ? '_blank' : undefined}
                 rel={item.isExternal ? 'noopener noreferrer' : undefined}
@@ -80,7 +80,7 @@ export const Header = (): JSX.Element => {
         </div>
 
         {/* SOCIAL LINKS & RESUME */}
-        <div className="hidden items-center space-x-2 md:flex">
+        <div className="hidden items-center space-x-1 xl:flex">
           {/* Download Resume */}
           {SITE_METADATA.resumeLink && (
             <a
@@ -148,11 +148,11 @@ export const Header = (): JSX.Element => {
         </div>
 
         {/* THEME TOGGLE & MOBILE MENU */}
-        <div className="flex items-center space-x-4">
+        <div className="flex shrink-0 items-center gap-2">
           {/* Theme Toggle Button */}
           <button
             onClick={toggleTheme}
-            className="rounded-lg bg-slate-900/5 p-2 text-slate-600 transition-colors hover:bg-slate-900/10 hover:text-slate-900 dark:bg-white/5 dark:text-slate-300 dark:hover:bg-white/10 dark:hover:text-white"
+            className="rounded-xl border border-[var(--home-border)] bg-white/55 p-2.5 text-slate-600 transition-colors hover:bg-white dark:bg-white/5 dark:text-slate-300 dark:hover:bg-white/10 dark:hover:text-white"
             aria-label="Toggle theme"
           >
             {theme === 'dark' ? (
@@ -169,43 +169,58 @@ export const Header = (): JSX.Element => {
           {/* Mobile Menu Button */}
           <button
             onClick={toggleMenu}
-            className="rounded-lg bg-slate-900/5 p-2 text-slate-600 transition-colors hover:bg-slate-900/10 hover:text-slate-900 dark:bg-white/5 dark:text-slate-300 dark:hover:bg-white/10 dark:hover:text-white md:hidden"
+            className="rounded-xl border border-[var(--home-border)] bg-white/55 p-2.5 text-slate-600 transition-colors hover:bg-white dark:bg-white/5 dark:text-slate-300 dark:hover:bg-white/10 dark:hover:text-white lg:hidden"
             aria-label="Toggle menu"
+            aria-expanded={isMenuOpen}
+            aria-controls="mobile-navigation"
           >
             <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 6h16M4 12h16M4 18h16"
-              />
+              {isMenuOpen ? (
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 6l12 12M18 6L6 18"
+                />
+              ) : (
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              )}
             </svg>
           </button>
         </div>
       </nav>
 
       {/* MOBILE NAVIGATION */}
-      {isMenuOpen && (
-        <div className="border-t border-slate-200 bg-[var(--home-background)] dark:border-white/10 md:hidden">
-          <div className="space-y-1 px-4 py-2">
-            {NAVIGATION_ITEMS.map(
-              (item: NavigationItem): JSX.Element => (
-                <Link
-                  key={item.id}
-                  href={item.href}
-                  className={cn(
-                    'block rounded-lg px-3 py-2 text-base font-medium transition-colors',
-                    'text-slate-700 hover:bg-slate-900/5 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-white/10 dark:hover:text-white'
-                  )}
-                  onClick={(): void => setIsMenuOpen(false)}
-                >
-                  {item.label}
-                </Link>
-              )
-            )}
-          </div>
+      <div
+        id="mobile-navigation"
+        className={cn(
+          'border-t border-[var(--home-border)] bg-[var(--home-background)]/95 shadow-xl shadow-indigo-950/5 backdrop-blur-xl lg:hidden',
+          !isMenuOpen && 'hidden'
+        )}
+      >
+        <div className="mx-auto grid max-w-7xl gap-1 px-4 py-4 sm:px-6 lg:px-8">
+          {NAVIGATION_ITEMS.map(
+            (item: NavigationItem): JSX.Element => (
+              <Link
+                key={item.id}
+                href={item.href}
+                className={cn(
+                  'block rounded-xl px-4 py-3 text-base font-medium transition-colors',
+                  'text-slate-700 hover:bg-white/80 hover:text-cyan-700 dark:text-slate-300 dark:hover:bg-white/5 dark:hover:text-cyan-300'
+                )}
+                onClick={(): void => setIsMenuOpen(false)}
+              >
+                {item.label}
+              </Link>
+            )
+          )}
         </div>
-      )}
+      </div>
     </header>
   );
 };

@@ -19,13 +19,13 @@ export const Footer = (): JSX.Element => {
   // const currentYear: number = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-gray-200 bg-gray-50 dark:border-gray-800 dark:bg-gray-950">
-      <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
-        <div className="grid gap-8 md:grid-cols-3">
+    <footer className="border-t border-[var(--home-border)] bg-[var(--home-navy)] text-white">
+      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-14 lg:px-8">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {/* ABOUT SECTION */}
           <div>
-            <h3 className="mb-4 font-semibold text-gray-900 dark:text-white">About</h3>
-            <p className="text-sm text-gray-600 dark:text-gray-400">
+            <h3 className="mb-4 font-bold text-white">About</h3>
+            <p className="text-sm leading-6 text-slate-400">
               Senior Software Engineer specializing in frontend architecture, AI interfaces,
               micro-frontends, and enterprise web applications.
             </p>
@@ -33,28 +33,25 @@ export const Footer = (): JSX.Element => {
 
           {/* QUICK LINKS */}
           <div>
-            <h3 className="mb-4 font-semibold text-gray-900 dark:text-white">Quick Links</h3>
+            <h3 className="mb-4 font-bold text-white">Quick Links</h3>
             <ul className="space-y-2 text-sm">
               <li>
                 <Link
                   href="/projects"
-                  className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+                  className="text-slate-400 transition-colors hover:text-cyan-300"
                 >
                   Projects
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/blog"
-                  className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
-                >
+                <Link href="/blog" className="text-slate-400 transition-colors hover:text-cyan-300">
                   Blog
                 </Link>
               </li>
               <li>
                 <Link
                   href="/contact"
-                  className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+                  className="text-slate-400 transition-colors hover:text-cyan-300"
                 >
                   Contact
                 </Link>
@@ -64,12 +61,12 @@ export const Footer = (): JSX.Element => {
 
           {/* CONTACT SECTION */}
           <div>
-            <h3 className="mb-4 font-semibold text-gray-900 dark:text-white">Contact</h3>
+            <h3 className="mb-4 font-bold text-white">Contact</h3>
             <ul className="space-y-2 text-sm">
               <li>
                 <a
                   href={`mailto:${SITE_METADATA.email}`}
-                  className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+                  className="text-slate-400 transition-colors hover:text-pink-300"
                 >
                   {SITE_METADATA.email}
                 </a>
@@ -77,27 +74,27 @@ export const Footer = (): JSX.Element => {
               <li>
                 <a
                   href={`tel:${SITE_METADATA.phone}`}
-                  className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+                  className="text-slate-400 transition-colors hover:text-pink-300"
                 >
                   {SITE_METADATA.phone}
                 </a>
               </li>
-              <li className="text-gray-600 dark:text-gray-400">{SITE_METADATA.location}</li>
+              <li className="text-slate-400">{SITE_METADATA.location}</li>
             </ul>
           </div>
         </div>
 
         {/* SOCIAL LINKS */}
-        <div className="mt-8 border-t border-gray-200 pt-8 dark:border-gray-800">
-          <div className="flex items-center justify-between">
-            <p className="text-sm text-gray-600 dark:text-gray-400">{FOOTER_TEXT.copyright}</p>
+        <div className="mt-8 border-t border-white/10 pt-8">
+          <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
+            <p className="text-sm text-slate-400">{FOOTER_TEXT.copyright}</p>
             <div className="flex space-x-6">
               {SITE_METADATA.socialLinks.linkedin && (
                 <a
                   href={SITE_METADATA.socialLinks.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-600 transition-colors hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400"
+                  className="text-slate-400 transition-colors hover:text-cyan-300"
                   aria-label="LinkedIn"
                 >
                   <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
@@ -110,7 +107,7 @@ export const Footer = (): JSX.Element => {
                   href={SITE_METADATA.socialLinks.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-600 transition-colors hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+                  className="text-slate-400 transition-colors hover:text-white"
                   aria-label="GitHub"
                 >
                   <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
@@ -123,7 +120,7 @@ export const Footer = (): JSX.Element => {
         </div>
 
         {/* FOOTER META */}
-        <div className="mt-4 text-center text-xs text-gray-500 dark:text-gray-500">
+        <div className="mt-4 text-center text-xs text-slate-500">
           <p>{FOOTER_TEXT.madeWith}</p>
         </div>
       </div>

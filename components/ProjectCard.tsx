@@ -21,24 +21,24 @@ interface ProjectCardProps {
  */
 export const ProjectCard = ({ project }: ProjectCardProps): JSX.Element => {
   return (
-    <div className="group rounded-lg border border-gray-200 bg-white p-6 transition-all duration-300 hover:border-blue-400 hover:shadow-lg dark:border-gray-800 dark:bg-gray-900 dark:hover:border-blue-600">
+    <div className="surface-card group h-full transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-cyan-950/10">
       {/* HEADER */}
       <div className="mb-4 flex items-start justify-between">
         <div>
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{project.title}</h3>
-          <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">
+          <h3 className="text-lg font-bold text-slate-900 dark:text-white">{project.title}</h3>
+          <p className="mt-1 text-sm text-[var(--home-muted)]">
             {project.company} • {project.role}
           </p>
         </div>
         {project.featured && (
-          <span className="inline-flex items-center rounded-full bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-blue-800 dark:bg-blue-900 dark:text-blue-200">
+          <span className="inline-flex items-center rounded-full bg-cyan-100 px-2.5 py-0.5 text-xs font-bold text-cyan-800 dark:bg-cyan-950 dark:text-cyan-200">
             Featured
           </span>
         )}
       </div>
 
       {/* DESCRIPTION */}
-      <p className="mb-4 text-sm text-gray-600 dark:text-gray-400">{project.shortDescription}</p>
+      <p className="mb-4 text-sm leading-6 text-[var(--home-muted)]">{project.shortDescription}</p>
 
       {/* TECHNOLOGIES */}
       <div className="mb-6 flex flex-wrap gap-2">
@@ -46,14 +46,14 @@ export const ProjectCard = ({ project }: ProjectCardProps): JSX.Element => {
           (tech: string): JSX.Element => (
             <span
               key={tech}
-              className="inline-flex items-center rounded-full bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-700 dark:bg-gray-800 dark:text-gray-300"
+              className="inline-flex items-center rounded-full bg-[var(--home-surface-muted)] px-2.5 py-0.5 text-xs font-medium text-slate-600 dark:text-slate-300"
             >
               {tech}
             </span>
           )
         )}
         {project.technologies.length > 4 && (
-          <span className="inline-flex items-center rounded-full bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-700 dark:bg-gray-800 dark:text-gray-300">
+          <span className="inline-flex items-center rounded-full bg-[var(--home-surface-muted)] px-2.5 py-0.5 text-xs font-medium text-slate-600 dark:text-slate-300">
             +{project.technologies.length - 4} more
           </span>
         )}
@@ -61,12 +61,12 @@ export const ProjectCard = ({ project }: ProjectCardProps): JSX.Element => {
 
       {/* FOOTER */}
       <div className="flex items-center justify-between">
-        <span className="text-xs text-gray-500 dark:text-gray-500">{project.duration}</span>
+        <span className="text-xs text-[var(--home-muted)]">{project.duration}</span>
         <Link
           href={`/projects#${project.id}`}
           className={cn(
-            'inline-flex items-center text-sm font-medium text-blue-600 transition-colors',
-            'hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300'
+            'inline-flex items-center text-sm font-bold text-cyan-600 transition-colors',
+            'hover:text-pink-600 dark:text-cyan-400 dark:hover:text-pink-400'
           )}
         >
           View Details

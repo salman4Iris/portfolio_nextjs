@@ -17,12 +17,10 @@ export default function ExperiencePage(): JSX.Element {
   return (
     <div className="w-full">
       {/* HEADER */}
-      <SectionWrapper className="py-12">
+      <SectionWrapper className="pt-14 pb-6 sm:pt-20 sm:pb-8">
         <div className="mb-12">
-          <h1 className="mb-4 text-5xl font-bold text-gray-900 dark:text-white md:text-6xl">
-            Experience
-          </h1>
-          <p className="max-w-2xl text-lg text-gray-600 dark:text-gray-400">
+          <h1 className="page-title mb-4">Experience</h1>
+          <p className="max-w-2xl text-lg leading-8 text-slate-600 dark:text-slate-400">
             {totalYears}+ years of professional experience in full-stack web development, leading
             projects, and mentoring engineering teams.
           </p>
@@ -30,10 +28,10 @@ export default function ExperiencePage(): JSX.Element {
       </SectionWrapper>
 
       {/* TIMELINE */}
-      <SectionWrapper className="bg-gray-50 dark:bg-gray-900">
+      <SectionWrapper className="bg-[var(--home-section)] pt-8 sm:pt-12">
         <div className="relative max-w-4xl">
           {/* TIMELINE LINE */}
-          <div className="absolute left-6 top-0 h-full w-0.5 -translate-x-1/2 bg-gradient-to-b from-blue-500 to-purple-600" />
+          <div className="absolute left-6 top-0 h-full w-0.5 -translate-x-1/2 bg-gradient-to-b from-cyan-500 via-violet-500 to-fuchsia-500" />
 
           {/* EXPERIENCES */}
           <div className="space-y-12">
@@ -46,7 +44,7 @@ export default function ExperiencePage(): JSX.Element {
 
           {/* BOTTOM MARKER */}
           <div className="relative flex items-center justify-start pt-12">
-            <div className="ml-4 h-4 w-4 rounded-full border-4 border-white bg-gradient-to-br from-green-400 to-green-600 dark:border-gray-900" />
+            <div className="ml-4 h-4 w-4 rounded-full border-4 border-[var(--home-section)] bg-gradient-to-br from-cyan-400 to-violet-600" />
           </div>
         </div>
       </SectionWrapper>

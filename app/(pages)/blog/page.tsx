@@ -16,10 +16,8 @@ export default function BlogPage(): JSX.Element {
     <div className="w-full">
       <SectionWrapper className="py-12">
         <div className="mb-12">
-          <h1 className="mb-4 text-5xl font-bold text-gray-900 dark:text-white md:text-6xl">
-            Blog
-          </h1>
-          <p className="max-w-2xl text-lg text-gray-600 dark:text-gray-400">
+          <h1 className="page-title mb-4">Blog</h1>
+          <p className="max-w-2xl text-lg leading-8 text-slate-600 dark:text-slate-400">
             Notes on frontend architecture, AI interfaces, enterprise systems, performance, and
             practical engineering.
           </p>
@@ -28,16 +26,13 @@ export default function BlogPage(): JSX.Element {
         <div className="grid gap-6 md:grid-cols-2">
           {posts.map(
             (post: BlogPost): JSX.Element => (
-              <article
-                key={post.id}
-                className="flex h-full flex-col rounded-lg border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-gray-900"
-              >
+              <article key={post.id} className="surface-card flex h-full flex-col">
                 <div className="mb-4 flex flex-wrap gap-2">
                   {post.tags.slice(0, 3).map(
                     (tag: string): JSX.Element => (
                       <span
                         key={tag}
-                        className="rounded-full bg-blue-50 px-3 py-1 text-xs font-medium text-blue-700 dark:bg-blue-950 dark:text-blue-300"
+                        className="rounded-full border border-cyan-200 bg-cyan-50 px-3 py-1 text-xs font-semibold text-cyan-800 dark:border-cyan-300/20 dark:bg-cyan-400/10 dark:text-cyan-200"
                       >
                         {tag}
                       </span>
@@ -45,14 +40,14 @@ export default function BlogPage(): JSX.Element {
                   )}
                 </div>
 
-                <h2 className="mb-3 text-2xl font-semibold text-gray-900 dark:text-white">
+                <h2 className="mb-3 text-xl font-bold leading-snug text-slate-900 dark:text-white sm:text-2xl">
                   {post.title}
                 </h2>
-                <p className="mb-6 flex-1 leading-relaxed text-gray-600 dark:text-gray-400">
+                <p className="mb-6 flex-1 leading-7 text-slate-600 dark:text-slate-400">
                   {post.excerpt}
                 </p>
 
-                <div className="flex items-center justify-between border-t border-gray-200 pt-4 text-sm text-gray-500 dark:border-gray-800 dark:text-gray-400">
+                <div className="flex items-center justify-between gap-3 border-t border-[var(--home-border)] pt-4 text-sm text-slate-500 dark:text-slate-400">
                   <time dateTime={post.publishedDate}>{post.publishedDate}</time>
                   <span>{post.readingTime} min read</span>
                 </div>

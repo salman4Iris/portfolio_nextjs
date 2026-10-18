@@ -39,37 +39,37 @@ export const NAVIGATION_ITEMS: readonly NavigationItem[] = [
   {
     id: 'about',
     label: 'About',
-    href: '/about',
+    href: '/#about',
     isExternal: false,
   },
   {
     id: 'projects',
     label: 'Projects',
-    href: '/projects',
+    href: '/#projects',
     isExternal: false,
   },
   {
     id: 'experience',
     label: 'Experience',
-    href: '/experience',
+    href: '/#experience',
     isExternal: false,
   },
   {
     id: 'skills',
     label: 'Skills',
-    href: '/skills',
+    href: '/#skills',
     isExternal: false,
   },
   {
     id: 'blog',
     label: 'Blog',
-    href: '/blog',
+    href: '/#blog',
     isExternal: false,
   },
   {
     id: 'contact',
     label: 'Contact',
-    href: '/contact',
+    href: '/#contact',
     isExternal: false,
   },
 ];

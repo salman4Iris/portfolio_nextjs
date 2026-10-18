@@ -20,10 +20,10 @@ interface SkillCardProps {
  */
 const getProficiencyColor = (proficiency: ProficiencyLevel): string => {
   const colorMap: Record<ProficiencyLevel, string> = {
-    EXPERT: 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200',
-    ADVANCED: 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200',
-    INTERMEDIATE: 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200',
-    BEGINNER: 'bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-200',
+    EXPERT: 'bg-cyan-100 text-cyan-800 dark:bg-cyan-950 dark:text-cyan-200',
+    ADVANCED: 'bg-indigo-100 text-indigo-800 dark:bg-indigo-950 dark:text-indigo-200',
+    INTERMEDIATE: 'bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-200',
+    BEGINNER: 'bg-slate-100 text-slate-800 dark:bg-slate-800 dark:text-slate-200',
   };
   return colorMap[proficiency];
 };
@@ -45,12 +45,12 @@ export const SkillCard = ({ skill }: SkillCardProps): JSX.Element => {
   const proficiencyPercent: number = proficiencyMap[skill.proficiency] || 0;
 
   return (
-    <div className="rounded-lg border border-gray-200 bg-white p-4 dark:border-gray-800 dark:bg-gray-900">
+    <div className="surface-card p-5 transition-transform hover:-translate-y-1">
       {/* HEADER */}
       <div className="mb-3 flex items-start justify-between">
         <div>
-          <h4 className="font-semibold text-gray-900 dark:text-white">{skill.name}</h4>
-          <p className="text-xs text-gray-500 dark:text-gray-500">
+          <h4 className="font-bold text-slate-900 dark:text-white">{skill.name}</h4>
+          <p className="text-xs text-[var(--home-muted)]">
             {skill.yearsOfExperience} year{skill.yearsOfExperience > 1 ? 's' : ''} experience
           </p>
         </div>
@@ -69,9 +69,9 @@ export const SkillCard = ({ skill }: SkillCardProps): JSX.Element => {
       </div>
 
       {/* PROGRESS BAR */}
-      <div className="h-2 w-full overflow-hidden rounded-full bg-gray-200 dark:bg-gray-700">
+      <div className="h-2 w-full overflow-hidden rounded-full bg-slate-200 dark:bg-slate-700">
         <div
-          className="h-full bg-gradient-to-r from-blue-500 to-purple-600 transition-all duration-300"
+          className="h-full bg-gradient-to-r from-cyan-400 to-pink-500 transition-all duration-300"
           style={{ width: `${proficiencyPercent}%` }}
         />
       </div>

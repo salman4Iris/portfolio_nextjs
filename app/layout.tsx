@@ -50,8 +50,8 @@ export default function RootLayout({ children }: RootLayoutProps): JSX.Element {
         <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
         <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)" />
       </head>
-      <body className="flex min-h-screen flex-col bg-white dark:bg-black">
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem enableColorScheme>
+      <body className="flex min-h-screen flex-col">
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem enableColorScheme>
           <Header />
           <main className="flex-grow">{children}</main>
           <Footer />

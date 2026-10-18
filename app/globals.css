@@ -49,9 +49,18 @@
 }
 
 :root {
-  --font-sans: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  --font-sans: 'Avenir Next', 'Segoe UI', sans-serif;
   --font-mono: 'SFMono-Regular', 'SF Mono', Consolas, 'Liberation Mono', Menlo, monospace;
-  --home-background: #edf3fa;
+  --home-background: #f6f7ff;
+  --home-surface: #ffffff;
+  --home-surface-muted: #eff1fc;
+  --home-border: #dfe2f1;
+  --home-muted: #626b82;
+  --home-cyan: #0891b2;
+  --home-pink: #db4f9b;
+  --home-navy: #10152b;
+  --home-section: rgba(236, 239, 252, 0.72);
+  --home-header: rgba(248, 249, 255, 0.82);
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
@@ -87,7 +96,16 @@
 }
 
 .dark {
-  --home-background: #0b1424;
+  --home-background: #0c1020;
+  --home-surface: #151b30;
+  --home-surface-muted: #1c233b;
+  --home-border: rgba(207, 213, 255, 0.14);
+  --home-muted: #a5abc0;
+  --home-cyan: #35c5e5;
+  --home-pink: #f17abb;
+  --home-navy: #080b16;
+  --home-section: rgba(19, 24, 43, 0.74);
+  --home-header: rgba(12, 16, 32, 0.82);
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.205 0 0);
@@ -126,9 +144,42 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply min-h-screen text-foreground;
+    background-color: var(--home-background);
+    background-image:
+      radial-gradient(ellipse at 88% 14%, rgba(207, 118, 226, 0.15), transparent 30rem),
+      radial-gradient(ellipse at 8% 45%, rgba(76, 191, 229, 0.12), transparent 34rem);
+    background-attachment: fixed;
   }
   html {
     @apply font-sans;
+    scroll-padding-top: 5rem;
+  }
+  ::selection {
+    color: #fff;
+    background: #a64bd4;
+  }
+}
+
+@layer components {
+  .surface-card {
+    @apply rounded-2xl border p-6 transition-colors duration-200;
+    border-color: var(--home-border);
+    background: var(--home-surface);
+    box-shadow: 0 16px 45px -32px rgba(36, 42, 86, 0.45);
+  }
+
+  .surface-card:hover {
+    border-color: color-mix(in srgb, var(--home-cyan) 42%, var(--home-border));
+  }
+
+  .eyebrow {
+    @apply text-xs font-bold uppercase tracking-[0.2em] sm:text-sm;
+    color: var(--home-cyan);
+  }
+
+  .page-title {
+    @apply text-4xl font-black leading-tight tracking-tight sm:text-5xl lg:text-6xl;
+    color: var(--foreground);
   }
 }

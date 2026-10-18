@@ -16,10 +16,10 @@ export default function AboutPage(): JSX.Element {
   return (
     <div className="w-full">
       {/* HERO */}
-      <SectionWrapper className="py-20">
+      <SectionWrapper className="pt-14 sm:pt-20">
         <div className="mb-12 space-y-4">
-          <h1 className="text-5xl font-bold text-gray-900 dark:text-white md:text-6xl">About Me</h1>
-          <p className="max-w-2xl text-xl text-gray-600 dark:text-gray-400">
+          <h1 className="page-title">About Me</h1>
+          <p className="max-w-2xl text-lg leading-8 text-slate-600 sm:text-xl dark:text-slate-400">
             {ABOUT_CONTENT.subtitle}
           </p>
         </div>
@@ -27,17 +27,17 @@ export default function AboutPage(): JSX.Element {
         <div className="grid gap-12 md:grid-cols-2">
           {/* BIO */}
           <div className="space-y-6">
-            <p className="text-lg leading-relaxed text-gray-600 dark:text-gray-400">
+            <p className="text-base leading-8 text-slate-600 sm:text-lg dark:text-slate-400">
               {ABOUT_CONTENT.bio}
             </p>
 
             <div className="space-y-3">
-              <h3 className="font-semibold text-gray-900 dark:text-white">Key Highlights</h3>
+              <h3 className="font-bold text-slate-900 dark:text-white">Key Highlights</h3>
               <ul className="space-y-2">
                 {ABOUT_CONTENT.highlights.map(
                   (highlight: string, index: number): JSX.Element => (
-                    <li key={index} className="flex gap-3 text-gray-600 dark:text-gray-400">
-                      <span className="mt-1 inline-block h-2 w-2 rounded-full bg-blue-600 dark:bg-blue-400 flex-shrink-0" />
+                    <li key={index} className="flex gap-3 text-slate-600 dark:text-slate-400">
+                      <span className="mt-2 inline-block h-2 w-2 shrink-0 rounded-full bg-gradient-to-br from-cyan-500 to-violet-600" />
                       {highlight}
                     </li>
                   )
@@ -48,15 +48,15 @@ export default function AboutPage(): JSX.Element {
 
           {/* STATS */}
           <div className="space-y-6">
-            <div className="rounded-lg border border-gray-200 bg-gradient-to-br from-blue-50 to-indigo-50 p-8 dark:border-gray-800 dark:from-gray-900 dark:to-gray-800">
+            <div className="surface-card space-y-5 bg-gradient-to-br from-white/70 to-indigo-50/50 p-5 sm:p-8 dark:from-[#151b30] dark:to-[#1c1d39]">
               <div className="space-y-8">
                 {/* EXPERIENCE YEARS */}
                 <div>
-                  <div className="rounded-lg bg-white/50 p-6 dark:bg-gray-800/50">
-                    <div className="text-4xl font-bold text-blue-600 dark:text-blue-400">
+                  <div className="rounded-2xl border border-[var(--home-border)] bg-white/70 p-5 dark:bg-white/5 sm:p-6">
+                    <div className="text-4xl font-black text-cyan-700 dark:text-cyan-300">
                       {totalYears}+
                     </div>
-                    <p className="mt-2 text-gray-600 dark:text-gray-400">
+                    <p className="mt-2 text-slate-600 dark:text-slate-400">
                       Years of Professional Experience
                     </p>
                   </div>
@@ -64,19 +64,21 @@ export default function AboutPage(): JSX.Element {
 
                 {/* PROJECTS */}
                 <div>
-                  <div className="rounded-lg bg-white/50 p-6 dark:bg-gray-800/50">
-                    <div className="text-4xl font-bold text-purple-600 dark:text-purple-400">
+                  <div className="rounded-2xl border border-[var(--home-border)] bg-white/70 p-5 dark:bg-white/5 sm:p-6">
+                    <div className="text-4xl font-black text-fuchsia-700 dark:text-fuchsia-300">
                       {PROJECTS.length}
                     </div>
-                    <p className="mt-2 text-gray-600 dark:text-gray-400">Resume Projects</p>
+                    <p className="mt-2 text-slate-600 dark:text-slate-400">Resume Projects</p>
                   </div>
                 </div>
 
                 {/* TEAM */}
                 <div>
-                  <div className="rounded-lg bg-white/50 p-6 dark:bg-gray-800/50">
-                    <div className="text-4xl font-bold text-green-600 dark:text-green-400">Yes</div>
-                    <p className="mt-2 text-gray-600 dark:text-gray-400">Developer mentoring</p>
+                  <div className="rounded-2xl border border-[var(--home-border)] bg-white/70 p-5 dark:bg-white/5 sm:p-6">
+                    <div className="text-4xl font-black text-violet-700 dark:text-violet-300">
+                      Yes
+                    </div>
+                    <p className="mt-2 text-slate-600 dark:text-slate-400">Developer mentoring</p>
                   </div>
                 </div>
               </div>
@@ -86,12 +88,12 @@ export default function AboutPage(): JSX.Element {
       </SectionWrapper>
 
       {/* EXPERTISE SECTION */}
-      <SectionWrapper className="bg-gray-50 dark:bg-gray-900">
+      <SectionWrapper className="bg-[var(--home-section)]">
         <div className="mb-12">
-          <h2 className="mb-4 text-4xl font-bold text-gray-900 dark:text-white">
+          <h2 className="mb-4 text-3xl font-black tracking-tight text-slate-900 dark:text-white sm:text-4xl">
             Areas of Expertise
           </h2>
-          <p className="max-w-2xl text-gray-600 dark:text-gray-400">
+          <p className="max-w-2xl leading-7 text-slate-600 dark:text-slate-400">
             Specializing in frontend architecture, agentic AI interfaces, enterprise platforms, and
             full-stack web development across multiple domains.
           </p>
@@ -137,13 +139,12 @@ export default function AboutPage(): JSX.Element {
               icon: '🛒',
             },
           ].map((item, index) => (
-            <div
-              key={index}
-              className="rounded-lg border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-gray-900"
-            >
+            <div key={index} className="surface-card">
               <div className="mb-4 text-4xl">{item.icon}</div>
-              <h3 className="mb-2 font-semibold text-gray-900 dark:text-white">{item.title}</h3>
-              <p className="text-sm text-gray-600 dark:text-gray-400">{item.description}</p>
+              <h3 className="mb-2 font-bold text-slate-900 dark:text-white">{item.title}</h3>
+              <p className="text-sm leading-6 text-slate-600 dark:text-slate-400">
+                {item.description}
+              </p>
             </div>
           ))}
         </div>

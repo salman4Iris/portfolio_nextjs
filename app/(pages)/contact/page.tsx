@@ -65,12 +65,10 @@ export default function ContactPage(): JSX.Element {
   return (
     <div className="w-full">
       {/* HEADER */}
-      <SectionWrapper className="py-12">
+      <SectionWrapper className="pt-14 pb-6 sm:pt-20 sm:pb-8">
         <div className="mb-12">
-          <h1 className="mb-4 text-5xl font-bold text-gray-900 dark:text-white md:text-6xl">
-            Get In Touch
-          </h1>
-          <p className="max-w-2xl text-lg text-gray-600 dark:text-gray-400">
+          <h1 className="page-title mb-4">Get In Touch</h1>
+          <p className="max-w-2xl text-lg leading-8 text-slate-600 dark:text-slate-400">
             Have a project in mind or want to discuss opportunities? I&apos;d love to hear from you.
             Feel free to reach out via the form or through the contact details below.
           </p>
@@ -78,67 +76,67 @@ export default function ContactPage(): JSX.Element {
       </SectionWrapper>
 
       {/* CONTACT CONTENT */}
-      <SectionWrapper className="bg-gray-50 dark:bg-gray-900 pb-20">
-        <div className="grid gap-12 lg:grid-cols-2">
+      <SectionWrapper className="bg-[var(--home-section)] pt-8 sm:pt-12">
+        <div className="grid gap-8 lg:grid-cols-2 lg:gap-12">
           {/* CONTACT INFORMATION */}
           <div className="space-y-8">
             <div>
-              <h2 className="mb-6 text-2xl font-bold text-gray-900 dark:text-white">
+              <h2 className="mb-6 text-2xl font-black tracking-tight text-slate-900 dark:text-white">
                 Contact Information
               </h2>
-              <p className="mb-8 text-gray-600 dark:text-gray-400">
+              <p className="mb-8 leading-7 text-slate-600 dark:text-slate-400">
                 Reach out through any of these channels, and I&apos;ll get back to you as soon as
                 possible.
               </p>
             </div>
 
             {/* EMAIL */}
-            <div className="rounded-lg border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-gray-900">
-              <h3 className="mb-2 font-semibold text-gray-900 dark:text-white">Email</h3>
+            <div className="surface-card">
+              <h3 className="mb-2 font-bold text-slate-900 dark:text-white">Email</h3>
               <a
                 href={`mailto:${SITE_METADATA.email}`}
-                className="text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
+                className="break-all font-medium text-cyan-700 hover:text-violet-700 dark:text-cyan-300 dark:hover:text-violet-300"
               >
                 {SITE_METADATA.email}
               </a>
-              <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
+              <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">
                 I respond to emails within 24 hours
               </p>
             </div>
 
             {/* PHONE */}
-            <div className="rounded-lg border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-gray-900">
-              <h3 className="mb-2 font-semibold text-gray-900 dark:text-white">Phone</h3>
+            <div className="surface-card">
+              <h3 className="mb-2 font-bold text-slate-900 dark:text-white">Phone</h3>
               <a
                 href={`tel:${SITE_METADATA.phone}`}
-                className="text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
+                className="font-medium text-cyan-700 hover:text-violet-700 dark:text-cyan-300 dark:hover:text-violet-300"
               >
                 {SITE_METADATA.phone}
               </a>
-              <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
+              <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">
                 Available for calls during business hours (IST)
               </p>
             </div>
 
             {/* LOCATION */}
-            <div className="rounded-lg border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-gray-900">
-              <h3 className="mb-2 font-semibold text-gray-900 dark:text-white">Location</h3>
-              <p className="text-gray-600 dark:text-gray-400">{SITE_METADATA.location}</p>
-              <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
+            <div className="surface-card">
+              <h3 className="mb-2 font-bold text-slate-900 dark:text-white">Location</h3>
+              <p className="text-slate-600 dark:text-slate-400">{SITE_METADATA.location}</p>
+              <p className="mt-2 text-sm text-slate-600 dark:text-slate-400">
                 Timezone: {SITE_METADATA.timezone}
               </p>
             </div>
 
             {/* SOCIAL LINKS */}
-            <div className="rounded-lg border border-gray-200 bg-white p-6 dark:border-gray-800 dark:bg-gray-900">
-              <h3 className="mb-4 font-semibold text-gray-900 dark:text-white">Connect</h3>
-              <div className="flex gap-4">
+            <div className="surface-card">
+              <h3 className="mb-4 font-bold text-slate-900 dark:text-white">Connect</h3>
+              <div className="flex flex-wrap gap-3">
                 {SITE_METADATA.socialLinks.linkedin && (
                   <a
                     href={SITE_METADATA.socialLinks.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-lg bg-blue-50 px-4 py-2 text-blue-600 hover:bg-blue-100 dark:bg-blue-950 dark:text-blue-400 dark:hover:bg-blue-900"
+                    className="inline-flex min-h-11 items-center gap-2 rounded-full border border-cyan-200 bg-cyan-50 px-4 py-2 text-cyan-800 transition-colors hover:bg-cyan-100 dark:border-cyan-300/20 dark:bg-cyan-400/10 dark:text-cyan-200 dark:hover:bg-cyan-400/20"
                   >
                     LinkedIn
                   </a>
@@ -148,7 +146,7 @@ export default function ContactPage(): JSX.Element {
                     href={SITE_METADATA.socialLinks.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-lg bg-gray-200 px-4 py-2 text-gray-900 hover:bg-gray-300 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700"
+                    className="inline-flex min-h-11 items-center gap-2 rounded-full border border-[var(--home-border)] bg-white/60 px-4 py-2 text-slate-800 transition-colors hover:bg-white dark:bg-white/5 dark:text-white dark:hover:bg-white/10"
                   >
                     GitHub
                   </a>
@@ -159,19 +157,19 @@ export default function ContactPage(): JSX.Element {
 
           {/* CONTACT FORM */}
           <div>
-            <div className="rounded-lg border border-gray-200 bg-white p-8 dark:border-gray-800 dark:bg-gray-900">
-              <h2 className="mb-6 text-2xl font-bold text-gray-900 dark:text-white">
+            <div className="surface-card p-5 sm:p-8">
+              <h2 className="mb-6 text-2xl font-black tracking-tight text-slate-900 dark:text-white">
                 Send a Message
               </h2>
 
               {submitStatus === 'success' && (
-                <div className="mb-6 rounded-lg bg-green-50 p-4 text-green-800 dark:bg-green-950 dark:text-green-200">
+                <div className="mb-6 rounded-2xl border border-green-200 bg-green-50 p-4 text-green-800 dark:border-green-400/20 dark:bg-green-400/10 dark:text-green-200">
                   ✓ Message sent successfully! I&apos;ll respond soon.
                 </div>
               )}
 
               {submitStatus === 'error' && (
-                <div className="mb-6 rounded-lg bg-red-50 p-4 text-red-800 dark:bg-red-950 dark:text-red-200">
+                <div className="mb-6 rounded-2xl border border-red-200 bg-red-50 p-4 text-red-800 dark:border-red-400/20 dark:bg-red-400/10 dark:text-red-200">
                   ✗ Error sending message. Please try again or contact me directly.
                 </div>
               )}
@@ -179,7 +177,7 @@ export default function ContactPage(): JSX.Element {
               <form onSubmit={handleSubmit} className="space-y-4">
                 {/* NAME */}
                 <div>
-                  <label className="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
+                  <label className="mb-2 block text-sm font-semibold text-slate-800 dark:text-slate-200">
                     Name
                   </label>
                   <input
@@ -188,14 +186,14 @@ export default function ContactPage(): JSX.Element {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full rounded-lg border border-gray-300 bg-white px-4 py-2 text-gray-900 placeholder-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:placeholder-gray-400"
+                    className="w-full rounded-xl border border-[var(--home-border)] bg-white/75 px-4 py-3 text-slate-900 placeholder-slate-500 transition-shadow focus:border-cyan-500 focus:outline-none focus:ring-4 focus:ring-cyan-500/15 dark:bg-white/5 dark:text-white dark:placeholder-slate-400"
                     placeholder="Your name"
                   />
                 </div>
 
                 {/* EMAIL */}
                 <div>
-                  <label className="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
+                  <label className="mb-2 block text-sm font-semibold text-slate-800 dark:text-slate-200">
                     Email
                   </label>
                   <input
@@ -204,14 +202,14 @@ export default function ContactPage(): JSX.Element {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full rounded-lg border border-gray-300 bg-white px-4 py-2 text-gray-900 placeholder-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:placeholder-gray-400"
+                    className="w-full rounded-xl border border-[var(--home-border)] bg-white/75 px-4 py-3 text-slate-900 placeholder-slate-500 transition-shadow focus:border-cyan-500 focus:outline-none focus:ring-4 focus:ring-cyan-500/15 dark:bg-white/5 dark:text-white dark:placeholder-slate-400"
                     placeholder="your@email.com"
                   />
                 </div>
 
                 {/* PHONE (Optional) */}
                 <div>
-                  <label className="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
+                  <label className="mb-2 block text-sm font-semibold text-slate-800 dark:text-slate-200">
                     Phone (Optional)
                   </label>
                   <input
@@ -219,14 +217,14 @@ export default function ContactPage(): JSX.Element {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    className="w-full rounded-lg border border-gray-300 bg-white px-4 py-2 text-gray-900 placeholder-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:placeholder-gray-400"
+                    className="w-full rounded-xl border border-[var(--home-border)] bg-white/75 px-4 py-3 text-slate-900 placeholder-slate-500 transition-shadow focus:border-cyan-500 focus:outline-none focus:ring-4 focus:ring-cyan-500/15 dark:bg-white/5 dark:text-white dark:placeholder-slate-400"
                     placeholder="+91 (optional)"
                   />
                 </div>
 
                 {/* SUBJECT */}
                 <div>
-                  <label className="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
+                  <label className="mb-2 block text-sm font-semibold text-slate-800 dark:text-slate-200">
                     Subject
                   </label>
                   <input
@@ -235,14 +233,14 @@ export default function ContactPage(): JSX.Element {
                     value={formData.subject}
                     onChange={handleChange}
                     required
-                    className="w-full rounded-lg border border-gray-300 bg-white px-4 py-2 text-gray-900 placeholder-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:placeholder-gray-400"
+                    className="w-full rounded-xl border border-[var(--home-border)] bg-white/75 px-4 py-3 text-slate-900 placeholder-slate-500 transition-shadow focus:border-cyan-500 focus:outline-none focus:ring-4 focus:ring-cyan-500/15 dark:bg-white/5 dark:text-white dark:placeholder-slate-400"
                     placeholder="Subject of your message"
                   />
                 </div>
 
                 {/* MESSAGE */}
                 <div>
-                  <label className="mb-2 block text-sm font-medium text-gray-900 dark:text-white">
+                  <label className="mb-2 block text-sm font-semibold text-slate-800 dark:text-slate-200">
                     Message
                   </label>
                   <textarea
@@ -251,7 +249,7 @@ export default function ContactPage(): JSX.Element {
                     onChange={handleChange}
                     required
                     rows={6}
-                    className="w-full rounded-lg border border-gray-300 bg-white px-4 py-2 text-gray-900 placeholder-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:placeholder-gray-400"
+                    className="w-full rounded-xl border border-[var(--home-border)] bg-white/75 px-4 py-3 text-slate-900 placeholder-slate-500 transition-shadow focus:border-cyan-500 focus:outline-none focus:ring-4 focus:ring-cyan-500/15 dark:bg-white/5 dark:text-white dark:placeholder-slate-400"
                     placeholder="Your message..."
                   />
                 </div>
@@ -260,7 +258,7 @@ export default function ContactPage(): JSX.Element {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full rounded-lg bg-gradient-to-r from-blue-600 to-purple-600 px-6 py-3 font-semibold text-white transition-all hover:shadow-lg disabled:opacity-50"
+                  className="w-full rounded-full bg-gradient-to-r from-cyan-600 to-violet-600 px-6 py-3.5 font-semibold text-white shadow-lg shadow-violet-600/15 transition-all hover:-translate-y-0.5 hover:shadow-xl disabled:opacity-50"
                 >
                   {isSubmitting ? 'Sending...' : 'Send Message'}
                 </button>

@@ -35,12 +35,10 @@ export default function SkillsPage(): JSX.Element {
   return (
     <div className="w-full">
       {/* HEADER */}
-      <SectionWrapper className="py-12">
+      <SectionWrapper className="pt-14 pb-6 sm:pt-20 sm:pb-8">
         <div className="mb-12">
-          <h1 className="mb-4 text-5xl font-bold text-gray-900 dark:text-white md:text-6xl">
-            Skills
-          </h1>
-          <p className="max-w-2xl text-lg text-gray-600 dark:text-gray-400">
+          <h1 className="page-title mb-4">Skills</h1>
+          <p className="max-w-2xl text-lg leading-8 text-slate-600 dark:text-slate-400">
             A practical overview of my frontend architecture, AI interface, full-stack, and
             engineering skills developed through 9+ years of professional experience.
           </p>
@@ -48,13 +46,15 @@ export default function SkillsPage(): JSX.Element {
       </SectionWrapper>
 
       {/* ALL SKILLS VIEW */}
-      <SectionWrapper className="bg-gradient-to-b from-blue-50 to-transparent dark:from-blue-950 dark:to-transparent">
+      <SectionWrapper className="bg-[var(--home-section)] pt-8 sm:pt-12">
         <div className="mb-12">
-          <h2 className="mb-4 text-3xl font-bold text-gray-900 dark:text-white">All Skills</h2>
-          <p className="mb-6 text-gray-600 dark:text-gray-400">Sorted by proficiency level</p>
+          <h2 className="mb-4 text-3xl font-black tracking-tight text-slate-900 dark:text-white">
+            All Skills
+          </h2>
+          <p className="mb-6 text-slate-600 dark:text-slate-400">Sorted by proficiency level</p>
         </div>
 
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {allSkillsSorted.map(
             (skill: Skill): JSX.Element => (
               <SkillCard key={skill.id} skill={skill} />
@@ -64,16 +64,16 @@ export default function SkillsPage(): JSX.Element {
       </SectionWrapper>
 
       {/* CATEGORIZED VIEW */}
-      <SectionWrapper className="bg-gray-50 dark:bg-gray-900">
+      <SectionWrapper className="bg-[var(--home-background)]">
         <div className="space-y-16">
           {Object.entries(skillsByCategory).map(([category, skills]): JSX.Element | null => {
             if ((skills as readonly Skill[]).length === 0) return null;
             return (
               <div key={category}>
-                <h2 className="mb-6 text-2xl font-bold text-gray-900 dark:text-white">
+                <h2 className="mb-6 text-2xl font-black tracking-tight text-slate-900 dark:text-white">
                   {categoryNames[category as SkillCategory]}
                 </h2>
-                <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                   {(skills as readonly Skill[]).map(
                     (skill: Skill): JSX.Element => (
                       <SkillCard key={skill.id} skill={skill} />
@@ -87,21 +87,21 @@ export default function SkillsPage(): JSX.Element {
       </SectionWrapper>
 
       {/* SUMMARY */}
-      <SectionWrapper className="bg-gradient-to-r from-blue-600 to-purple-600 py-16">
-        <div className="rounded-lg bg-white/10 p-8 text-center backdrop-blur-sm">
-          <h3 className="mb-4 text-2xl font-bold text-white">Always Learning & Growing</h3>
-          <p className="mb-6 max-w-2xl mx-auto text-blue-100">
+      <SectionWrapper className="bg-gradient-to-br from-cyan-600 via-indigo-600 to-fuchsia-600">
+        <div className="rounded-3xl border border-white/20 bg-white/10 p-6 text-center shadow-xl shadow-indigo-950/10 backdrop-blur-sm sm:p-10">
+          <h3 className="mb-4 text-2xl font-black text-white">Always Learning & Growing</h3>
+          <p className="mx-auto mb-6 max-w-2xl leading-7 text-indigo-50">
             I stay at the forefront of web development by continuously learning new technologies,
             following best practices, and contributing to the developer community through mentoring
             and knowledge sharing.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <div className="rounded-lg bg-white/20 px-4 py-2">
+            <div className="rounded-full border border-white/20 bg-white/15 px-4 py-2">
               <p className="text-sm font-medium text-white">
                 Current Focus: AgentStudio, MCP, React Flow, Next.js, Python
               </p>
             </div>
-            <div className="rounded-lg bg-white/20 px-4 py-2">
+            <div className="rounded-full border border-white/20 bg-white/15 px-4 py-2">
               <p className="text-sm font-medium text-white">Methodology: Agile, TDD, Clean Code</p>
             </div>
           </div>

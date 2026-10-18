@@ -37,12 +37,10 @@ export default function ProjectsPage(): JSX.Element {
   return (
     <div className="w-full">
       {/* HEADER */}
-      <SectionWrapper className="py-12">
+      <SectionWrapper className="pt-14 sm:pt-20">
         <div className="mb-12">
-          <h1 className="mb-4 text-5xl font-bold text-gray-900 dark:text-white md:text-6xl">
-            Projects
-          </h1>
-          <p className="max-w-2xl text-lg text-gray-600 dark:text-gray-400">
+          <h1 className="page-title mb-4">Projects</h1>
+          <p className="max-w-2xl text-lg leading-8 text-slate-600 dark:text-slate-400">
             A comprehensive collection of projects I&apos;ve led and contributed to, showcasing
             expertise across different domains and technologies.
           </p>
@@ -50,14 +48,14 @@ export default function ProjectsPage(): JSX.Element {
 
         {/* FILTER BUTTONS */}
         <div>
-          <h3 className="mb-4 font-semibold text-gray-900 dark:text-white">Filter by Technology</h3>
+          <h3 className="mb-4 font-bold text-slate-900 dark:text-white">Filter by Technology</h3>
           <div className="flex flex-wrap gap-2">
             <button
               onClick={() => setSelectedTech(null)}
               className={`rounded-full px-4 py-2 font-medium transition-all ${
                 selectedTech === null
-                  ? 'bg-blue-600 text-white'
-                  : 'border border-gray-300 text-gray-700 hover:border-gray-400 dark:border-gray-600 dark:text-gray-300'
+                  ? 'border border-transparent bg-gradient-to-r from-cyan-600 to-violet-600 text-white shadow-md shadow-violet-500/15'
+                  : 'border border-[var(--home-border)] bg-white/55 text-slate-700 hover:border-cyan-400 dark:bg-white/5 dark:text-slate-300'
               }`}
             >
               All Projects
@@ -69,8 +67,8 @@ export default function ProjectsPage(): JSX.Element {
                   onClick={() => setSelectedTech(tech)}
                   className={`rounded-full px-4 py-2 font-medium transition-all ${
                     selectedTech === tech
-                      ? 'bg-blue-600 text-white'
-                      : 'border border-gray-300 text-gray-700 hover:border-gray-400 dark:border-gray-600 dark:text-gray-300'
+                      ? 'border border-transparent bg-gradient-to-r from-cyan-600 to-violet-600 text-white shadow-md shadow-violet-500/15'
+                      : 'border border-[var(--home-border)] bg-white/55 text-slate-700 hover:border-cyan-400 dark:bg-white/5 dark:text-slate-300'
                   }`}
                 >
                   {tech}
@@ -82,9 +80,9 @@ export default function ProjectsPage(): JSX.Element {
       </SectionWrapper>
 
       {/* PROJECTS GRID */}
-      <SectionWrapper className="bg-gray-50 dark:bg-gray-900">
+      <SectionWrapper className="bg-[var(--home-section)]">
         <div className="mb-8">
-          <p className="text-gray-600 dark:text-gray-400">
+          <p className="text-slate-600 dark:text-slate-400">
             Showing {filteredProjects.length} project
             {filteredProjects.length !== 1 ? 's' : ''}
           </p>
@@ -99,8 +97,8 @@ export default function ProjectsPage(): JSX.Element {
             )}
           </div>
         ) : (
-          <div className="rounded-lg border-2 border-dashed border-gray-300 bg-white p-12 text-center dark:border-gray-700 dark:bg-gray-900">
-            <p className="text-gray-600 dark:text-gray-400">
+          <div className="surface-card border-dashed p-8 text-center sm:p-12">
+            <p className="text-slate-600 dark:text-slate-400">
               No projects found for the selected technology.
             </p>
           </div>
