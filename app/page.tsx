@@ -11,7 +11,8 @@ import SectionWrapper from '@/components/SectionWrapper';
 import ProjectCard from '@/components/ProjectCard';
 import ExperienceItem from '@/components/ExperienceItem';
 import SkillCard from '@/components/SkillCard';
-import TestimonialCard from '@/components/TestimonialCard';
+import { DigitalExperienceCarousel } from '@/components/DigitalExperienceCarousel';
+import { TestimonialsCarousel } from '@/components/TestimonialsCarousel';
 import { ABOUT_CONTENT, SITE_METADATA } from '@/content/site-config';
 import { getFeaturedBlogPosts } from '@/content/blog';
 import { getSortedExperiences, calculateTotalExperienceYears } from '@/content/experience';
@@ -84,20 +85,7 @@ export default function Home(): JSX.Element {
           </p>
         </div>
 
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {ABOUT_CONTENT.highlights.slice(0, 6).map(
-            (highlight: string, index: number): JSX.Element => (
-              <div key={highlight} className="surface-card">
-                <span className="mb-5 flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-400 to-pink-500 text-lg font-black text-white">
-                  {String(index + 1).padStart(2, '0')}
-                </span>
-                <p className="font-semibold leading-7 text-slate-700 dark:text-slate-200">
-                  {highlight}
-                </p>
-              </div>
-            )
-          )}
-        </div>
+        <DigitalExperienceCarousel highlights={ABOUT_CONTENT.highlights.slice(0, 6)} />
       </SectionWrapper>
 
       <SectionWrapper id="experience" className="bg-[var(--home-background)]">
@@ -133,7 +121,7 @@ export default function Home(): JSX.Element {
             View all skills →
           </Link>
         </div>
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3">
           {skills.slice(0, 6).map(
             (skill: Skill): JSX.Element => (
               <SkillCard key={skill.id} skill={skill} />
@@ -173,13 +161,7 @@ export default function Home(): JSX.Element {
             What colleagues say
           </h2>
         </div>
-        <div className="grid gap-6 lg:grid-cols-3">
-          {TESTIMONIALS.map(
-            (testimonial): JSX.Element => (
-              <TestimonialCard key={testimonial.id} testimonial={testimonial} />
-            )
-          )}
-        </div>
+        <TestimonialsCarousel testimonials={TESTIMONIALS} />
       </SectionWrapper>
 
       <SectionWrapper id="blog" className="bg-[var(--home-background)]">

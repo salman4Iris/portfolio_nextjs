@@ -56,7 +56,7 @@ export default function SkillsPage(): JSX.Element {
           <p className="mb-6 text-slate-600 dark:text-slate-400">Sorted by proficiency level</p>
         </div>
 
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3 xl:grid-cols-4">
           {allSkillsSorted.map(
             (skill: Skill): JSX.Element => (
               <SkillCard key={skill.id} skill={skill} />
@@ -75,7 +75,7 @@ export default function SkillsPage(): JSX.Element {
                 <h2 className="mb-6 text-2xl font-black tracking-tight text-slate-900 dark:text-white">
                   {categoryNames[category as SkillCategory]}
                 </h2>
-                <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3 xl:grid-cols-4">
                   {(skills as readonly Skill[]).map(
                     (skill: Skill): JSX.Element => (
                       <SkillCard key={skill.id} skill={skill} />

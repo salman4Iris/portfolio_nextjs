@@ -45,7 +45,7 @@ export const SkillCard = ({ skill }: SkillCardProps): JSX.Element => {
   const proficiencyPercent: number = proficiencyMap[skill.proficiency] || 0;
 
   return (
-    <div className="surface-card p-5 transition-transform hover:-translate-y-1">
+    <div className="surface-card p-4 transition-transform hover:-translate-y-1 sm:p-5">
       {/* HEADER */}
       <div className="mb-3 flex items-start justify-between">
         <div>
